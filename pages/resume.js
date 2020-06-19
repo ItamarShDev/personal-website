@@ -1,4 +1,10 @@
 import Head from "next/head";
+export const Job = ({ job }) => (
+   <a className="card">
+      <h3 className="title">{post.title}</h3>
+      <p className="summary">{post.summary}</p>
+   </a>
+);
 
 export default function Resume(props) {
    return (

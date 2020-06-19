@@ -51,9 +51,7 @@ export const link = css.resolve`
 // link.styles -> styles element to render inside of your component
 
 // Works also with default exports
-export default css`
-   /* @import "styles/css/foundation.scss"; */
-
+export default css.global`
    .container {
       min-height: 100vh;
       padding: 0 0.5rem;
