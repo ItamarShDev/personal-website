@@ -1,5 +1,61 @@
 /* styles.js */
 import css from "styled-jsx/css";
+import { Card as CardTheme } from "./components/card";
+import { JobCard as JobCardTheme } from "./components/resume";
+import { Blog as BlogTheme } from "./components/blog";
+export const Card = CardTheme;
+export const JobCard = JobCardTheme;
+export const Blog = BlogTheme;
+
+// Resolved styles
+export const link = css.resolve`
+   a {
+      color: green;
+   }
+`;
+
+export default css.global`
+   header {
+      height: 60px;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #eaeaea;
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 10;
+   }
+
+   .container {
+      min-height: 100vh;
+      padding: 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+   }
+
+   main {
+      padding: 1rem 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   a {
+      color: inherit;
+      text-decoration: none;
+   }
+
+   .logo {
+      height: 1em;
+   }
+`;
 
 // Scoped styles
 export const footer = css`
@@ -41,76 +97,7 @@ export const footer = css`
    }
 `;
 
-// Resolved styles
-export const link = css.resolve`
-   a {
-      color: green;
-   }
-`;
-// link.className -> scoped className to apply to `a` elements e.g. jsx-123
-// link.styles -> styles element to render inside of your component
-
-// Works also with default exports
-export default css.global`
-   .container {
-      min-height: 100vh;
-      padding: 0 0.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-   }
-
-   main {
-      padding: 5rem 0;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-   }
-
-   a {
-      color: inherit;
-      text-decoration: none;
-   }
-
-   .title a {
-      color: #0070f3;
-      text-decoration: none;
-   }
-
-   .title a:hover,
-   .title a:focus,
-   .title a:active {
-      text-decoration: underline;
-   }
-
-   .title {
-      margin: 0;
-      line-height: 1.15;
-      font-size: 4rem;
-   }
-
-   .title,
-   .description {
-      text-align: center;
-   }
-
-   .description {
-      line-height: 1.5;
-      font-size: 1.5rem;
-   }
-
-   code {
-      background: #fafafa;
-      border-radius: 5px;
-      padding: 0.75rem;
-      font-size: 1.1rem;
-      font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-         DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-   }
-
+export const Grid = css`
    .grid {
       display: flex;
       align-items: center;
@@ -118,40 +105,6 @@ export default css.global`
       flex-wrap: wrap;
       max-width: 800px;
       margin-top: 3rem;
-   }
-
-   .card {
-      margin: 1rem;
-      flex-basis: 45%;
-      padding: 1.5rem;
-      text-align: left;
-      color: inherit;
-      text-decoration: none;
-      border: 1px solid #eaeaea;
-      border-radius: 10px;
-      transition: color 0.15s ease, border-color 0.15s ease;
-   }
-
-   .card:hover,
-   .card:focus,
-   .card:active {
-      color: #0070f3;
-      border-color: #0070f3;
-   }
-
-   .card h3 {
-      margin: 0 0 1rem 0;
-      font-size: 1.5rem;
-   }
-
-   .card p {
-      margin: 0;
-      font-size: 1.25rem;
-      line-height: 1.5;
-   }
-
-   .logo {
-      height: 1em;
    }
 
    @media (max-width: 600px) {

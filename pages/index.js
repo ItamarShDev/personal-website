@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AppLayout from "../layouts/app-layout";
+import { Card, Grid } from "../theme/theme";
 
 export default function Home() {
    return (
@@ -30,6 +31,8 @@ export default function Home() {
                </a>
             </Link>
          </div>
+         <style jsx>{Card}</style>
+         <style jsx>{Grid}</style>
       </AppLayout>
    );
 }

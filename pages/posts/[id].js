@@ -1,16 +1,14 @@
 import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-
+import AppLayout from "../../layouts/app-layout";
+import { Blog as BlogStyle } from "../../theme/theme";
 export default function Blog({ postData }) {
    return (
-      <div className="container">
-         <Head>
-            <title>{postData.title}</title>
-            <link rel="icon" href="/cv.ico" />
-         </Head>
+      <AppLayout title={postData.title} favicon="/cv.ico">
          <main>{postData.summary}</main>
          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </div>
+         <style jsx>{BlogStyle}</style>
+      </AppLayout>
    );
 }
 export async function getStaticPaths() {
