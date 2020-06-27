@@ -43,7 +43,7 @@ export const JobCard = css`
       font-style: italic;
       opacity: 0.5;
       font-size: 0.5rem;
-      margin: 0 10px;
+      margin: 0 5px;
    }
    .logo {
       position: absolute;
