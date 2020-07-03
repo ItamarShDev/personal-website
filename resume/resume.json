@@ -9,7 +9,8 @@
             "website": "https://www.jce.ac.il"
          },
          "tags": ["Angular.js", "Scrum", "Node.js"],
-         "description": "Teaching Assistant;\n Teaching the MEAN stack and acting as a Scrum Master"
+         "description": "Teaching Assistant;\nTeaching the MEAN stack and acting as a Scrum Master.",
+         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
       },
       {
          "title": "Web Developer (part time)",
@@ -21,7 +22,8 @@
             "website": "https://www.wishtrip.com/"
          },
          "tags": ["Angular.js", "OpenMaps", "Socket.io"],
-         "description": "Creating the company main website from scratch,\nBuilding live map user tracking and live chat between using"
+         "description": "Creating the company main website from scratch,\nBuilding live map user tracking and live chat between users",
+         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
       },
       {
          "title": "Full-stack developer",
@@ -39,7 +41,8 @@
             "WebRTC",
             "Socket.io"
          ],
-         "description": " 2 PWA applications\n help desiging and creating tools for internal use"
+         "description": " 2 PWA applications\n help desiging and creating tools for internal use",
+         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
       },
       {
          "title": "Full-stack Developer",
@@ -50,7 +53,8 @@
             "website": "https://www.imubit.com/i"
          },
          "tags": ["React.js", "Python", "GitLab CI"],
-         "description": "Helping to build the company customer facing application\nHelp recruting new wev-devs to the team"
+         "description": "Helping to build the company customer facing application\nHelp recruting new wev-devs to the team",
+         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
       },
       {
          "title": "Python Developer",
@@ -61,7 +65,8 @@
             "website": "https://www.imubit.com/i"
          },
          "tags": ["Python", "JupyterLab"],
-         "description": "Building internal tools for the company field engineers"
+         "description": "Building internal tools for the company field engineers",
+         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
       }
    ],
    "skills": [{ "name": "", "level": 0, "logo": "" }],

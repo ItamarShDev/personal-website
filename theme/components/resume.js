@@ -5,6 +5,7 @@ export const JobCard = css`
       flex-direction: column;
       justify-content: center;
       margin: 10px;
+      margin-left: 50px;
       padding: 5px;
       position: relative;
       max-width: 500px;
@@ -16,11 +17,6 @@ export const JobCard = css`
       opacity: 0.5;
       transition: opacity 0.2s linear;
       filter: grayscale(100%) blur(1px);
-   }
-
-   .card:hover {
-      transition: transform 0.2s ease-out;
-      transform: scale(1.1);
    }
 
    .job {
@@ -67,9 +63,56 @@ export const JobCard = css`
       break-after: always;
       white-space: wrap;
    }
+   .extra {
+      height: 0;
+      overflow: hidden;
+      font-size: 0.7rem;
+      font-style: normal;
+   }
+
+   .card:hover p.extra {
+      height: 100px;
+      transition: height 0.2s ease;
+      transition: font-style 5s linear;
+      font-style: italic;
+   }
 
    .tags {
       font-size: 0.7rem;
       color: grey;
+   }
+   .row {
+      display: flex;
+      flex-direction: row;
+   }
+   li {
+      transform: translate(-30px);
+   }
+   .duration {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: inherit;
+      width: 50px;
+      position: relative;
+      color: grey;
+      font-size: 0.7rem;
+   }
+   .duration .from {
+      transform: translateX(-120%);
+   }
+   .duration .to {
+      transform: translateY(-100%);
+   }
+
+   li:hover {
+      transition: transform 0.2s ease-out;
+      transform: scale(1.1);
+   }
+
+   li:hover .duration {
+      color: black;
+      font-size: 1rem;
+      margin-right: 10px;
    }
 `;
