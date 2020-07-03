@@ -29,17 +29,23 @@ export const Job = ({ job, hovered, onHover, index }) => {
                      <div>{job.company.name}</div>
                   </a>
                </div>
-               <p className="summary">
-                  {job.description.split("\n").map((text, idx) => (
-                     <div key={idx}>{text}</div>
-                  ))}
-               </p>
-               <p className="extra">
-                  {job.elaborated_desctiption.split("\n").map((text, idx) => (
-                     <div key={idx}>{text}</div>
-                  ))}
-               </p>
-               <div className="tags">{tags}</div>
+               <div className="summary">
+                  <p>
+                     {job.description.split("\n").map((text, idx) => (
+                        <span key={idx}>{text}</span>
+                     ))}
+                  </p>
+               </div>
+               <div className="extra">
+                  <p>
+                     {job.elaborated_desctiption
+                        .split("\n")
+                        .map((text, idx) => (
+                           <span key={idx}>{text}</span>
+                        ))}
+                  </p>
+               </div>
+               <p className="tags">{tags}</p>
             </div>
          </div>
          <style jsx>{JobCard}</style>
@@ -63,9 +69,11 @@ export default function Resume({ resumeData }) {
       ));
    return (
       <AppLayout title="Itamar Sharify's CV" favicon="/cv.ico">
-         <ul onMouseLeave={() => setHovered(null)}>{jobs}</ul>
+         <ul className="timeline" onMouseLeave={() => setHovered(null)}>
+            {jobs}
+         </ul>
          <style jsx>{`
-            ul {
+            ul.timeline {
                border-left: 2px dotted;
                border-left-color: black;
             }
@@ -79,6 +87,7 @@ export async function getStaticProps({ params }) {
    return {
       props: {
          resumeData,
+         headerTitle: "Resume",
       },
    };
 }

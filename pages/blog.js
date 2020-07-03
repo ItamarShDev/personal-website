@@ -8,6 +8,7 @@ export async function getServerSideProps() {
    return {
       props: {
          allPostsData,
+         headerTitle: "Blog",
       },
    };
 }

@@ -70,8 +70,8 @@ export const JobCard = css`
       font-style: normal;
    }
 
-   .card:hover p.extra {
-      height: 100px;
+   .card:hover .extra {
+      height: auto;
       transition: height 0.2s ease;
       transition: font-style 5s linear;
       font-style: italic;
@@ -86,7 +86,7 @@ export const JobCard = css`
       flex-direction: row;
    }
    li {
-      transform: translate(-30px);
+      transform: translateX(-1.65rem);
    }
    .duration {
       display: flex;
@@ -107,7 +107,7 @@ export const JobCard = css`
 
    li:hover {
       transition: transform 0.2s ease-out;
-      transform: scale(1.1);
+      transform: scale(1.1) translateX(0.3rem);
    }
 
    li:hover .duration {

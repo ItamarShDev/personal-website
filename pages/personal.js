@@ -9,7 +9,12 @@ const personal = (props) => {
       </AppLayout>
    );
 };
-
-personal.propTypes = {};
+export async function getStaticProps() {
+   return {
+      props: {
+         headerTitle: "About Me",
+      },
+   };
+}
 
 export default personal;
