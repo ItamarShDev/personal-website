@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styles, { footer } from "../theme/theme";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import { lightTheme, darkTheme } from "../theme/scheme";
+import Theme from "../theme/scheme";
+import { useTheme } from "../lib/hooks";
 function App({ Component, pageProps }) {
-   const [theme, setTheme] = useState(lightTheme);
+   const [theme, toggleTheme] = useTheme();
    const title = pageProps.headerTitle || "Itamar Sharify";
-   console.log(theme["name"]);
-   const toggleTheme = () => {
-      theme["name"] === "light" ? setTheme(darkTheme) : setTheme(lightTheme);
-   };
+
    return (
       <div className="container">
          <header>

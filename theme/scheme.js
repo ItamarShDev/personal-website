@@ -1,17 +1,19 @@
-export const lightTheme = {
-   name: "light",
-   bg: "#f4f4f4",
-   main: "#f0a500",
-   text: "#000000",
-   header: "#f0a500",
-   decorations: "#cf7500",
-};
-
-export const darkTheme = {
-   name: "dark",
+const darkTheme = {
    bg: "#222831",
    main: "#2d4059",
    text: "#eeeeee",
-   header: "#ff5722",
+   header: "#fd7014",
    decorations: "#cf7500",
+};
+const lightTheme = {
+   bg: "#f4f6ff",
+   main: "#4f8a8b",
+   text: "#07031a",
+   header: "#fbd46d",
+   decorations: "#4f8a8b",
+};
+
+export default {
+   light: lightTheme,
+   dark: darkTheme,
 };

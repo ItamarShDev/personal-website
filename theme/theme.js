@@ -19,6 +19,7 @@ export default css.global`
       height: 60px;
       width: 100vw;
       display: flex;
+      color: #30475e;
       justify-content: center;
       align-items: center;
       border-bottom: 1px solid #eaeaea;
