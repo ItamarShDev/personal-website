@@ -1,74 +1,74 @@
 {
-   "jobs": [
-      {
-         "title": "Sofware Engineering T.A. (part time)",
-         "duration": { "from": 2015, "to": 2016 },
-         "company": {
-            "name": "Azrieli College of Engineering",
-            "logo": "logos/jce.png",
-            "website": "https://www.jce.ac.il"
-         },
-         "tags": ["Angular.js", "Scrum", "Node.js"],
-         "description": "Teaching Assistant;\nTeaching the MEAN stack and acting as a Scrum Master.",
-         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+  "jobs": [
+    {
+      "title": "Sofware Engineering T.A. (part time)",
+      "duration": { "from": 2015, "to": 2016 },
+      "company": {
+        "name": "Azrieli College of Engineering",
+        "logo": "logos/jce.png",
+        "website": "https://www.jce.ac.il"
       },
-      {
-         "title": "Web Developer (part time)",
-         "duration": { "from": 2015, "to": 2016 },
-         "company": {
-            "name": "WishTrip",
-            "logo": "logos/wishtrip.jpeg",
+      "tags": ["Angular.js", "Scrum", "Node.js"],
+      "description": "Teaching Assistant;\nTeaching the MEAN stack and acting as a Scrum Master.",
+      "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+    },
+    {
+      "title": "Web Developer (part time)",
+      "duration": { "from": 2015, "to": 2016 },
+      "company": {
+        "name": "WishTrip",
+        "logo": "logos/wishtrip.jpeg",
 
-            "website": "https://www.wishtrip.com/"
-         },
-         "tags": ["Angular.js", "OpenMaps", "Socket.io"],
-         "description": "Creating the company main website from scratch,\nBuilding live map user tracking and live chat between users",
-         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+        "website": "https://www.wishtrip.com/"
       },
-      {
-         "title": "Full-stack developer",
-         "duration": { "from": 2016, "to": 2019 },
+      "tags": ["Angular.js", "OpenMaps", "Socket.io"],
+      "description": "Creating the company main website from scratch,\nBuilding live map user tracking and live chat between users",
+      "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+    },
+    {
+      "title": "Full-stack developer",
+      "duration": { "from": 2016, "to": 2019 },
 
-         "company": {
-            "name": "Audyx",
-            "logo": "logos/audyx.png",
-            "website": "http://www.audyx.com/"
-         },
-         "tags": [
-            "React.js",
-            "ClojureScript",
-            "Ruby On Rails",
-            "WebRTC",
-            "Socket.io"
-         ],
-         "description": " 2 PWA applications\n help desiging and creating tools for internal use",
-         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+      "company": {
+        "name": "Audyx",
+        "logo": "logos/audyx.png",
+        "website": "http://www.audyx.com/"
       },
-      {
-         "title": "Full-stack Developer",
-         "duration": { "from": 2019, "to": 2020 },
-         "company": {
-            "name": "Imubit",
-            "logo": "logos/imubit.svg",
-            "website": "https://www.imubit.com/i"
-         },
-         "tags": ["React.js", "Python", "GitLab CI"],
-         "description": "Helping to build the company customer facing application\nHelp recruting new wev-devs to the team",
-         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+      "tags": [
+        "React.js",
+        "ClojureScript",
+        "Ruby On Rails",
+        "WebRTC",
+        "Socket.io"
+      ],
+      "description": " 2 PWA applications\n help desiging and creating tools for internal use",
+      "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+    },
+    {
+      "title": "Full-stack Developer",
+      "duration": { "from": 2019, "to": 2020 },
+      "company": {
+        "name": "Imubit",
+        "logo": "logos/imubit.svg",
+        "website": "https://www.imubit.com/i"
       },
-      {
-         "title": "Python Developer",
-         "duration": { "from": 2020, "to": "Present" },
-         "company": {
-            "name": "Imubit",
-            "logo": "logos/imubit.svg",
-            "website": "https://www.imubit.com/i"
-         },
-         "tags": ["Python", "JupyterLab"],
-         "description": "Building internal tools for the company field engineers",
-         "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
-      }
-   ],
-   "skills": [{ "name": "", "level": 0, "logo": "" }],
-   "education": ["BC.s. Software engineering"]
+      "tags": ["React.js", "Python", "GitLab CI"],
+      "description": "Helping to build the company customer facing application\nHelp recruting new wev-devs to the team",
+      "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+    },
+    {
+      "title": "Python Developer",
+      "duration": { "from": 2020, "to": "Present" },
+      "company": {
+        "name": "Imubit",
+        "logo": "logos/imubit.svg",
+        "website": "https://www.imubit.com/i"
+      },
+      "tags": ["Python", "JupyterLab"],
+      "description": "Building internal tools for the company field engineers",
+      "elaborated_desctiption": "Teaching and helping students to build a full project and deploy it in one semester.\n Helping students to create a production ready project for NPOs for extra credit"
+    }
+  ],
+  "skills": [{ "name": "", "level": 0, "logo": "" }],
+  "education": ["BC.s. Software engineering"]
 }

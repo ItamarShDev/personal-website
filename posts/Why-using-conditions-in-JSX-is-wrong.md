@@ -10,22 +10,18 @@ With React Hooks craze and the renewed functional programming talk, we need to r
 Most, if not all, of us have read this quote some time in our professional life:
 In computer science, declarative programming is a programming paradigm - a style of building the structure and elements of computer programs - that expresses the logic of a computation without describing its control flow
 
--  Wikipedia
-   So all of us, who uses react, are writing declarative code, right?
-   Wrong.
-   Let's take a look on the following code:
+- Wikipedia
+  So all of us, who uses react, are writing declarative code, right?
+  Wrong.
+  Let's take a look on the following code:
 
 ```js
 function App(props) {
-   return (
-      <div>
-         {props.isUserLoggedIn ? (
-            <UserImage {...props} />
-         ) : (
-            <Avatar {...props} />
-         )}
-      </div>
-   );
+  return (
+    <div>
+      {props.isUserLoggedIn ? <UserImage {...props} /> : <Avatar {...props} />}
+    </div>
+  );
 }
 ```
 
@@ -47,16 +43,16 @@ const UserImage = (props) => <img src={props.userImage} alt={props.userName} />;
 const Avatar = (props) => <img src="images/no-user" alt="Not logged in" />;
 
 const UserAvatar = (props) => {
-   if (props.isUserLoggedIn) return <UserImage {...props} />;
-   else return <Avatar {...props} />;
+  if (props.isUserLoggedIn) return <UserImage {...props} />;
+  else return <Avatar {...props} />;
 };
 
 function App(props) {
-   return (
-      <div>
-         <UserAvatar {...props} />
-      </div>
-   );
+  return (
+    <div>
+      <UserAvatar {...props} />
+    </div>
+  );
 }
 
 const rootElement = document.getElementById("root");

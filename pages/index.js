@@ -1,38 +1,25 @@
-import Link from "next/link";
 import AppLayout from "../layouts/app-layout";
-import { Card, Grid } from "../theme/theme";
+import { Grid } from "../theme/theme";
+import Card from "@components/card";
 
 export default function Home() {
-   return (
-      <AppLayout title="Itamar Sharify">
-         <div className="grid">
-            <Link href="resume">
-               <a className="card">
-                  <h3>Resume &rarr;</h3>
-                  <p>Resume Timeline</p>
-               </a>
-            </Link>
-            <Link href="uses">
-               <a className="card">
-                  <h3>Uses &rarr;</h3>
-                  <p>Favorite stack</p>
-               </a>
-            </Link>
-            <Link href="blog">
-               <a className="card">
-                  <h3>Blog &rarr;</h3>
-                  <p>My JS journy</p>
-               </a>
-            </Link>
-            <Link href="personal">
-               <a className="card">
-                  <h3>Let's get personal &rarr;</h3>
-                  <p>Learn about me</p>
-               </a>
-            </Link>
-         </div>
-         <style jsx>{Card}</style>
-         <style jsx>{Grid}</style>
-      </AppLayout>
-   );
+  return (
+    <AppLayout title="Itamar Sharify">
+      <div className="grid">
+        <Card route="resume" title="Resume &rarr;" subTitle="Resume Timeline" />
+        <Card route="uses" title="Uses &rarr;" subTitle="Favorite stack" />
+        <Card
+          route="blog"
+          title="Blog &rarr;"
+          subTitle="My Development journy"
+        />
+        <Card
+          route="personal"
+          title="Let's get personal &rarr;"
+          subTitle="Learn about me"
+        />
+      </div>
+      <style jsx>{Grid}</style>
+    </AppLayout>
+  );
 }
