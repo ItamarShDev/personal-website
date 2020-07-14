@@ -1,8 +1,8 @@
 /* styles.js */
 import css from "styled-jsx/css";
-import { Card as CardTheme } from "./components/card";
-import { JobCard as JobCardTheme } from "./components/resume";
-import { Blog as BlogTheme } from "./components/blog";
+import { Card as CardTheme } from "../components/card";
+import { JobCard as JobCardTheme } from "../components/resume";
+import { Blog as BlogTheme } from "../components/blog";
 export const Card = CardTheme;
 export const JobCard = JobCardTheme;
 export const Blog = BlogTheme;
@@ -24,7 +24,6 @@ export default css.global`
       border-bottom: 1px solid #eaeaea;
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.9);
       z-index: 10;
    }
 

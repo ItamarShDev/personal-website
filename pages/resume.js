@@ -75,7 +75,6 @@ export default function Resume({ resumeData }) {
          <style jsx>{`
             ul.timeline {
                border-left: 2px dotted;
-               border-left-color: black;
             }
          `}</style>
       </AppLayout>

@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styles, { footer } from "../theme/theme";
 import Link from "next/link";
 import PropTypes from "prop-types";
+import { lightTheme, darkTheme } from "../theme/scheme";
 function App({ Component, pageProps }) {
+   const [theme, setTheme] = useState(lightTheme);
    const title = pageProps.headerTitle || "Itamar Sharify";
+   console.log(theme["name"]);
+   const toggleTheme = () => {
+      theme["name"] === "light" ? setTheme(darkTheme) : setTheme(lightTheme);
+   };
    return (
       <div className="container">
          <header>
             <Link href="/">
                <a>{title}</a>
             </Link>
+            <button onClick={toggleTheme}>Toggle Theme</button>
          </header>
          <main>
             <Component {...pageProps} />
@@ -39,8 +46,14 @@ function App({ Component, pageProps }) {
          <style jsx>{footer}</style>
          <style jsx>{styles}</style>
          <style jsx global>{`
+            header {
+               background-color: ${theme.header};
+            }
             html,
             body {
+               background-color: ${theme.bg};
+               color: ${theme.text};
+               border-color: ${theme.decorations};
                padding: 0;
                margin: 0;
                font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
