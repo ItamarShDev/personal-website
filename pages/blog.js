@@ -1,6 +1,5 @@
 import { getSortedPostsData } from "../lib/posts";
 import AppLayout from "../layouts/app-layout";
-import Link from "next/link";
 import Card from "@components/card";
 
 export async function getServerSideProps() {
