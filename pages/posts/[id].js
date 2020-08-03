@@ -3,7 +3,7 @@ import AppLayout from "../../layouts/app-layout";
 export default function Blog({ postData }) {
   return (
     <AppLayout title={postData.title} favicon="/cv.ico">
-      <main>{postData.summary}</main>
+      <h1>{postData.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       <style jsx>{`
         .title a {
@@ -35,11 +35,10 @@ export default function Blog({ postData }) {
 
         code {
           background: #fafafa;
+          font-family: cascadia;
           border-radius: 5px;
           padding: 0.75rem;
           font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
         }
       `}</style>
     </AppLayout>

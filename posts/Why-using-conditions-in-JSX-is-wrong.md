@@ -3,9 +3,9 @@ title: Why using conditions in JSX is wrong
 slug: jsx-condition
 date: July 11, 2020
 category: React
+summary: Why using conditions in JSX is wrong
 ---
 
-Why using conditions in JSX is wrong
 With React Hooks craze and the renewed functional programming talk, we need to revisit a mistake we all do in React.
 Most, if not all, of us have read this quote some time in our professional life:
 In computer science, declarative programming is a programming paradigm - a style of building the structure and elements of computer programs - that expresses the logic of a computation without describing its control flow

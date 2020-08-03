@@ -12,13 +12,15 @@ export default function Card({ children, title, subTitle, route }) {
         {children}
         <style jsx>{`
           .card:hover {
+            box-shadow: 1px 1px 10px ${theme.decorations};
+            transition: all 0.2s linear;
             color: ${theme.decorations};
             border-color: ${theme.decorations};
-            margin: 1rem;
           }
         `}</style>
         <style jsx>{`
           .card {
+            box-sizing: border-box;
             margin: 1rem;
             flex-basis: 45%;
             padding: 1.5rem;
@@ -28,7 +30,6 @@ export default function Card({ children, title, subTitle, route }) {
             border: 1px solid;
             border-color: ${theme.decoration};
             border-radius: 10px;
-            transition: color 0.15s ease, border-color 0.15s ease;
           }
 
           .card h3 {

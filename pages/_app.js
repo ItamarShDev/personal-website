@@ -15,8 +15,14 @@ function App({ Component, pageProps }) {
         </main>
         <Footer />
         <style jsx global>{`
+          @font-face {
+            font-family: cascadia;
+            src: url(fonts/CascadiaCode.woff2);
+          }
+
           html,
           body {
+            transition: all 0.2s linear;
             background-color: ${theme.bg};
             color: ${theme.text};
             padding: 0;
@@ -25,16 +31,14 @@ function App({ Component, pageProps }) {
               Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
               sans-serif;
           }
-
+          header {
+            transition: all 0.5s linear;
+          }
           * {
             box-sizing: border-box;
             border-color: ${theme.decorations};
           }
-          .card:hover,
-          .card:active {
-            color: ${theme.decorations};
-            border-color: ${theme.decorations};
-          }
+
           .container {
             min-height: 100vh;
             padding: 0 0.5rem;
