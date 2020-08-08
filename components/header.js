@@ -1,32 +1,40 @@
 import { useContext } from "react";
 import { ThemeContext } from "@hooks";
 import Link from "next/link";
+function getIconClassAndAction(isDark) {
+  if (isDark) {
+    return "dark-icon";
+  } else {
+    return "light-icon";
+  }
+}
+
 const ThemedIcon = (props) => {
-  const { toggleTheme, isDark } = props;
+  const { theme, toggleTheme, isDark } = useContext(ThemeContext);
+  const iconClass = getIconClassAndAction(isDark);
   return (
     <i
       onClick={toggleTheme}
-      className={`icon ${isDark ? "dark-icon" : "light-icon"}`}
+      className={`icon ${iconClass}`}
       title="Toggle dark mode"
     >
       <style jsx>{`
         i.icon:after {
           font-size: 1.2em;
           font-style: normal;
+          color: ${theme.headerText};
         }
         .dark-icon:after {
-          color: black;
           content: "☼";
-        }
-        .light-icon:after {
-          content: "☾";
-          color: white;
-        }
-        .light-icon:hover:after {
-          color: #fbd46d;
         }
         .dark-icon:hover:after {
           content: "☀";
+        }
+        .light-icon:after {
+          content: "☾";
+        }
+        .light-icon:hover:after {
+          color: #fbd46d;
         }
       `}</style>
     </i>
@@ -34,7 +42,7 @@ const ThemedIcon = (props) => {
 };
 
 const Header = (props) => {
-  const { theme, toggleTheme, isDark } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { title } = props;
   return (
     <header>
@@ -42,7 +50,7 @@ const Header = (props) => {
       <Link href="/">
         <a className="title">{title}</a>
       </Link>
-      <ThemedIcon isDark={isDark} toggleTheme={toggleTheme} />
+      <ThemedIcon />
       <style jsx>{`
         header {
           height: 60px;

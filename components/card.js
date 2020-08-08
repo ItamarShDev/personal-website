@@ -2,10 +2,11 @@ import { ThemeContext } from "@hooks";
 import { useContext } from "react";
 import Link from "next/link";
 
-export default function Card({ children, title, subTitle, route }) {
+export default function Card({ children, title, subTitle, route, routeRef }) {
   const { theme } = useContext(ThemeContext);
+  if (!routeRef) routeRef = route;
   return (
-    <Link href={route}>
+    <Link href={routeRef} as={route}>
       <a className="card">
         <h3>{title}</h3>
         <p>{subTitle}</p>

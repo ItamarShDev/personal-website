@@ -5,7 +5,6 @@ import { Header, Footer } from "@components";
 function App({ Component, pageProps }) {
   const { theme, toggleTheme, ThemeContext, isDark } = useTheme();
   const title = pageProps.headerTitle || "Itamar Sharify";
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
       <div className="container">

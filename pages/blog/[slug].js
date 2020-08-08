@@ -1,11 +1,12 @@
 import { getAllPostIds, getPostData } from "@lib/posts";
 import AppLayout from "@layouts/app-layout";
 import renderMarkdown from "@lib/render-markdown";
-import { useContext } from "react";
 import { ThemeContext } from "@hooks";
-export default function Blog({ data, html }) {
-  const { theme, toggleTheme, isDark } = useContext(ThemeContext);
+import { useContext } from "react";
 
+export default function Blog({ data, html }) {
+  if (!data) return null;
+  const { theme, isDark } = useContext(ThemeContext);
   return (
     <AppLayout title={data.title} favicon="/cv.ico">
       <h1>{data.title}</h1>
@@ -17,7 +18,7 @@ export default function Blog({ data, html }) {
           line-height: 1.5em;
           padding: 0.75rem;
           border-left: 1px ${theme.decorations} solid;
-          background-color: rgba(0, 0, 0, 0.5);
+          background-color: ${isDark ? "rgba(0, 0, 0, 0.5)" : "black"};
         }
       `}</style>
     </AppLayout>
@@ -31,6 +32,7 @@ export async function getStaticProps({ params }) {
     props: {
       data,
       html: renderMarkdown(content),
+      headerTitle: data.title,
     },
   };
 }
@@ -39,6 +41,6 @@ export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
