@@ -24,6 +24,7 @@ export default function Card({ children, title, subTitle, route }) {
             margin: 1rem;
             flex-basis: 45%;
             padding: 1.5rem;
+            min-width: 300px;
             text-align: left;
             color: ${theme.text};
             text-decoration: none;

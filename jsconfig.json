@@ -2,8 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components": ["components/index.js"],
+      "@lib/*": ["lib/*"],
+      "@layouts/*": ["layouts/*"],
       "@components/*": ["components/*"],
+      "@components": ["components/index.js"],
       "@hooks": ["lib/hooks.js"],
       "@color_scheme": ["theme/scheme.js"]
     }

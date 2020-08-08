@@ -17,9 +17,17 @@ function App({ Component, pageProps }) {
         <style jsx global>{`
           @font-face {
             font-family: cascadia;
-            src: url(fonts/CascadiaCode.woff2);
+            src: url(/fonts/CascadiaCode.woff2);
           }
 
+          @font-face {
+            font-family: fira;
+            src: url(/fonts/FiraCode.woff2);
+          }
+          @font-face {
+            font-family: hasklig;
+            src: url(/fonts/Hasklig.otf);
+          }
           html,
           body {
             transition: all 0.2s linear;
@@ -32,7 +40,7 @@ function App({ Component, pageProps }) {
               sans-serif;
           }
           header {
-            transition: all 0.5s linear;
+            transition: background-color 0.5s linear;
           }
           * {
             box-sizing: border-box;

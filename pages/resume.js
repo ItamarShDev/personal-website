@@ -130,6 +130,14 @@ export const Job = ({ job, hovered, onHover, index }) => {
         li {
           transform: translateX(-1.85rem);
         }
+        @media (min-width: 720px) {
+          .duration .from {
+            transform: translateX(-100%);
+          }
+          .duration .to {
+            transform: translateY(-100%);
+          }
+        }
         .duration {
           display: flex;
           position: relative;
@@ -138,12 +146,6 @@ export const Job = ({ job, hovered, onHover, index }) => {
           height: inherit;
           width: 50px;
           font-size: 0.7rem;
-        }
-        .duration .from {
-          transform: translateX(-100%);
-        }
-        .duration .to {
-          transform: translateY(-100%);
         }
 
         li:hover {

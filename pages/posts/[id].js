@@ -1,44 +1,23 @@
-import { getAllPostIds, getPostData } from "../../lib/posts";
-import AppLayout from "../../layouts/app-layout";
-export default function Blog({ postData }) {
+import { getAllPostIds, getPostData } from "@lib/posts";
+import AppLayout from "@layouts/app-layout";
+import renderMarkdown from "@lib/render-markdown";
+import { useContext } from "react";
+import { ThemeContext } from "@hooks";
+export default function Blog({ data, html }) {
+  const { theme, toggleTheme, isDark } = useContext(ThemeContext);
+
   return (
-    <AppLayout title={postData.title} favicon="/cv.ico">
-      <h1>{postData.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      <style jsx>{`
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          font-family: cascadia;
-          border-radius: 5px;
+    <AppLayout title={data.title} favicon="/cv.ico">
+      <h1>{data.title}</h1>
+      <article dangerouslySetInnerHTML={{ __html: html }} />
+      <style jsx global>{`
+        @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+        article pre {
+          font-family: "hasklig", "fira";
+          line-height: 1.5em;
           padding: 0.75rem;
-          font-size: 1.1rem;
+          border-left: 1px ${theme.decorations} solid;
+          background-color: rgba(0, 0, 0, 0.5);
         }
       `}</style>
     </AppLayout>
@@ -55,10 +34,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data for the blog post using params.id
-  const postData = await getPostData(params.id);
+  const { data, content } = await getPostData(params.id);
   return {
     props: {
-      postData,
+      data,
+      html: renderMarkdown(content),
     },
   };
 }
