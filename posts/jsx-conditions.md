@@ -1,6 +1,6 @@
 ---
 title: Why using conditions in JSX is wrong
-slug: jsx-condition
+slug: jsx-conditions
 date: July 11, 2020
 category: React
 summary: Why using conditions in JSX is wrong

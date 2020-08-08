@@ -2,7 +2,7 @@ import { getSortedPostsData } from "../lib/posts";
 import AppLayout from "../layouts/app-layout";
 import Card from "@components/card";
 
-export async function getServerSideProps() {
+export function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
     props: {
@@ -16,7 +16,7 @@ function Blog({ post }) {
   return (
     <Card
       key={post.id}
-      route={`posts/${post.id.replace(/\.mdx/, "")}`}
+      route={`blog/${post.id.replace(/\.mdx/, "")}`}
       title={post.title}
       subTitle={post.summary}
     />

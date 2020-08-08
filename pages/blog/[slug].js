@@ -23,22 +23,22 @@ export default function Blog({ data, html }) {
     </AppLayout>
   );
 }
+
+export async function getStaticProps({ params }) {
+  // Fetch necessary data for the blog post using params.id
+  const { data, content } = getPostData(params.slug);
+  return {
+    props: {
+      data,
+      html: renderMarkdown(content),
+    },
+  };
+}
 export async function getStaticPaths() {
   // Return a list of possible value for id
   const paths = getAllPostIds();
   return {
     paths,
     fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
-  const { data, content } = await getPostData(params.id);
-  return {
-    props: {
-      data,
-      html: renderMarkdown(content),
-    },
   };
 }
