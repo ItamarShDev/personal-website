@@ -57,12 +57,10 @@ function App({ Component, pageProps }) {
           }
 
           main {
-            padding: 1rem 0;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
+            padding: 1rem;
+            display: block;
+            min-height: calc(100vh - 160px);
           }
 
           a {

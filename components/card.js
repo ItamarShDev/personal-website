@@ -21,6 +21,7 @@ export default function Card({ children, title, subTitle, route, routeRef }) {
         `}</style>
         <style jsx>{`
           .card {
+            display: block;
             box-sizing: border-box;
             margin: 1rem;
             flex-basis: 45%;

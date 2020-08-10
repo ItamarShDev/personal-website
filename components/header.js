@@ -53,6 +53,7 @@ const Header = (props) => {
       <ThemedIcon />
       <style jsx>{`
         header {
+          position: sticky;
           height: 60px;
           width: 100vw;
           display: grid;

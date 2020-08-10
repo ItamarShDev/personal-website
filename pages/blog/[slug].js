@@ -19,6 +19,14 @@ export default function Blog({ data, html }) {
           padding: 0.75rem;
           border-left: 1px ${theme.decorations} solid;
           background-color: ${isDark ? "rgba(0, 0, 0, 0.5)" : "black"};
+          overflow-x: auto;
+        }
+        @media (max-width: 640px) {
+          article pre {
+            font-size: 0.3rem;
+            line-height: 1rem;
+            padding: 0.5rem;
+          }
         }
       `}</style>
     </AppLayout>
@@ -32,7 +40,7 @@ export async function getStaticProps({ params }) {
     props: {
       data,
       html: renderMarkdown(content),
-      headerTitle: data.title,
+      headerTitle: "Blog",
     },
   };
 }
