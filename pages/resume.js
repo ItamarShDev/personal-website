@@ -1,28 +1,33 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { getResumeData } from "../lib/resume";
 import AppLayout from "../layouts/app-layout";
-export const Job = ({ job, hovered, onHover, index }) => {
+import { ThemeContext } from "@lib/hooks";
+export const Job = ({ job, opened, setOpened, index }) => {
+  const { theme } = useContext(ThemeContext);
   const tags = job.tags.join(", ");
-  const isOpac = typeof hovered === "number" && hovered !== index;
+  const isOpac = typeof opened === "number" && opened !== index;
+  const isOpened = opened === index;
   return (
-    <li>
+    <li className={isOpac ? "opac" : ""}>
       <div className="row">
         <div className="duration">
           <div className="from">{job.duration.from}</div>
           <div className="to">{job.duration.to}</div>
         </div>
         <div
-          className={`box ${isOpac ? "opac" : ""}`}
-          onMouseEnter={() => onHover(index)}
+          className={`box`}
+          onClick={() => (isOpened ? setOpened(null) : setOpened(index))}
         >
           <div className="logo">
             <img className="image" src={job.company.logo} alt="" />
           </div>
           <div className="job">
             <h3 className="title">{job.title}</h3>
-            <a href={job.company.website} target="_blank" className="company">
-              <div>{job.company.name}</div>
-            </a>
+            <span className="company">
+              <a href={job.company.website} target="_blank">
+                {job.company.name}
+              </a>
+            </span>
           </div>
           <div className="summary">
             <p>
@@ -31,7 +36,7 @@ export const Job = ({ job, hovered, onHover, index }) => {
               ))}
             </p>
           </div>
-          <div className="extra">
+          <div className={`extra ${isOpened ? "" : "hidden"}`}>
             <p>
               {job.elaborated_desctiption.split("\n").map((text, idx) => (
                 <span key={idx}>{text}</span>
@@ -42,6 +47,15 @@ export const Job = ({ job, hovered, onHover, index }) => {
         </div>
       </div>
       <style jsx>{`
+        li {
+          filter: none;
+          opacity: 1;
+          transition: opacity 0.2s linear;
+        }
+        li.opac {
+          opacity: 0.5;
+          filter: grayscale(100%) blur(1px);
+        }
         .box {
           display: flex;
           flex-direction: column;
@@ -52,13 +66,6 @@ export const Job = ({ job, hovered, onHover, index }) => {
           position: relative;
           max-width: 500px;
           border-bottom: 0.02rem #808080 dotted;
-          filter: none;
-        }
-
-        .box.opac {
-          opacity: 0.5;
-          transition: opacity 0.2s linear;
-          filter: grayscale(100%) blur(1px);
         }
 
         .job {
@@ -75,6 +82,13 @@ export const Job = ({ job, hovered, onHover, index }) => {
           font-style: italic;
           align-items: center;
           color: grey;
+        }
+        .company a {
+          color: grey;
+        }
+        .company a:hover {
+          color: ${theme.decorations};
+          text-decoration: underline double;
         }
         .company:before {
           content: "@";
@@ -105,17 +119,17 @@ export const Job = ({ job, hovered, onHover, index }) => {
           break-after: always;
           white-space: wrap;
         }
-        .extra {
-          height: 0;
-          overflow: hidden;
-          font-size: 0.7rem;
-          font-style: normal;
+        .extra.hidden {
+          flex: 0;
         }
 
-        .box:hover .extra {
+        .extra {
+          flex: 1;
+          display: flex;
           height: auto;
-          transition: height 0.2s ease;
-          transition: font-style 5s linear;
+          overflow: hidden;
+          transition: flex 0.5s ease;
+          font-size: 0.7rem;
           font-style: italic;
         }
 
@@ -148,7 +162,7 @@ export const Job = ({ job, hovered, onHover, index }) => {
           font-size: 0.7rem;
         }
 
-        li:hover {
+        /* li:hover {
           transition: transform 0.2s ease-out;
           transform: scale(1.1) translateX(0.1rem);
         }
@@ -160,14 +174,14 @@ export const Job = ({ job, hovered, onHover, index }) => {
 
         li:hover .duration .from {
           transform: translateX(-130%);
-        }
+        } */
       `}</style>
     </li>
   );
 };
 
 export default function Resume({ resumeData }) {
-  const [hovered, setHovered] = useState(null);
+  const [opened, setOpened] = useState(null);
   const jobs = resumeData.jobs
     .slice(0)
     .reverse()
@@ -176,18 +190,18 @@ export default function Resume({ resumeData }) {
         key={index}
         job={job}
         index={index}
-        hovered={hovered}
-        onHover={(idx) => setHovered(idx)}
+        opened={opened}
+        setOpened={setOpened}
       />
     ));
   return (
     <AppLayout title="Itamar Sharify's CV" favicon="/cv.ico">
-      <ul className="timeline" onMouseLeave={() => setHovered(null)}>
-        {jobs}
-      </ul>
+      <ul className="timeline">{jobs}</ul>
       <style jsx>{`
         ul.timeline {
-          border-left: 2px dotted;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       `}</style>
     </AppLayout>

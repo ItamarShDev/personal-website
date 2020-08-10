@@ -55,7 +55,9 @@ const Header = (props) => {
     <header>
       <div></div>
       <Link href="/">
-        <a className="title">{title}</a>
+        <a className="title" title="Click to go home">
+          {title}
+        </a>
       </Link>
       <ThemedIcon />
       <style jsx>{`
