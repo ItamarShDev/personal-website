@@ -6,8 +6,8 @@ function App({ Component, pageProps }) {
   const { theme, toggleTheme, ThemeContext, isDark } = useTheme();
   const title = pageProps.headerTitle || "Itamar Sharify";
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
-      <div className="container">
+    <div>
+      <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
         <Header title={title} />
         <main>
           <Component {...pageProps} />
@@ -27,7 +27,7 @@ function App({ Component, pageProps }) {
             font-family: hasklig;
             src: url(/fonts/Hasklig.otf);
           }
-          html,
+
           body {
             transition: all 0.2s linear;
             background-color: ${theme.bg};
@@ -46,16 +46,6 @@ function App({ Component, pageProps }) {
             border-color: ${theme.decorations};
           }
 
-          .container {
-            min-height: 100vh;
-            padding: 0 0.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-          }
-
           main {
             width: 100%;
             padding: 1rem;
@@ -72,8 +62,8 @@ function App({ Component, pageProps }) {
             height: 1em;
           }
         `}</style>
-      </div>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </div>
   );
 }
 

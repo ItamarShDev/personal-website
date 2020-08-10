@@ -26,7 +26,7 @@ const ThemedIcon = (props) => {
           font-style: normal;
           color: ${theme.headerText};
           background-size: 20px;
-          background-position: center center;
+          background-position: 10px center;
           background-repeat: no-repeat;
         }
         .dark-icon {
@@ -63,7 +63,7 @@ const Header = (props) => {
       <style jsx>{`
         header {
           height: 60px;
-          width: 100vw;
+          width: 100%;
           display: grid;
           grid-template-columns: 50px 1fr 50px;
           text-align: center;
