@@ -21,6 +21,26 @@ export default function Blog({ data, html }) {
           background-color: ${isDark ? "rgba(0, 0, 0, 0.5)" : "black"};
           overflow-x: auto;
         }
+        article blockquote {
+          font-family: Georgia, serif;
+          padding: 5px 0.4rem;
+          border-left: 1px ${theme.decorations} dotted;
+          margin: 1rem 0 0 0;
+          font-size: 0.9rem;
+          font-style: italic;
+        }
+        blockquote p {
+          margin: 0;
+        }
+        article ul {
+          font-family: Georgia, serif;
+          list-style-type: square;
+          font-style: italic;
+          line-height: 1.2rem;
+        }
+        ul li {
+          margin: 0.4rem auto;
+        }
         @media (max-width: 640px) {
           article pre {
             font-size: 0.3rem;

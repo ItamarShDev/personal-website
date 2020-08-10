@@ -13,31 +13,38 @@ const ThemedIcon = (props) => {
   const { theme, toggleTheme, isDark } = useContext(ThemeContext);
   const iconClass = getIconClassAndAction(isDark);
   return (
-    <i
+    <a
       onClick={toggleTheme}
       className={`icon ${iconClass}`}
       title="Toggle dark mode"
     >
       <style jsx>{`
-        i.icon:after {
+        a.icon {
+          height: 60px;
+          width: 60px;
           font-size: 1.2em;
           font-style: normal;
           color: ${theme.headerText};
+          background-size: 20px;
+          background-position: center center;
+          background-repeat: no-repeat;
         }
-        .dark-icon:after {
-          content: "☼";
+        .dark-icon {
+          background-image: url(/icons/sun.svg);
         }
-        .dark-icon:hover:after {
-          content: "☀";
+        .dark-icon:hover {
+          background-image: url(/icons/sun-filled.svg);
         }
-        .light-icon:after {
-          content: "☾";
+        .light-icon {
+          fill: ${theme.headerText};
+          background-image: url(/icons/moon.svg);
         }
-        .light-icon:hover:after {
-          color: #fbd46d;
+        .light-icon:hover {
+          fill: ${theme.headerText};
+          background-image: url(/icons/moon-filled.svg);
         }
       `}</style>
-    </i>
+    </a>
   );
 };
 
@@ -53,7 +60,6 @@ const Header = (props) => {
       <ThemedIcon />
       <style jsx>{`
         header {
-          position: sticky;
           height: 60px;
           width: 100vw;
           display: grid;
