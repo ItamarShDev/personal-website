@@ -13,26 +13,22 @@ export default function Card({ children, title, subTitle, route, routeRef }) {
         {children}
         <style jsx>{`
           .card:hover {
-            box-shadow: 1px 1px 10px ${theme.decorations};
+            filter: drop-shadow(0 0 0.75rem ${theme.decorations});
             transition: all 0.2s linear;
-            color: ${theme.decorations};
-            border-color: ${theme.decorations};
+          }
+          .card:hover h3 {
+            text-decoration: underline double;
           }
         `}</style>
         <style jsx>{`
           .card {
             display: block;
-            box-sizing: border-box;
             margin: 1rem;
-            flex-basis: 45%;
             padding: 1.5rem;
             min-width: 300px;
+            max-width: 500px;
             text-align: left;
             color: ${theme.text};
-            text-decoration: none;
-            border: 1px solid;
-            border-color: ${theme.decoration};
-            border-radius: 10px;
           }
 
           .card h3 {

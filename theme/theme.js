@@ -12,11 +12,9 @@ export const link = css.resolve`
 export const Grid = css`
   .grid {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
-    max-width: 800px;
-    margin-top: 3rem;
+    align-items: center;
   }
 
   @media (max-width: 600px) {
