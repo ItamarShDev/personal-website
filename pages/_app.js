@@ -38,9 +38,7 @@ function App({ Component, pageProps }) {
               Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
               sans-serif;
           }
-          header {
-            transition: background-color 0.5s linear;
-          }
+
           * {
             box-sizing: border-box;
             border-color: ${theme.decorations};

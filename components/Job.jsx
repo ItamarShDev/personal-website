@@ -4,26 +4,21 @@ import { ThemeContext } from "@lib/hooks";
 export default function Job({ job, opened, setOpened, index }) {
   const { theme } = useContext(ThemeContext);
   const tags = job.tags.join(", ");
-  const isOpac = typeof opened === "number" && opened !== index;
-  const isOpened = opened === index;
   return (
-    <li className={isOpac ? "opac" : ""}>
+    <li>
       <div className="row">
         <div className="duration">
-          <div className="from">{job.duration.from}</div>
-          <div className="to">{job.duration.to}</div>
+          {job.duration.from} - {job.duration.to}
         </div>
-        <div
-          className={`box`}
-          onClick={() => (isOpened ? setOpened(null) : setOpened(index))}
-        >
-          <div className="logo">
-            <img className="image" src={job.company.logo} alt="" />
-          </div>
+        <div className="box">
           <div className="job">
             <h3 className="title">{job.title}</h3>
             <span className="company">
-              <a href={job.company.website} target="_blank">
+              <a
+                href={job.company.website}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 {job.company.name}
               </a>
             </span>
@@ -35,7 +30,7 @@ export default function Job({ job, opened, setOpened, index }) {
               ))}
             </p>
           </div>
-          <div className={`extra ${isOpened ? "" : "hidden"}`}>
+          <div className="extra">
             <p>
               {job.elaborated_desctiption.split("\n").map((text, idx) => (
                 <span key={idx}>{text}</span>
@@ -46,31 +41,23 @@ export default function Job({ job, opened, setOpened, index }) {
         </div>
       </div>
       <style jsx>{`
-        li {
-          filter: none;
-          opacity: 1;
-          transition: opacity 0.2s linear;
+        .row {
+          display: flex;
+          flex-direction: row;
         }
-        li.opac {
-          opacity: 0.5;
-          filter: grayscale(100%) blur(1px);
+        @media (max-width: 600px) {
+          .row {
+            flex-direction: column;
+          }
         }
         .box {
           display: flex;
           flex-direction: column;
-          justify-content: center;
           margin: 10px;
-          margin-left: 50px;
           padding: 5px;
-          position: relative;
-          max-width: 500px;
-          border-bottom: 0.02rem #808080 dotted;
+          max-width: 700px;
         }
 
-        .job {
-          display: flex;
-          flex-direction: column;
-        }
         .title {
           font-size: 1.2rem;
           margin-block-end: 0.2rem;
@@ -118,16 +105,8 @@ export default function Job({ job, opened, setOpened, index }) {
           break-after: always;
           white-space: wrap;
         }
-        .extra.hidden {
-          flex: 0;
-        }
 
         .extra {
-          flex: 1;
-          display: flex;
-          height: auto;
-          overflow: hidden;
-          transition: flex 0.5s ease;
           font-size: 0.7rem;
           font-style: italic;
         }
@@ -136,44 +115,15 @@ export default function Job({ job, opened, setOpened, index }) {
           font-size: 0.7rem;
           color: grey;
         }
-        .row {
-          display: flex;
-          flex-direction: row;
-        }
-        li {
-          transform: translateX(-1.85rem);
-        }
-        @media (min-width: 720px) {
-          .duration .from {
-            transform: translateX(-100%);
-          }
-          .duration .to {
-            transform: translateY(-100%);
-          }
-        }
+
         .duration {
           display: flex;
           position: relative;
           flex-direction: column;
           justify-content: center;
           height: inherit;
-          width: 50px;
           font-size: 0.7rem;
         }
-
-        /* li:hover {
-          transition: transform 0.2s ease-out;
-          transform: scale(1.1) translateX(0.1rem);
-        }
-
-        li:hover .duration {
-          font-size: 1rem;
-          margin-right: 10px;
-        }
-
-        li:hover .duration .from {
-          transform: translateX(-130%);
-        } */
       `}</style>
     </li>
   );
