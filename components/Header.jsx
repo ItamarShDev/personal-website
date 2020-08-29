@@ -52,7 +52,7 @@ const Header = (props) => {
   const { theme } = useContext(ThemeContext);
   const { title } = props;
   return (
-    <header>
+    <nav>
       <div></div>
       <Link href="/">
         <a className="title" title="Click to go home">
@@ -61,7 +61,7 @@ const Header = (props) => {
       </Link>
       <ThemedIcon />
       <style jsx>{`
-        header {
+        nav {
           height: 60px;
           width: 100%;
           display: grid;
@@ -80,7 +80,7 @@ const Header = (props) => {
           color: ${theme.headerText};
         }
       `}</style>
-    </header>
+    </nav>
   );
 };
 

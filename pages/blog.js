@@ -1,6 +1,6 @@
 import { getSortedPostsData } from "../lib/posts";
 import AppLayout from "../layouts/app-layout";
-import Card from "@components/card";
+import Card from "@components/Card";
 
 export function getStaticProps() {
   const allPostsData = getSortedPostsData();

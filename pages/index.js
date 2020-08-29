@@ -1,25 +1,21 @@
 import AppLayout from "../layouts/app-layout";
-import { Grid } from "../theme/theme";
-import Card from "@components/card";
-
+import { centered } from "../theme/theme";
+import Card from "@components/Card";
+import Personal from "@layouts/personal.js";
 export default function Home() {
+  const { className, styles } = centered(true);
   return (
     <AppLayout title="Itamar Sharify">
-      <div className="grid">
+      <Personal />
+      <div className={className}>
         <Card route="resume" title="Resume &rarr;" subTitle="Resume Timeline" />
-        <Card route="uses" title="Uses &rarr;" subTitle="Favorite stack" />
         <Card
           route="blog"
           title="Blog &rarr;"
           subTitle="My Development journy"
         />
-        <Card
-          route="personal"
-          title="Let's get personal &rarr;"
-          subTitle="Learn about me"
-        />
       </div>
-      <style jsx>{Grid}</style>
+      {styles}
     </AppLayout>
   );
 }

@@ -56,6 +56,7 @@ function App({ Component, pageProps }) {
           a {
             color: ${theme.link};
             text-decoration: none;
+            scroll-margin-top: 65px;
           }
 
           .logo {

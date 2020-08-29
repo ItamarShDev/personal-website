@@ -16,17 +16,17 @@ export default function Blog({ data, html }) {
         article pre {
           font-family: "hasklig", "fira";
           line-height: 1.5em;
-          padding: 0.75rem;
+          padding: 0.75em;
           border-left: 1px ${theme.decorations} solid;
-          background-color: ${isDark ? "rgba(0, 0, 0, 0.5)" : "black"};
+          background-color: ${isDark ? "rgba(0, 0, 0, 0.5)" : theme.header};
           overflow-x: auto;
         }
         article blockquote {
           font-family: Georgia, serif;
-          padding: 5px 0.4rem;
+          padding: 5px 0.4em;
           border-left: 1px ${theme.decorations} dotted;
           margin: 1rem 0 0 0;
-          font-size: 0.9rem;
+          font-size: 0.9em;
           font-style: italic;
         }
         blockquote p {
@@ -36,14 +36,14 @@ export default function Blog({ data, html }) {
           font-family: Georgia, serif;
           list-style-type: square;
           font-style: italic;
-          line-height: 1.2rem;
+          line-height: 1.2em;
         }
         ul li {
           margin: 0.4rem auto;
         }
         @media (max-width: 640px) {
           article pre {
-            font-size: 0.3rem;
+            font-size: 0.8em;
             line-height: 1rem;
             padding: 0.5rem;
           }
