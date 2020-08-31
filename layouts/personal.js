@@ -2,7 +2,7 @@ import React from "react";
 import AppLayout from "@layouts/app-layout";
 import { Avatar, AboutMe, SocialRefs } from "@components";
 
-const Personal = (props) => {
+const Personal = () => {
   return (
     <AppLayout>
       <Avatar />
