@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
     "next": "^9.4.4",
+    "next-compose-plugins": "^2.2.0",
+    "next-optimized-images": "^2.6.2",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -18,10 +20,16 @@
     "babel-plugin-macros": "^2.8.0",
     "babel-plugin-preval": "^5.0.0",
     "husky": ">=4",
+    "image-trace-loader": "^1.0.2",
+    "imagemin-svgo": "^8.0.0",
+    "jimp": "^0.16.1",
     "lint-staged": ">=10",
+    "lqip-loader": "^2.2.1",
     "marked": "^1.1.1",
     "prettier": "2.0.5",
-    "prism-react-renderer": "^1.1.1"
+    "prism-react-renderer": "^1.1.1",
+    "responsive-loader": "^2.2.0",
+    "webp-loader": "^0.6.0"
   },
   "husky": {
     "hooks": {

@@ -1,9 +1,17 @@
+import Image from "@components/Image";
 import React from "react";
 import { centered, grid } from "theme/theme";
 
 function SocialRefs({ withTitle }) {
-  const { className: centerClass, styles: centerStyle } = centered(true);
-  const { className: gridClass, styles: gridStyle } = grid(2, 1, 20);
+  const { className: centerClass, styles: centerStyle } = centered({
+    isColumns: true,
+  });
+
+  const { className: gridClass, styles: gridStyle } = grid({
+    rows: 1,
+    cols: 2,
+    gap: 20,
+  });
 
   return (
     <div className={centerClass}>
@@ -14,24 +22,25 @@ function SocialRefs({ withTitle }) {
           href="https://twitter.com/ISharify"
           target="_blank"
           rel="noreferrer noopener"
-        ></a>
+          alt="twitter link"
+        >
+          <Image src="icons/twitter.svg" alt="Twitter logo" type="svg" center />
+        </a>
         <a
           className="item github"
           href="https://www.github.com/ItamarShDev"
           target="_blank"
           rel="noreferrer noopener"
-        ></a>
+          alt="github link"
+        >
+          <Image type="svg" src="/icons/github.svg" alt="github logo" center />
+        </a>
         {gridStyle}
         <style jsx>{`
-          .github {
-            background-image: url(/icons/github.svg);
-          }
-          .twitter {
-            background-image: url(/icons/twitter.svg);
-          }
           .item {
             background-size: 60px;
             height: 60px;
+            font-size: 0;
             width: 60px;
           }
         `}</style>

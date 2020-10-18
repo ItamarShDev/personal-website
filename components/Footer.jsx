@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "@hooks";
+import Image from "@components/Image";
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext);
@@ -9,8 +10,11 @@ const Footer = () => {
         href="https://twitter.com/ISharify"
         target="_blank"
         rel="noreferrer noopener"
+        className="twitter"
       >
-        <img className="twitter" src="/icons/twitter.svg" alt="Twitter logo" />
+        <div>
+          <Image src="icons/twitter.svg" alt="Twitter logo" type="svg" center />
+        </div>
         Twitter
       </a>
       <a
@@ -18,15 +22,20 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer noopener"
       >
-        <img src="/icons/github.svg" alt="github logo" />
+        <div>
+          <Image type="svg" src="/icons/github.svg" alt="github logo" center />
+        </div>
         Github
       </a>
       <a
         href="https://medium.com/@itamarsharify"
         target="_blank"
+        className="medium"
         rel="noreferrer noopener"
       >
-        <img className="medium" src="/icons/medium.svg" alt="Medium logo" />
+        <div>
+          <Image type="svg" src="/icons/medium.svg" alt="Medium logo" center />
+        </div>
         Medium
       </a>
       <style jsx>{`
@@ -56,15 +65,18 @@ const Footer = () => {
           color: ${theme.decorations};
           filter: none;
         }
-        a img {
+        a div {
           height: 1rem;
+          width: 1rem;
           margin: auto 5px;
         }
-        a img.medium {
+        a div.medium {
           height: 0.9rem;
+          width: 0.9rem;
         }
-        a img.twitter {
+        a div.twitter {
           height: 1.5rem;
+          width: 1.5rem;
         }
       `}</style>
     </footer>

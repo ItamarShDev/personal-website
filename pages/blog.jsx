@@ -1,6 +1,6 @@
 import { getSortedPostsData } from "../lib/posts";
 import AppLayout from "../layouts/app-layout";
-import Card from "@components/Card";
+import Card from "@components/blog/card";
 
 export function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -8,6 +8,7 @@ export function getStaticProps() {
     props: {
       allPostsData,
       headerTitle: "Blog",
+      isCentered: true,
     },
   };
 }
@@ -27,9 +28,11 @@ function Blog({ post }) {
 export default function Blogs({ allPostsData }) {
   return (
     <AppLayout title="Blog - Itamar Sharify">
-      {allPostsData.map((post) => (
-        <Blog key={post.slug} post={post} />
-      ))}
+      <article className="box">
+        {allPostsData.map((post) => (
+          <Blog key={post.slug} post={post} />
+        ))}
+      </article>
     </AppLayout>
   );
 }

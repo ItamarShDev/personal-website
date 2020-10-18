@@ -2,15 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@hooks";
 import { Header, Footer } from "@components";
+import { centered, mainContent } from "theme/theme";
 function App({ Component, pageProps }) {
   const { theme, toggleTheme, ThemeContext, isDark } = useTheme();
-  const title = pageProps.headerTitle || "Itamar Sharify";
+  const title = pageProps.headerTitle;
+  const { className: centerClassName, styles: centerStyle } = centered({
+    selector: "main",
+    isColumns: true,
+  });
+  const { className: contentClassName, styles: contentStyle } = mainContent({
+    selector: "main",
+  });
+  const { isCentered, isContent } = pageProps;
+  let mainClassName = `${isCentered ? centerClassName : ""}  ${
+    isContent ? contentClassName : ""
+  }`;
   return (
     <div>
       <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
         <Header title={title} />
-        <main>
+        <main className={mainClassName}>
           <Component {...pageProps} />
+          {centerStyle}
+          {contentStyle}
         </main>
         <Footer />
         <style jsx global>{`

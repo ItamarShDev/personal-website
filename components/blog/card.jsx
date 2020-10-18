@@ -13,6 +13,7 @@ export default function Card({ children, title, subTitle, route, routeRef }) {
         {children}
         <style jsx>{`
           .card:hover {
+            background-color: ${theme.hoverDecorations};
             transition: all 0.2s linear;
           }
           .card:hover h3 {
@@ -21,24 +22,27 @@ export default function Card({ children, title, subTitle, route, routeRef }) {
         `}</style>
         <style jsx>{`
           .card {
+            border-radius: 2em;
             display: block;
-            margin: 1rem;
+            margin: 0.5rem;
             padding: 1.5rem;
-            min-width: 300px;
-            max-width: 500px;
+            max-width: 800px;
             text-align: left;
-            color: ${theme.text};
           }
 
           .card h3 {
             margin: 0 0 1rem 0;
             font-size: 1.5rem;
+            text-decoration: underline double;
+            color: ${theme.header};
           }
 
           .card p {
+            color: ${theme.text};
             margin: 0;
-            font-size: 1.25rem;
+            font-size: 1rem;
             line-height: 1.5;
+            font-style: italic;
           }
         `}</style>
       </a>

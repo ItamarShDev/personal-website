@@ -3,7 +3,7 @@ import { centered } from "../theme/theme";
 import Card from "@components/Card";
 import Personal from "@layouts/personal";
 export default function Home() {
-  const { className, styles } = centered(true);
+  const { className, styles } = centered({ isColumns: true });
   return (
     <AppLayout title="Itamar Sharify">
       <Personal />

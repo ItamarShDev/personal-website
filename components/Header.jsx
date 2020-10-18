@@ -10,8 +10,12 @@ const Header = (props) => {
     <nav>
       <div></div>
       <Link href="/">
-        <a className="title" title="Click to go home">
-          {title}
+        <a title="Click to go home">
+          <span className="name">Itamar Sharify</span>
+          {title && (
+            <span className="divider"> &nbsp;&nbsp;›&nbsp;&nbsp; </span>
+          )}
+          <span className="title">{title}</span>
         </a>
       </Link>
       <ThemedIcon />
@@ -30,10 +34,19 @@ const Header = (props) => {
           background-color: ${theme.bg};
           transition: all 0.2s linear;
         }
-        a.title {
+        .divider {
+          color: ${theme.header};
+        }
+        .name {
+          font-size: 1.6rem;
+          font-weight: bold;
+          color: ${theme.header};
+        }
+        .title {
           font-size: 1.4rem;
           font-family: cascadia;
-          color: ${theme.header};
+          color: ${theme.headerText};
+          font-style: italic;
         }
       `}</style>
     </nav>

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 
-const AppLayout = ({ children, title, favicon, header }) => {
+const AppLayout = ({ children, title, favicon }) => {
   return (
     <>
       <Head>

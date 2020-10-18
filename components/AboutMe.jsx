@@ -1,51 +1,58 @@
-import { centered, grid, gridItem } from "theme/theme";
+import { centered, grid, gridItem, invertByTheme } from "theme/theme";
 import { ThemeContext } from "@lib/hooks";
 import { useContext } from "react";
+import Image from "@components/Image";
 
 function LanguagesList() {
-  const { className, styles } = grid(3, 3, 20);
+  const { className, styles } = grid({
+    rows: 3,
+    cols: 3,
+    gap: 20,
+    height: "250px",
+    width: "250px",
+  });
   const { isDark } = useContext(ThemeContext);
-
+  const { className: item, styles: itemStyle } = gridItem();
+  const { className: inverted, styles: invertedStyle } = invertByTheme(isDark);
   return (
     <div className="languages">
       <h5>Uses</h5>
-      <div className={`${className} size-restrict`}>
-        <img
-          src="https://www.python.org/static/community_logos/python-logo-generic.svg"
-          className="item"
+      <div className={`${className}`}>
+        <Image
+          src="logos/nextjs.png"
+          className={`${item} ${inverted}`}
+          alt="nextjs"
+          center
         />
-        <img src="logos/react-logo.png" className="item" />
-        <img src="https://mobx.js.org/assets/mobx.png" className="item" />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/414px-Nextjs-logo.svg.png"
-          className="item inverted-on-dark"
+        <Image
+          src="logos/python.svg"
+          className={item}
+          center
+          alt="python"
+          type="svg"
         />
-        <img
-          src="https://raw.githubusercontent.com/cljs/logo/master/cljs.png"
-          className="item"
+        <Image src="logos/react-logo.png" className={item} alt="react" center />
+        <Image src="logos/mobx.png" className={item} alt="mobx" />
+        <Image src="logos/cljs.png" className={item} alt="cljs" />
+        <Image
+          src="logos/vscode.svg"
+          className={item}
+          alt="vscode"
+          type="svg"
         />
-        <img src="logos/vscode.svg" className="item" />
-
+        {itemStyle}
         {styles}
-        <style jsx>{gridItem}</style>
-        <style jsx>
-          {`
-            .size-restrict {
-              max-width: 300px;
-              margin: 0 auto;
-            }
-            .inverted-on-dark {
-              filter: invert(${isDark ? 1 : 0});
-            }
-          `}
-        </style>
+        {invertedStyle}
       </div>
     </div>
   );
 }
 
 function AboutMe(props) {
-  const { className, styles } = centered(true, true);
+  const { className, styles } = centered({
+    isColumns: true,
+    centerText: true,
+  });
   return (
     <div className={className}>
       <h4>Full Stack web developer</h4>

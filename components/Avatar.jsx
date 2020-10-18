@@ -1,8 +1,9 @@
+import Image from "@components/Image";
 export default function Avatar(props) {
   return (
     <div className="row">
       <div className="avatar">
-        <img
+        <Image
           src="images/me.jpg"
           alt="profile picture"
           title="Me, preparing for my wedding"

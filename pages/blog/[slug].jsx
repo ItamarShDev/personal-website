@@ -13,6 +13,15 @@ export default function Blog({ data, html }) {
       <article dangerouslySetInnerHTML={{ __html: html }} />
       <style jsx global>{`
         @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+        h1 {
+          text-decoration: underline double;
+          margin-bottom: 30px;
+          font-family: "fira";
+        }
+        article {
+          line-height: 2em;
+          font-family: Arial, Helvetica, sans-serif;
+        }
         article pre {
           font-family: "hasklig", "fira";
           line-height: 1.5em;
@@ -20,6 +29,8 @@ export default function Blog({ data, html }) {
           border-left: 1px ${theme.decorations} solid;
           background-color: ${isDark ? "rgba(0, 0, 0, 0.5)" : theme.header};
           overflow-x: auto;
+          max-height: 400px;
+          overflow-y: auto;
         }
         article blockquote {
           font-family: Georgia, serif;
@@ -54,13 +65,13 @@ export default function Blog({ data, html }) {
 }
 
 export async function getStaticProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
   const { data, content } = getPostData(params.slug);
   return {
     props: {
       data,
       html: renderMarkdown(content),
       headerTitle: "Blog",
+      isContent: true,
     },
   };
 }
