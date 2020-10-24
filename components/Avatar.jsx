@@ -1,33 +1,27 @@
 import Image from "@components/Image";
+import { ThemeContext } from "@lib/hooks";
+import { useContext } from "react";
 export default function Avatar(props) {
+  const { isDark, theme } = useContext(ThemeContext);
+  const imageType = isDark ? "dark" : "light";
   return (
-    <div className="row">
-      <div className="avatar">
-        <Image
-          src="images/me.jpg"
-          alt="profile picture"
-          title="Me, preparing for my wedding"
-        />
-      </div>
+    <span className="avatar">
+      <Image
+        src={`images/me-${imageType}.png`}
+        alt="profile picture"
+        title="Me, preparing for my wedding"
+        size="15em"
+      />
       <style jsx>{`
-        .row {
-          display: flex;
-          justify-content: center;
-        }
         .avatar {
+          display: inline-block;
+          height: 15em;
+          width: 15em;
           border-radius: 50%;
-          height: 60vw;
-          width: 60vw;
-          max-width: 400px;
-          max-height: 400px;
+          border: 1px dashed ${theme.decorations};
           overflow: hidden;
         }
-        img {
-          height: auto;
-          width: 150%;
-          transform: translateX(-20%);
-        }
       `}</style>
-    </div>
+    </span>
   );
 }

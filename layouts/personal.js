@@ -1,13 +1,20 @@
 import React from "react";
 import AppLayout from "@layouts/app-layout";
-import { Avatar, AboutMe, SocialRefs } from "@components";
+import { AboutMe, SocialRefs, LanguagesList } from "@components";
+import { centered } from "theme/theme";
 
 const Personal = () => {
+  const { className, styles } = centered({
+    isColumns: true,
+  });
   return (
     <AppLayout>
-      <Avatar />
-      <AboutMe />
-      <SocialRefs withTitle={true} />
+      <div className={className}>
+        <AboutMe />
+        <LanguagesList />
+        <SocialRefs withTitle={true} />
+        {styles}
+      </div>
     </AppLayout>
   );
 };

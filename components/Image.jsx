@@ -48,8 +48,8 @@ export default function Image({
           position: absolute;
           width: 100%;
           top: ${shift}%;
-          transform: translate(-${shift}%, -${shift}%);
           left: ${shift}%;
+          transform: translate(-${shift}%, -${shift}%);
         }
       `}</style>
     </div>
