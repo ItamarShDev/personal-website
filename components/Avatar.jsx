@@ -1,6 +1,7 @@
 import Image from "@components/Image";
 import { ThemeContext } from "@lib/hooks";
 import { useContext } from "react";
+
 export default function Avatar(props) {
   const { isDark, theme } = useContext(ThemeContext);
   const imageType = isDark ? "dark" : "light";

@@ -23,7 +23,7 @@ const Footer = () => {
         rel="noreferrer noopener"
       >
         <div>
-          <Image type="svg" src="/icons/github.svg" alt="github logo" center />
+          <Image type="svg" src="icons/github.svg" alt="github logo" center />
         </div>
         Github
       </a>
@@ -34,7 +34,7 @@ const Footer = () => {
         rel="noreferrer noopener"
       >
         <div>
-          <Image type="svg" src="/icons/medium.svg" alt="Medium logo" center />
+          <Image type="svg" src="icons/medium.svg" alt="Medium logo" center />
         </div>
         Medium
       </a>

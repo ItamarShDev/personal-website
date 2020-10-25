@@ -1,4 +1,4 @@
-import { grid, gridItem, invertByTheme } from "theme/theme";
+import { centered, grid, gridItem, invertByTheme } from "theme/theme";
 import { ThemeContext } from "@lib/hooks";
 import { useContext } from "react";
 import Image from "@components/Image";
@@ -12,11 +12,14 @@ export default function LanguagesList() {
     width: "250px",
   });
   const { isDark } = useContext(ThemeContext);
+  const { className: centerClass, styles: centerStyle } = centered({
+    isColumns: true,
+  });
   const { className: item, styles: itemStyle } = gridItem();
   const { className: inverted, styles: invertedStyle } = invertByTheme(isDark);
   return (
-    <div className="languages">
-      <h5>Uses</h5>
+    <div className={`languages ${centerClass}`}>
+      <h2>Uses</h2>
       <div className={`${className}`}>
         <Image
           src="logos/nextjs.png"
@@ -43,6 +46,7 @@ export default function LanguagesList() {
         {itemStyle}
         {styles}
         {invertedStyle}
+        {centerStyle}
       </div>
     </div>
   );

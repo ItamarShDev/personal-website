@@ -98,7 +98,6 @@ class App extends React.Component {
   view = (data) => <div>{JSON.stringify(data)}</div>;
   render() {
     const promised = this.promised;
-    console.log(promised);
     return viewByState(promised, this.props, this.view);
   }
 }
@@ -156,7 +155,6 @@ class App extends React.Component {
   view = (data) => <div>{JSON.stringify(data)}</div>;
   render() {
     const promised = this.promised;
-    console.log(promised);
     // return viewByState(promised, this.props, this.view);
     return (
       <AsyncRender promise={promised}>
@@ -203,15 +201,12 @@ import { observer, inject } from "mobx-react";
 import "./styles.css";
 
 function viewByState(promise, elementFn) {
-  console.log(promise.state);
   switch (promise.state) {
     case "pending":
       return <div>pending</div>;
     case "rejected":
       return <div>Error {promise.value.toString()}</div>;
     case "fulfilled":
-      console.log(promise.value);
-
       return elementFn(promise.value);
     default:
       return "Nothing to see here";

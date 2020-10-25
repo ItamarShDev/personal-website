@@ -33,7 +33,7 @@ function SocialRefs({ withTitle }) {
           rel="noreferrer noopener"
           alt="github link"
         >
-          <Image type="svg" src="/icons/github.svg" alt="github logo" center />
+          <Image type="svg" src="icons/github.svg" alt="github logo" center />
         </a>
         {gridStyle}
         <style jsx>{`

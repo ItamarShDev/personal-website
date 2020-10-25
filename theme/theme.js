@@ -21,7 +21,6 @@ export function grid({
   `;
 }
 export function invertByTheme(isDark) {
-  console.log(isDark);
   return css.resolve`
     div {
       filter: invert(${isDark ? 1 : 0});
@@ -41,7 +40,8 @@ export function centered({
   isColumns = false,
   centerText = false,
   selector = "div",
-}) {
+  gap = 0,
+} = {}) {
   return css.resolve`
     ${selector} {
       display: flex;
@@ -49,6 +49,7 @@ export function centered({
       justify-content: center;
       align-items: center;
       text-align: ${centerText ? "center" : "start"};
+      gap: ${gap}px;
     }
   `;
 }

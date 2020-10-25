@@ -8,6 +8,9 @@ module.exports = withPlugins(
       optimizedImages,
       {
         optimizeImagesInDev: true,
+        responsive: {
+          adapter: require("responsive-loader/sharp"),
+        },
       },
     ],
   ],

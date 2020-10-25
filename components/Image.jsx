@@ -1,7 +1,15 @@
-import React from "react";
-function importImage(src) {
-  return require(`../public/${src}?trace`);
+import React, { useEffect, useState } from "react";
+function useImage(source) {
+  const [image, setImage] = useState({ src: null, preSrc: null, srcSet: null });
+  useEffect(() => {
+    const img = require(`public/${source}?lqip`);
+    // const imgs = require(`public/${source}?resize&sizes[]=300&sizes[]=600&sizes[]=1000`);
+    const _image = { src: img.src, preSrc: img.preSrc };
+    setImage(_image);
+  });
+  return [image.src, image.preSrc];
 }
+
 export default function Image({
   src,
   alt,
@@ -33,16 +41,31 @@ export default function Image({
       </div>
     );
   }
-  const image = importImage(src);
+  const [imageSrc, imagePreSrc] = useImage(src);
+  const loadingClass = imageSrc ? "" : "loading";
   return (
-    <div className={className}>
-      <img src={image.trace} alt={alt} title={title} />
-      <img src={image.src} alt={alt} title={title} />
+    <div className={`${className} ${loadingClass}`}>
+      <img
+        className="preview"
+        src={imagePreSrc}
+        alt={alt}
+        title={title}
+        loading="lazy"
+      />
+      <img src={imageSrc} alt={alt} title={title} loading="lazy" />
       <style jsx>{`
         div {
           position: relative;
           width: ${size};
           height: ${size};
+          transition: all 1s linear;
+          filter: blur(0);
+        }
+        div.loading {
+          filter: blur(20px);
+        }
+        div img.preview {
+          opacity: 0;
         }
         img {
           position: absolute;

@@ -1,7 +1,7 @@
-import AppLayout from "../layouts/app-layout";
+import AppLayout from "@layouts/app-layout";
 import { centered } from "../theme/theme";
 import Card from "@components/Card";
-import Personal from "@layouts/Personal";
+import Personal from "@layouts/personal";
 export default function Home() {
   const { className, styles } = centered({ isColumns: true });
   return (
