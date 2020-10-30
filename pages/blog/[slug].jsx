@@ -13,10 +13,17 @@ export default function Blog({ data, html }) {
       <article dangerouslySetInnerHTML={{ __html: html }} />
       <style jsx global>{`
         @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+        *::selection {
+          background-color: ${theme.hoverDecorations};
+          color: ${theme.header};
+        }
         h1 {
           text-decoration: underline double;
           margin-bottom: 30px;
           font-family: "fira";
+        }
+        a {
+          color: ${theme.header};
         }
         article {
           line-height: 2em;

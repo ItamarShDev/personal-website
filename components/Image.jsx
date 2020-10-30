@@ -3,9 +3,7 @@ function useImage(source) {
   const [image, setImage] = useState({ src: null, preSrc: null, srcSet: null });
   useEffect(() => {
     const img = require(`public/${source}?lqip`);
-    // const imgs = require(`public/${source}?resize&sizes[]=300&sizes[]=600&sizes[]=1000`);
-    const _image = { src: img.src, preSrc: img.preSrc };
-    setImage(_image);
+    setImage(img);
   });
   return [image.src, image.preSrc];
 }
@@ -20,6 +18,7 @@ export default function Image({
   center = false,
 }) {
   const shift = center ? 50 : 0;
+
   if (type === "svg") {
     return (
       <div className={className}>
