@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@hooks";
-import { Header, Footer } from "@components";
+import { Header, Footer } from "@layouts";
 import { centered, mainContent } from "theme/theme";
 function App({ Component, pageProps }) {
   const { theme, toggleTheme, ThemeContext, isDark } = useTheme();
@@ -39,7 +39,7 @@ function App({ Component, pageProps }) {
           }
           @font-face {
             font-family: hasklig;
-            src: url(/fonts/Hasklig.otf);
+            src: url(/fonts/Hasklig.otf) ormat("opentype");
           }
 
           body {

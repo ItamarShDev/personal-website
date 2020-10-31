@@ -1,18 +1,7 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import Card from "./Card";
-import Job from "./Job";
-import Avatar from "./Avatar";
-import AboutMe from "./AboutMe";
-import SocialRefs from "./SocialRefs";
-import LanguagesList from "./LanguagesList";
-export {
-  Header,
-  Footer,
-  Card,
-  Job,
-  Avatar,
-  AboutMe,
-  SocialRefs,
-  LanguagesList,
-};
+import Card from "./card";
+import Job from "./job";
+import Avatar from "./avatar";
+import AboutMe from "./about-me";
+import SocialRefs from "./social-refs";
+import LanguagesList from "./language-list";
+export { Card, Job, Avatar, AboutMe, SocialRefs, LanguagesList };

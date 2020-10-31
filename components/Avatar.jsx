@@ -1,4 +1,4 @@
-import Image from "@components/Image";
+import Image from "@components/image";
 import { ThemeContext } from "@lib/hooks";
 import { useContext } from "react";
 

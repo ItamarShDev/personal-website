@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "@hooks";
 import Link from "next/link";
-import { ThemedIcon } from "./ThemedIcon";
+import { ThemedIcon } from "../components/themed-icon";
 
 const Header = (props) => {
   const { theme } = useContext(ThemeContext);

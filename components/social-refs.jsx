@@ -1,4 +1,4 @@
-import Image from "@components/Image";
+import Image from "@components/image";
 import React from "react";
 import { centered, grid } from "theme/theme";
 

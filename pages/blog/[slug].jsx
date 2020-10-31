@@ -20,17 +20,23 @@ export default function Blog({ data, html }) {
         h1 {
           text-decoration: underline double;
           margin-bottom: 30px;
-          font-family: "fira";
+          font-family: "hasklig";
+        }
+        h2 {
+          font-family: "hasklig";
+        }
+        h1 a,
+        h2 a {
+          color: ${theme.header};
         }
         a {
-          color: ${theme.header};
         }
         article {
           line-height: 2em;
           font-family: Arial, Helvetica, sans-serif;
         }
         article pre {
-          font-family: "hasklig", "fira";
+          font-family: "fira", "hasklig";
           line-height: 1.5em;
           padding: 0.75em;
           border-left: 1px ${theme.decorations} solid;
