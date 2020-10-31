@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { getResumeData } from "@lib/resume";
-import AppLayout from "@layouts/app-layout";
-import { Job } from "@components";
+import { getResumeData } from "lib/resume";
+import AppLayout from "layouts/app-layout";
+import { Job } from "components";
 
 export default function Resume({ resumeData }) {
   const [opened, setOpened] = useState(0);

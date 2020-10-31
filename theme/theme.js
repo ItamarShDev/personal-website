@@ -2,65 +2,67 @@
 import css from "styled-jsx/css";
 
 export function grid({
-  cols = 2,
-  rows = 2,
-  gap = 0,
-  height = "auto",
-  width = "auto",
+    cols = 2,
+    rows = 2,
+    gap = 0,
+    height = "auto",
+    width = "auto",
 }) {
-  return css.resolve`
-    div {
-      display: grid;
-      grid-template: repeat(${rows}, 1fr) / repeat(${cols}, 1fr);
-      grid-gap: ${gap}px;
-      justify-content: center;
-      align-items: center;
-      height: ${height};
-      width: ${width};
-    }
-  `;
+    return css.resolve`
+        div {
+            display: grid;
+            grid-template: repeat(${rows}, 1fr) / repeat(${cols}, 1fr);
+            grid-gap: ${gap}px;
+            justify-content: center;
+            align-items: center;
+            height: ${height};
+            width: ${width};
+        }
+    `;
 }
 export function invertByTheme(isDark) {
-  return css.resolve`
-    div {
-      filter: invert(${isDark ? 1 : 0});
-    }
-  `;
+    return css.resolve`
+        div {
+            filter: invert(${isDark ? 1 : 0});
+        }
+    `;
 }
 export const gridItem = () =>
-  css.resolve`
-    .item {
-      object-fit: contain;
-      max-width: 100%;
-      max-height: 100%;
-    }
-  `;
+    css.resolve`
+        .item {
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    `;
 
 export function centered({
-  isColumns = false,
-  centerText = false,
-  selector = "div",
-  gap = 0,
+    isColumns = false,
+    centerText = false,
+    selector = "div",
+    gap = 0,
 } = {}) {
-  return css.resolve`
-    ${selector} {
-      display: flex;
-      flex-direction: ${isColumns ? "column" : "row"};
-      justify-content: center;
-      align-items: center;
-      text-align: ${centerText ? "center" : "start"};
-      gap: ${gap}px;
-    }
-  `;
+    return css.resolve`
+        ${selector} {
+            display: flex;
+            width: inherit;
+            flex-direction: ${isColumns ? "column" : "row"};
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: ${centerText ? "center" : "start"};
+            gap: ${gap}px;
+        }
+    `;
 }
 
 export function mainContent({ selector = "div" }) {
-  return css.resolve`
-    ${selector} {
-      min-width: 800px;
-      width: 80%;
-      max-width: 1200px;
-      margin: auto;
-    }
-  `;
+    return css.resolve`
+        ${selector} {
+            min-width: 800px;
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+        }
+    `;
 }

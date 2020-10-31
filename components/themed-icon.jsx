@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "@hooks";
+import { ThemeContext } from "lib/hooks";
 export function getIconClassAndAction(isDark) {
   if (isDark) {
     return "dark-icon";

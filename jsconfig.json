@@ -1,16 +1,5 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@lib/*": ["lib/*"],
-      "@layouts/*": [
-        "layouts/*"
-      ],
-      "@layouts": ["layouts/index.js"],
-      "@components/*": ["components/*"],
-      "@components": ["components/index.js"],
-      "@hooks": ["lib/hooks.js"],
-      "@color_scheme": ["theme/scheme.js"]
-    }
   }
 }

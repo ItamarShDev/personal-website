@@ -1,7 +1,7 @@
-import { getAllPostIds, getPostData } from "@lib/posts";
-import AppLayout from "@layouts/app-layout";
-import renderMarkdown from "@lib/render-markdown";
-import { ThemeContext } from "@hooks";
+import { getAllPostIds, getPostData } from "lib/posts";
+import AppLayout from "layouts/app-layout";
+import renderMarkdown from "lib/render-markdown";
+import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
 
 export default function Blog({ data, html }) {

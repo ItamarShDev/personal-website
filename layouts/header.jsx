@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "@hooks";
+import { ThemeContext } from "lib/hooks";
 import Link from "next/link";
 import { ThemedIcon } from "../components/themed-icon";
 

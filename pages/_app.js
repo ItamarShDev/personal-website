@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useTheme } from "@hooks";
-import { Header, Footer } from "@layouts";
+import { useTheme } from "lib/hooks";
+import { Header, Footer } from "layouts";
 import { centered, mainContent } from "theme/theme";
 function App({ Component, pageProps }) {
   const { theme, toggleTheme, ThemeContext, isDark } = useTheme();

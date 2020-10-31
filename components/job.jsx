@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "@lib/hooks";
+import { ThemeContext } from "lib/hooks";
 
 export default function Job({ job, opened, setOpened, index }) {
   const { theme } = useContext(ThemeContext);

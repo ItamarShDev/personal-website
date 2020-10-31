@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ThemeContext } from "@hooks";
-import Image from "@components/image";
+import { ThemeContext } from "lib/hooks";
+import Image from "components/image";
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext);

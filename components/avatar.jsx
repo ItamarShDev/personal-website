@@ -1,5 +1,5 @@
-import Image from "@components/image";
-import { ThemeContext } from "@lib/hooks";
+import Image from "components/image";
+import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
 
 export default function Avatar(props) {
