@@ -3,48 +3,52 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 
 const AppLayout = ({ children, title, favicon }) => {
-  return (
-    <>
-      <Head>
-        <title>{title}</title>
-        <link rel="icon" href={favicon} />
-        <meta name="title" content="Itamar Sharify" />
-        <meta name="description" content="Itamar Sharify's personal website" />
+    return (
+        <>
+            <Head>
+                <title>{title}</title>
 
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://itamar.tech/" />
-        <meta property="og:title" content="Itamar Sharify" />
-        <meta
-          property="og:description"
-          content="Itamar Sharify's personal website"
-        />
-        <meta
-          property="og:image"
-          content="https://itamar.tech/images/meta-image.png"
-        />
+                <link rel="icon" href={favicon} />
+                <meta name="title" content="Itamar Sharify" />
+                <meta
+                    name="description"
+                    content="Itamar Sharify's personal website"
+                />
 
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://itamar.tech/" />
-        <meta property="twitter:title" content="Itamar Sharify" />
-        <meta
-          property="twitter:description"
-          content="Itamar Sharify's personal website"
-        />
-        <meta property="twitter:image" content="" />
-      </Head>
-      {children}
-    </>
-  );
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://itamar.tech/" />
+                <meta property="og:title" content="Itamar Sharify" />
+                <meta
+                    property="og:description"
+                    content="Itamar Sharify's personal website"
+                />
+                <meta
+                    property="og:image"
+                    content="https://itamar.tech/images/meta-image.png"
+                />
+
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://itamar.tech/" />
+                <meta property="twitter:title" content="Itamar Sharify" />
+                <meta
+                    property="twitter:description"
+                    content="Itamar Sharify's personal website"
+                />
+                <meta property="twitter:image" content="" />
+            </Head>
+            {children}
+        </>
+    );
 };
 
 AppLayout.propTypes = {
-  children: PropTypes.node,
-  title: PropTypes.string,
-  favicon: PropTypes.string,
+    children: PropTypes.node,
+    title: PropTypes.string,
+    favicon: PropTypes.string,
 };
 
 AppLayout.defaultProps = {
-  title: "Itamar Sharify",
-  favicon: "/favicon.ico",
+    title: "Itamar Sharify",
+    favicon: "/favicon.ico",
 };
 export default AppLayout;

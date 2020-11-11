@@ -8,9 +8,9 @@ function themedDatasets(values, theme) {
         const dataset = {
             label: item.title,
             data: item.values,
+            borderWidth: 2,
             backgroundColor: `hsla(${h}, ${s}%, ${l}%, 0.2)`,
             borderColor: `hsl(${h}, ${s}%, ${l}%)`,
-            borderWidth: 1,
         };
         if (item.hasOwnProperty("settings")) {
             return { ...dataset, ...item.settings };
@@ -60,7 +60,6 @@ function themedLineSettings(title, theme) {
             labels: {
                 boxWidth: 5,
                 fontColor: theme.text,
-                usePointStyle: true,
             },
         },
         spanGaps: false,

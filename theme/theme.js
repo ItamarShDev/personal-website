@@ -11,12 +11,11 @@ export function grid({
     return css.resolve`
         div {
             display: grid;
-            grid-template: repeat(${rows}, 1fr) / repeat(${cols}, 1fr);
-            grid-gap: ${gap}px;
+            grid-template-columns: repeat(${cols}, ${width});
+            grid-template-rows: repeat(${rows}, ${height});
+            grid-gap: ${gap};
             justify-content: center;
             align-items: center;
-            height: ${height};
-            width: ${width};
         }
     `;
 }
@@ -52,17 +51,6 @@ export function centered({
             flex-wrap: wrap;
             text-align: ${centerText ? "center" : "start"};
             gap: ${gap}px;
-        }
-    `;
-}
-
-export function mainContent({ selector = "div" }) {
-    return css.resolve`
-        ${selector} {
-            min-width: 800px;
-            width: 80%;
-            max-width: 1200px;
-            margin: auto;
         }
     `;
 }
