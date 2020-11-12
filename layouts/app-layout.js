@@ -26,15 +26,26 @@ const AppLayout = ({ children, title, favicon }) => {
                     property="og:image"
                     content="https://itamar.tech/images/meta-image.png"
                 />
+                <meta
+                    property="og:site_name"
+                    content="Itamar Sharify's personal website"
+                />
+                <meta
+                    name="twitter:image:alt"
+                    content="Itamar Sharify's personal websitee"
+                />
 
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://itamar.tech/" />
+                <meta property="twitter:card" content="website" />
                 <meta property="twitter:title" content="Itamar Sharify" />
+                <meta property="twitter:url" content="https://itamar.tech/" />
                 <meta
                     property="twitter:description"
                     content="Itamar Sharify's personal website"
                 />
-                <meta property="twitter:image" content="" />
+                <meta
+                    property="twitter:image"
+                    content="https://itamar.tech/images/meta-image.png"
+                />
             </Head>
             {children}
         </>
