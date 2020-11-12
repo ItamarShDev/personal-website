@@ -5,59 +5,71 @@ export default function Job({ job }) {
     const { theme } = useContext(ThemeContext);
     const tags = job.tags.join(", ");
     return (
-        <li>
-            <div className="row">
-                <div className="duration">
-                    {job.duration.from} - {job.duration.to}
+        <dl>
+            <dt>
+                {job.duration.from} - {job.duration.to}
+            </dt>
+            <dd className="box">
+                <div className="job">
+                    <h3 className="title">{job.title}</h3>
+                    <span className="company">
+                        <a
+                            href={job.company.website}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
+                            {job.company.name}
+                        </a>
+                    </span>
                 </div>
-                <div className="box">
-                    <div className="job">
-                        <h3 className="title">{job.title}</h3>
-                        <span className="company">
-                            <a
-                                href={job.company.website}
-                                target="_blank"
-                                rel="noreferrer noopener"
-                            >
-                                {job.company.name}
-                            </a>
-                        </span>
-                    </div>
-                    <div className="summary">
-                        <p>
-                            {job.description.split("\n").map((text, idx) => (
+                <div className="summary">
+                    <p>
+                        {job.description.split("\n").map((text, idx) => (
+                            <span key={idx}>{text}</span>
+                        ))}
+                    </p>
+                </div>
+                <div className="extra">
+                    <p>
+                        {job.elaborated_desctiption
+                            .split("\n")
+                            .map((text, idx) => (
                                 <span key={idx}>{text}</span>
                             ))}
-                        </p>
-                    </div>
-                    <div className="extra">
-                        <p>
-                            {job.elaborated_desctiption
-                                .split("\n")
-                                .map((text, idx) => (
-                                    <span key={idx}>{text}</span>
-                                ))}
-                        </p>
-                    </div>
-                    <p className="tags">{tags}</p>
+                    </p>
                 </div>
-            </div>
+                <p className="tags">{tags}</p>
+            </dd>
             <style jsx>{`
-                .row {
+                dl {
+                    position: relative;
+                }
+                dl::before {
+                    content: "";
+                    position: absolute;
+                    left: -2.05em;
+                    width: 1em;
+                    height: 1em;
                     display: flex;
-                    flex-direction: row;
+                    color: #ffffff;
+                    background-color: ${theme.decorations};
+                    border: 0.2em solid white;
+                    border-radius: 50%;
                 }
-                @media (max-width: 600px) {
-                    .row {
-                        flex-direction: column;
-                    }
+
+                dt {
+                    font-size: 1em;
+                    padding: 0.5em;
+                    transform: translateY(-0.5em);
                 }
-                .box {
+
+                dd {
+                    background-color: ${theme.hoverDecorations};
+                    border-radius: 1em;
+                    padding: 0 1em;
+                    margin-left: 0.5em;
                     display: flex;
                     flex-direction: column;
-                    margin: 10px;
-                    padding: 5px;
-                    max-width: 700px;
                 }
 
                 .title {
@@ -119,16 +131,7 @@ export default function Job({ job }) {
                     font-size: 0.7em;
                     color: ${theme.subText};
                 }
-
-                .duration {
-                    display: flex;
-                    position: relative;
-                    flex-direction: column;
-                    justify-content: center;
-                    height: inherit;
-                    font-size: 0.7em;
-                }
             `}</style>
-        </li>
+        </dl>
     );
 }

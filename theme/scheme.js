@@ -8,7 +8,7 @@ const darkTheme = {
     decorations: "#00adb5",
     hoverDecorations: "#00adb511",
     link: "#0070f3",
-    charts: "#ffff00",
+    charts: "#00fff5",
 };
 
 const lightTheme = {
@@ -21,7 +21,7 @@ const lightTheme = {
     decorations: "#448ef6",
     hoverDecorations: "#448ef611",
     link: "#448ef6",
-    charts: "#e6a71f",
+    charts: "#448ef6",
 };
 const Theme = {
     light: lightTheme,

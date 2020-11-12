@@ -4,7 +4,7 @@ import { ThemeContext } from "lib/hooks";
 const { useState, useContext, useEffect } = require("react");
 function themedDatasets(values, theme) {
     return values.map((item, index) => {
-        const [h, s, l] = hexToHSL(theme.header, index);
+        const [h, s, l] = hexToHSL(theme.charts, index);
         const dataset = {
             label: item.title,
             data: item.values,
