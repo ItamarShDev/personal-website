@@ -3,13 +3,12 @@ function useImage(source) {
     const [image, setImage] = useState({
         src: null,
         preSrc: null,
-        palette: null,
     });
     useEffect(() => {
         const img = require(`public/${source}?lqip`);
         setImage(img);
     });
-    return [image.src, image.preSrc, image.palette];
+    return [image.src, image.preSrc];
 }
 
 export default function Image({
@@ -45,18 +44,14 @@ export default function Image({
             </div>
         );
     }
-    const [imageSrc, imagePreSrc, imagePalette] = useImage(src);
+    const [imageSrc, imagePreSrc] = useImage(src);
     const loadingClass = imageSrc ? "" : "loading";
     return (
         <div className={`${className} ${loadingClass}`}>
-            <img
-                className="preview"
-                src={imagePreSrc}
-                alt={alt}
-                title={title}
-                loading="lazy"
-            />
-            <img src={imageSrc} alt={alt} title={title} loading="lazy" />
+            {imagePreSrc && <img className="preview" src={imagePreSrc} />}
+            {imageSrc && (
+                <img className="full" src={imageSrc} alt={alt} title={title} />
+            )}
             <style jsx>{`
                 div {
                     position: relative;
@@ -64,14 +59,17 @@ export default function Image({
                     height: ${size};
                     transition: all 1s linear;
                     filter: blur(0);
-                    background-color: ${imagePalette};
                 }
                 div.loading {
                     filter: blur(20px);
                 }
-                div img.preview {
+                div:not(.loading) img.preview {
+                    opacity: 1;
+                }
+                div.loading img.preview {
                     opacity: 0;
                 }
+
                 img {
                     position: absolute;
                     object-fit: contain;

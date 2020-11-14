@@ -9,7 +9,7 @@ export default function Avatar(props) {
         <span className="avatar">
             <Image
                 src={`images/me-${imageType}.png`}
-                alt="profile picture"
+                alt="my picture"
                 title="Me, preparing for my wedding"
             />
             <style jsx>{`
