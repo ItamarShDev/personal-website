@@ -9,6 +9,6 @@ const values = [{ title: "Abilities", values: [70, 30, 90, 90, 80] }];
 Full.args = { labels, values };
 Empty.args = {};
 export default {
-    title: "Example/Charts/Abilities",
+    title: "Charts/Abilities",
     component: Abilities,
 };

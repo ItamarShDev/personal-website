@@ -20,16 +20,22 @@ export default function LanguagesList() {
     );
     return (
         <div className={`languages ${centerClass}`}>
-            <h2>Uses</h2>
+            <h5>Uses</h5>
             <div className={className}>
                 <Image
                     src="logos/nextjs.png"
                     className={inverted}
                     alt="nextjs"
+                    imageSize="1.5em"
                     center
                 />
                 <Image src="logos/python.svg" center alt="python" type="svg" />
-                <Image src="logos/react-logo.png" alt="react" center />
+                <Image
+                    src="logos/react-logo.png"
+                    imageSize="1.5em"
+                    alt="react"
+                    center
+                />
                 <Image
                     src="logos/mobx.png"
                     alt="mobx"

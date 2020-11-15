@@ -56,10 +56,10 @@ function App({ Component, pageProps }) {
                     }
 
                     main {
-                        width: 100%;
-                        padding: 1rem;
+                        padding: 1em;
                         display: block;
                         min-height: calc(100vh - 160px);
+                        transition: filter 0.5s linear;
                     }
 
                     a {

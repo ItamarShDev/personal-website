@@ -1,53 +1,51 @@
 {
-  "name": "learn-starter",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006 --no-dll",
-    "build-storybook": "build-storybook --no-dll"
-  },
-  "dependencies": {
-    "chart.js": "^2.9.4",
-    "gray-matter": "^4.0.2",
-    "imagemin-mozjpeg": "^9.0.0",
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^8.0.0",
-    "lqip-loader": "^2.2.1",
-    "next": "^9.4.4",
-    "next-compose-plugins": "^2.2.0",
-    "next-optimized-images": "^2.6.2",
-    "prop-types": "^15.7.2",
-    "react": "16.13.1",
-    "react-chartjs-2": "^2.10.0",
-    "react-dom": "16.13.1",
-    "responsive-loader": "^2.2.0",
-    "sharp": "^0.26.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@storybook/addon-actions": "^6.0.28",
-    "@storybook/addon-essentials": "^6.0.28",
-    "@storybook/addon-links": "^6.0.28",
-    "@storybook/react": "^6.0.28",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-macros": "^2.8.0",
-    "babel-plugin-preval": "^5.0.0",
-    "husky": ">=4",
-    "lint-staged": ">=10",
-    "marked": "^1.1.1",
-    "prettier": "2.0.5",
-    "prism-react-renderer": "^1.1.1",
-    "react-is": "^17.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "learn-starter",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "NODE_OPTIONS='--inspect' next dev",
+        "build": "next build",
+        "start": "next start",
+        "storybook": "start-storybook -p 6006 --no-dll",
+        "build-storybook": "build-storybook --no-dll"
+    },
+    "dependencies": {
+        "chart.js": "^2.9.4",
+        "gray-matter": "^4.0.2",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-optipng": "^8.0.0",
+        "imagemin-svgo": "^8.0.0",
+        "lqip-loader": "^2.2.1",
+        "next": "10.x",
+        "next-compose-plugins": "^2.2.0",
+        "next-optimized-images": "^2.6.2",
+        "prop-types": "^15.7.2",
+        "react-chartjs-2": "^2.10.0",
+        "responsive-loader": "^2.2.0",
+        "sharp": "^0.26.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.3",
+        "@storybook/addon-actions": "^6.0.28",
+        "@storybook/addon-essentials": "^6.0.28",
+        "@storybook/addon-links": "^6.0.28",
+        "@storybook/react": "^6.0.28",
+        "babel-loader": "^8.1.0",
+        "babel-plugin-macros": "^2.8.0",
+        "babel-plugin-preval": "^5.0.0",
+        "husky": ">=4",
+        "lint-staged": ">=10",
+        "marked": "^1.1.1",
+        "prettier": "2.0.5",
+        "prism-react-renderer": "^1.1.1",
+        "react-is": "^17.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,css,md}": "prettier --write"
     }
-  },
-  "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
-  }
 }

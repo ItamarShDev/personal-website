@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 
-const AppLayout = ({ children, title, favicon }) => {
+const AppLayout = ({ children, title }) => {
     return (
         <>
             <Head>
                 <title>{title}</title>
 
-                <link rel="icon" href={favicon} />
+                <link rel="icon" href="/favicon.ico" />
                 <meta name="title" content="Itamar Sharify" />
                 <meta
                     name="description"
@@ -55,11 +55,9 @@ const AppLayout = ({ children, title, favicon }) => {
 AppLayout.propTypes = {
     children: PropTypes.node,
     title: PropTypes.string,
-    favicon: PropTypes.string,
 };
 
 AppLayout.defaultProps = {
     title: "Itamar Sharify",
-    favicon: "/favicon.ico",
 };
 export default AppLayout;

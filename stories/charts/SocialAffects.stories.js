@@ -7,6 +7,6 @@ export const Empty = Comp.bind({});
 Full.args = socialData;
 Empty.args = {};
 export default {
-    title: "Example/Charts/SocialAffects",
+    title: "Charts/SocialAffects",
     component: Social,
 };

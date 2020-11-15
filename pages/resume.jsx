@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { getResumeData } from "lib/resume";
+import { getAttributesData, getResumeData } from "lib/resume";
 import AppLayout from "layouts/app-layout";
 import { Job } from "components";
 import { ThemeContext } from "lib/hooks";
+
 export function FilterJobs({ jobs, updateJobs }) {
     const { theme } = useContext(ThemeContext);
     const [resultCount, setResultCount] = useState(null);
@@ -30,77 +31,72 @@ export function FilterJobs({ jobs, updateJobs }) {
         updateJobs(_jobs);
     };
     return (
-        <div>
-            <div className="box">
-                <input id="job-filter" type="text" onChange={filterJobs} />
-                <label htmlFor="job-filter">Filter by tags</label>
-                {resultCount && (
-                    <span className="results">{resultCount} results found</span>
-                )}
-            </div>
+        <div className="container">
+            <label>
+                Filter by tags
+                <input
+                    className="job-filter"
+                    type="text"
+                    onChange={filterJobs}
+                />
+            </label>
+            <span className="results">
+                {resultCount > 0 && `${resultCount} results found`}
+            </span>
             <style jsx>
                 {`
-                    div {
-                        top: 60px;
-                        display: flex;
-                        align-items: end;
-                        flex-direction: column;
+                    label {
+                        color: ${theme.text};
+                        font-size: 0.8em;
+                        padding-inline-start: 5px;
                     }
-
-                    .box {
+                    input.job-filter {
+                        width: 100%;
+                        background-color: transparent;
+                        color: ${theme.text};
+                        line-height: 3em;
+                        padding: 0 1em;
+                        font-size: 1em;
                         display: flex;
                         align-items: start;
                         flex-direction: column;
-                        width: 200px;
-                        height: 50px;
-                        font-size: 0.8em;
+                        background-color: ${theme.hoverDecorations};
+                        opacity: 0.5;
+                        border-radius: 10px;
+                        margin: 10px 0;
+                    }
+                    input.job-filter:focus,
+                    input.job-filter:hover {
+                        opacity: 1;
                     }
                     .results {
                         color: gray;
                         font-style: italic;
                         font-size: 0.8em;
+                        height: 0.8em;
+                        display: inline-block;
+                        padding-inline-start: 5px;
                     }
-
-                    input {
-                        background-color: transparent;
-                        color: ${theme.text};
-                        line-height: 3em;
-                        border: none;
-                        width: 150px;
-                        border: none;
-                        border-bottom: 1px solid ${theme.decorations};
-                        transition: all 0.4s linear;
-                    }
-
-                    input + label {
-                        position: absolute;
-                        line-height: 3em;
-                        pointer-events: none;
-                        transition: all 0.4s linear;
-                    }
+                    input,
                     input:focus {
                         outline: none;
-                        width: 100%;
-                        transition: all 0.4s linear;
-                    }
-                    input:focus + label {
-                        line-height: 0em;
-                        font-size: 0.6em;
-                        transition: all 0.4s linear;
+                        border: none;
                     }
                 `}
             </style>
         </div>
     );
 }
-export default function Resume({ resumeData }) {
+export default function Resume({ resumeData, attributesData }) {
     const { theme } = useContext(ThemeContext);
     const [opened, setOpened] = useState(0);
     const [jobs, setJobs] = useState([]);
 
     return (
-        <AppLayout title="Itamar Sharify's CV" favicon="/cv.ico">
-            <FilterJobs jobs={resumeData.jobs} updateJobs={setJobs} />
+        <AppLayout title="Itamar Sharify's CV">
+            <div className="row">
+                <FilterJobs jobs={resumeData.jobs} updateJobs={setJobs} />
+            </div>
             <div className="timeline">
                 {jobs.map((job, index) => (
                     <Job
@@ -134,6 +130,11 @@ export default function Resume({ resumeData }) {
                     left: 0.5em;
                     border-radius: 40px 40px;
                 }
+                .row {
+                    padding: 10px 0;
+                    max-width: 800px;
+                    margin: 0 auto;
+                }
             `}</style>
         </AppLayout>
     );
@@ -141,9 +142,11 @@ export default function Resume({ resumeData }) {
 
 export async function getStaticProps({ params }) {
     const resumeData = await getResumeData();
+    const attributesData = await getAttributesData();
     return {
         props: {
             resumeData,
+            attributesData,
             headerTitle: "Resume",
         },
     };

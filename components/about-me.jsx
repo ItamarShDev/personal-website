@@ -27,6 +27,15 @@ function AboutMe(props) {
                     align-items: center;
                 }
 
+                a {
+                    font-size: 0.7em;
+                }
+                a:hover,
+                a:focus,
+                a:active {
+                    text-decoration: underline;
+                }
+
                 @media screen and (max-width: 768px) {
                     .about-me {
                         flex-direction: column;

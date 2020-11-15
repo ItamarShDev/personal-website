@@ -22,7 +22,7 @@ export function grid({
 export function invertByTheme(isDark) {
     return css.resolve`
         div {
-            filter: invert(${isDark ? 1 : 0});
+            filter: invert(${isDark ? 1 : 0}) blur(0) !important;
         }
     `;
 }

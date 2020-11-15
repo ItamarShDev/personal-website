@@ -31,7 +31,7 @@ export default function Job({ job }) {
                 </div>
                 <div className="extra">
                     <p>
-                        {job.elaborated_desctiption
+                        {job.elaborated_description
                             .split("\n")
                             .map((text, idx) => (
                                 <span key={idx}>{text}</span>

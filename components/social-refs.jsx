@@ -41,6 +41,7 @@ function SocialRefs({ withTitle }) {
                         src="icons/github.svg"
                         alt="github logo"
                         center
+                        imageSize="25px"
                     />
                 </a>
                 <a
@@ -55,6 +56,7 @@ function SocialRefs({ withTitle }) {
                         src="icons/medium.svg"
                         alt="Medium logo"
                         center
+                        imageSize="20px"
                     />
                 </a>
                 {gridStyle}
@@ -63,6 +65,7 @@ function SocialRefs({ withTitle }) {
                 .item {
                     background-size: 30px;
                     height: 30px;
+                    margin: 0 5px;
                     font-size: 0;
                     width: 30px;
                 }
