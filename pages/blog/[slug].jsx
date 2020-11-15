@@ -15,8 +15,8 @@ export default function Blog({ data, html }) {
             <style jsx global>{`
                 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
                 *::selection {
-                    background-color: ${theme.hoverDecorations};
-                    color: ${theme.header};
+                    background-color: ${theme.header};
+                    color: ${theme.bg};
                 }
                 h1.post-title {
                     font-weight: 500;
@@ -81,6 +81,13 @@ export default function Blog({ data, html }) {
                         font-size: 0.9em;
                         line-height: 1.5em;
                         padding: 0.5em;
+                    }
+                }
+                @media (min-width: 768px) {
+                    article,
+                    h1 {
+                        max-width: 80%;
+                        margin: 0 auto;
                     }
                 }
             `}</style>

@@ -8,8 +8,10 @@ export default function Avatar(props) {
     return (
         <span className="avatar">
             <Image
-                src={`images/me-${imageType}.png`}
+                src={`images/me-${imageType}.jpg`}
                 alt="my picture"
+                size="inherit"
+                circle
                 title="Me, preparing for my wedding"
             />
             <style jsx>{`
@@ -18,9 +20,10 @@ export default function Avatar(props) {
                     height: 15em;
                     width: 15em;
                     margin: 1em;
-                    border-radius: 50%;
                     border: 1px dashed ${theme.decorations};
                     overflow: hidden;
+                    border-radius: 50%;
+                    position: relative;
                 }
                 @media (max-width: 500px) {
                     .avatar {

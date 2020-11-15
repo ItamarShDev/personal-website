@@ -26,7 +26,7 @@ const Header = (props) => {
                     height: 60px;
                     width: 100%;
                     display: grid;
-                    grid-template-columns: 50px 1fr 50px;
+                    grid-template-columns: 60px 1fr 60px;
                     text-align: center;
                     align-items: center;
                     border-bottom: 1px solid ${theme.decorations};
