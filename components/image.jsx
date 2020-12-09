@@ -40,7 +40,7 @@ export default function Image({
     return (
         <div className={className} title={title}>
             <div className="img full">
-                <NextImage layout="fill" src={`/${src}`} alt={alt} />
+                <NextImage key={src} layout="fill" src={`/${src}`} alt={alt} />
             </div>
 
             <style jsx>{`

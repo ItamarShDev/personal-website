@@ -24,9 +24,8 @@ function getQualificationText(percentage) {
     return "We're getting there!";
 }
 
-const MatchProgress = ({ selectedSkills, setQualificationText }) => {
+const MatchProgress = ({ selectedSkills, setQualificationText, setPercentage, percentage }) => {
     const { theme } = useContext(ThemeContext);
-    const [percentage, setPercentage] = useState(0);
     useEffect(() => {
         const newPercentage = calculateMatch(selectedSkills);
         setQualificationText(getQualificationText(newPercentage));
