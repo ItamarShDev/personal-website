@@ -1,8 +1,13 @@
 import PropTypes from "prop-types";
+// @ts-ignore
 import RankJson from "../../resume/technologies.json";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../lib/hooks";
+import React from "react";
 
+/**
+ * @param {ArrayLike<any>} attributes
+ */
 function calculateMatch(attributes) {
     return Array.from(attributes).reduce((ret, item) => {
         const itemRank = RankJson[item.toLowerCase()];
@@ -13,6 +18,9 @@ function calculateMatch(attributes) {
     }, 0);
 }
 
+/**
+ * @param {number} percentage
+ */
 function getQualificationText(percentage) {
     if (percentage === 0) return "";
     if (percentage < 15) {
@@ -24,7 +32,12 @@ function getQualificationText(percentage) {
     return "We're getting there!";
 }
 
-const MatchProgress = ({ selectedSkills, setQualificationText, setPercentage, percentage }) => {
+const MatchProgress = ({
+    selectedSkills,
+    setQualificationText,
+    setPercentage,
+    percentage,
+}) => {
     const { theme } = useContext(ThemeContext);
     useEffect(() => {
         const newPercentage = calculateMatch(selectedSkills);

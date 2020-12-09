@@ -4,7 +4,7 @@ import NextImage from "next/image";
 export default function Image({
     src,
     alt,
-    title,
+    title = "",
     type,
     className = "",
     size = "100%",

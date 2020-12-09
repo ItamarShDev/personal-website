@@ -3,6 +3,7 @@ import AppLayout from "layouts/app-layout";
 import renderMarkdown from "lib/render-markdown";
 import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
+import React from "react";
 
 export default function Blog({ data, html }) {
     if (!data) return null;
@@ -14,10 +15,7 @@ export default function Blog({ data, html }) {
             <article dangerouslySetInnerHTML={{ __html: html }} />
             <style jsx global>{`
                 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
-                *::selection {
-                    background-color: ${theme.header};
-                    color: ${theme.bg};
-                }
+
                 h1.post-title {
                     font-weight: 500;
                     font-size: 2em;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 PropertiesSelect.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
@@ -82,6 +83,13 @@ export default function PropertiesSelect({
         setTags(_tags);
     };
 
+    /**
+     * @param {any} tagName
+     */
+    const removeTag = (tagName) => {
+        setTags(tags.filter((tag) => tag !== tagName));
+    };
+
     return (
         <div
             className="matcher"
@@ -101,6 +109,12 @@ export default function PropertiesSelect({
                     {tags.map((tag) => (
                         <div className="tag" key={tag}>
                             {tag}
+                            <span
+                                className="remove-tag"
+                                onClick={() => removeTag(tag)}
+                            >
+                                x
+                            </span>
                         </div>
                     ))}
                     <input
@@ -177,6 +191,11 @@ export default function PropertiesSelect({
                     color: white;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+                    animation: fade-in 0.2s, zoom-in 0.1s;
+                }
+                .remove-tag {
+                    cursor: pointer;
+                    margin: 5px;
                 }
                 .results-container {
                     position: relative;
@@ -204,6 +223,22 @@ export default function PropertiesSelect({
                 li.selected {
                     background-color: ${theme.decorations};
                     color: white;
+                }
+                @keyframes fade-in {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                @keyframes zoom-in {
+                    from {
+                        transform: scale(0);
+                    }
+                    to {
+                        transform: scale(1);
+                    }
                 }
             `}</style>
         </div>

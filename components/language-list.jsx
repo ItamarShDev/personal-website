@@ -2,6 +2,7 @@ import { centered, grid, gridItem, invertByTheme } from "theme/theme";
 import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
 import Image from "components/image";
+import React from "react";
 
 export default function LanguagesList() {
     const { className, styles } = grid({

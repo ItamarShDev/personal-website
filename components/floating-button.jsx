@@ -22,9 +22,9 @@ function FloatingButton(props) {
         setOpened(!opened);
     };
     return (
-        <div className="container">
+        <div className="container" title="Are we a match?">
             <a className="floating-button" onClick={openModal}>
-                +
+                ?
             </a>
             <MatchModal open={opened} setOpened={setOpened} />{" "}
             <style jsx>
