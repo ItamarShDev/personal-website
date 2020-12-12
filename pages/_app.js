@@ -22,7 +22,7 @@ function App({ Component, pageProps }) {
                 </main>
                 <style jsx global>{`
                     html {
-                        font-size: 18px;
+                        font-size: 16px;
                     }
                     @media (max-width: 768px) {
                         html {

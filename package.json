@@ -12,16 +12,10 @@
     "dependencies": {
         "chart.js": "^2.9.4",
         "gray-matter": "^4.0.2",
-        "imagemin-mozjpeg": "^9.0.0",
-        "imagemin-optipng": "^8.0.0",
-        "imagemin-svgo": "^8.0.0",
-        "lqip-loader": "^2.2.1",
         "next": "10.x",
         "next-compose-plugins": "^2.2.0",
-        "next-optimized-images": "^2.6.2",
         "prop-types": "^15.7.2",
         "react-chartjs-2": "^2.10.0",
-        "responsive-loader": "^2.2.0",
         "sharp": "^0.26.2"
     },
     "devDependencies": {

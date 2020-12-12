@@ -1,8 +1,12 @@
-import { ThemeContext, usePortal } from "lib/hooks";
+import { ThemeContext } from "lib/hooks";
 import React, { useState, useContext } from "react";
 import Modal from "components/modal";
 import MatchCalculator from "components/match-finder/match-calculator";
+// @ts-ignore
 import Json from "../resume/technologies.json";
+/**
+ * @param {{ open: any; setOpened: any; }} props
+ */
 function MatchModal(props) {
     return (
         <Modal
@@ -15,7 +19,7 @@ function MatchModal(props) {
         </Modal>
     );
 }
-function FloatingButton(props) {
+function FloatingButton() {
     const [opened, setOpened] = useState(false);
     const { theme } = useContext(ThemeContext);
     const openModal = () => {
@@ -30,26 +34,28 @@ function FloatingButton(props) {
             <style jsx>
                 {`
                     .container {
+                        cursor: pointer;
                         position: fixed;
                         height: 50px;
                         width: 50px;
                         border-radius: 50%;
-                        color: white;
                         font-size: 30px;
                         bottom: 20px;
                         right: 20px;
                         border-radius: 50%;
                         border: 1px solid ${theme.decorations};
+                        background-color: ${theme.bg};
+                        z-index: 10;
                     }
                     .floating-button {
-                        position: relative;
                         display: inline-block;
                         width: 100%;
-                        height: 100%;
                         text-align: center;
-                        line-height: 43px;
+                        font-size: 1.5rem;
+                        line-height: 1.5rem;
+                        color: ${theme.decorations};
                     }
-                    .floating-button:hover {
+                    .container:hover .floating-button {
                         color: ${theme.bg};
                     }
                     .container:hover {

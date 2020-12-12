@@ -1,7 +1,7 @@
 import { ThemeContext } from "lib/hooks";
 import React, { useState, useContext, useEffect } from "react";
 import ReactDOM from "react-dom";
-function ModalComponent({ open, setOpened, title, children, footer }) {
+function ModalComponent({ open, setOpened, title, children, footer = null }) {
     const { theme } = useContext(ThemeContext);
     return (
         <div className={`container ${open ? "opened" : "closed"}`}>
@@ -64,9 +64,8 @@ function ModalComponent({ open, setOpened, title, children, footer }) {
                 }
                 .header .close {
                     font-size: 1.5rem;
-                    line-height: 3rem;
-                    width: 60px;
-                    height: 60px;
+                    padding: 15px;
+                    width: 50px;
                     text-align: center;
                     cursor: pointer;
                     color: ${theme.text};
@@ -81,7 +80,15 @@ function ModalComponent({ open, setOpened, title, children, footer }) {
     );
 }
 
-function Modal({ open, setOpened, refreshOnRender, title, children, footer }) {
+function Modal({
+    open,
+    setOpened,
+    refreshOnRender,
+    title,
+    children,
+    footer = null,
+}) {
+    // @ts-ignore
     if (!process.browser) return null;
     const [root, setRoot] = useState(null);
     useEffect(() => {

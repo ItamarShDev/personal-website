@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NextImage from "next/image";
 
 export default function Image({
     src,
     alt,
     title = "",
-    type,
+    type = null,
     className = "",
     size = "100%",
     center = false,
