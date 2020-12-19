@@ -34,12 +34,4 @@ const SocialAffect = () => {
     }
     return null;
 };
-SocialAffect.propTypes = {
-    labels: PropTypes.arrayOf(PropTypes.string),
-    values: PropTypes.arrayOf(PropTypes.object),
-};
-SocialAffect.defaultProps = {
-    labels: [{}],
-    values: [],
-};
 export default SocialAffect;

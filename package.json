@@ -12,10 +12,12 @@
     "dependencies": {
         "chart.js": "^2.9.4",
         "gray-matter": "^4.0.2",
-        "next": "10.x",
+        "next": "^10.0.3",
         "next-compose-plugins": "^2.2.0",
         "prop-types": "^15.7.2",
+        "react": "^17.0.1",
         "react-chartjs-2": "^2.10.0",
+        "react-dom": "^17.0.1",
         "sharp": "^0.26.2"
     },
     "devDependencies": {

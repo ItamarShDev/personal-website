@@ -4,8 +4,8 @@ import { Card } from "components";
 function Links(props) {
     return (
         <div>
-            <Card route="resume" title="Resume" subTitle="Resume Timeline" />
-            <Card route="blog" title="Blog" subTitle="My Development Journy" />
+            <Card route="/resume" title="Resume" subTitle="Resume Timeline" />
+            <Card route="/blog" title="Blog" subTitle="My Development Journy" />
             <style jsx>{`
                 div {
                     display: flex;

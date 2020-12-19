@@ -4,9 +4,8 @@ import Link from "next/link";
 
 export default function Card({ children, title, subTitle, route, routeRef }) {
     const { theme } = useContext(ThemeContext);
-    if (!routeRef) routeRef = route;
     return (
-        <Link href={routeRef} as={route}>
+        <Link href={routeRef || route} as={route}>
             <a className="card">
                 <h3>{title}</h3>
                 <p>{subTitle}</p>

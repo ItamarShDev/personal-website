@@ -10,7 +10,7 @@ export default function LanguagesList() {
         cols: 5,
         gap: "5px",
         height: "5em",
-        width: "3em",
+        width: "5em",
     });
     const { isDark } = useContext(ThemeContext);
     const { className: centerClass, styles: centerStyle } = centered({
@@ -27,28 +27,15 @@ export default function LanguagesList() {
                     src="logos/nextjs.png"
                     className={inverted}
                     alt="nextjs"
-                    imageSize="1.5em"
-                    center
+                    size="2em"
                 />
-                <Image src="logos/python.svg" center alt="python" type="svg" />
-                <Image
-                    src="logos/react-logo.png"
-                    imageSize="1.5em"
-                    alt="react"
-                    center
-                />
-                <Image
-                    src="logos/mobx.png"
-                    alt="mobx"
-                    center
-                    imageSize="1.5em"
-                />
-                <Image
-                    src="logos/cljs.png"
-                    alt="cljs"
-                    center
-                    imageSize="1.5em"
-                />
+                <Image src="logos/python.svg" alt="python" size="2em" />
+                <Image src="logos/cljs.png" alt="clojurescript" size="2em" />
+                <Image src="logos/javascript.svg" alt="javascript" size="2em" />
+                <Image src="logos/html-5.svg" alt="HTML5" size="2em" />
+                <Image src="logos/react-logo.png" size="2em" alt="react" />
+                <Image src="logos/jupyter.png" alt="jupyter" size="2em" />
+                <Image src="logos/mobx.png" alt="mobx" size="2em" />
 
                 {styles}
                 {invertedStyle}

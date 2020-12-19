@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
 
 const Abilities = dynamic(() => import("components/charts/abilities"), {

@@ -52,7 +52,7 @@ function FloatingButton() {
                         width: 100%;
                         text-align: center;
                         font-size: 1.5rem;
-                        line-height: 1.5rem;
+                        line-height: 3rem;
                         color: ${theme.decorations};
                     }
                     .container:hover .floating-button {

@@ -5,7 +5,7 @@ import PropertiesSelect from "components/match-finder/properties-select";
 import MatchProgress from "components/match-finder/match-progress";
 MatchCalculator.propTypes = {
     jobs: PropTypes.arrayOf(PropTypes.string),
-    properties: PropTypes.arrayOf(PropTypes.string),
+    properties: PropTypes.object,
 };
 
 function MatchCalculator({ properties }) {
