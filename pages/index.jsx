@@ -7,14 +7,14 @@ import FloatingButton from "components/floating-button";
 export default function Home() {
     const { className, styles } = centered({ isColumns: true });
     return (
-        <AppLayout title="Itamar Sharify">
+        <AppLayout>
             <div className={className}>
                 <Personal />
                 <Links />
                 <LanguagesList />
                 <FloatingButton />
+                {styles}
             </div>
-            {styles}
         </AppLayout>
     );
 }

@@ -93,7 +93,7 @@ export default function Resume({ resumeData, attributesData }) {
     const [jobs, setJobs] = useState([]);
 
     return (
-        <AppLayout title="Itamar Sharify's CV">
+        <AppLayout title="CV">
             <div className="row">
                 <FilterJobs jobs={resumeData.jobs} updateJobs={setJobs} />
             </div>

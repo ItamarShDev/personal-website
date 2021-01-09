@@ -27,15 +27,51 @@ export default function LanguagesList() {
                     src="logos/nextjs.png"
                     className={inverted}
                     alt="nextjs"
+                    title="Next.js"
                     size="2em"
                 />
-                <Image src="logos/python.svg" alt="python" size="2em" />
-                <Image src="logos/cljs.png" alt="clojurescript" size="2em" />
-                <Image src="logos/javascript.svg" alt="javascript" size="2em" />
-                <Image src="logos/html-5.svg" alt="HTML5" size="2em" />
-                <Image src="logos/react-logo.png" size="2em" alt="react" />
-                <Image src="logos/jupyter.png" alt="jupyter" size="2em" />
-                <Image src="logos/mobx.png" alt="mobx" size="2em" />
+                <Image
+                    src="logos/python.svg"
+                    alt="python"
+                    title="Python"
+                    size="2em"
+                />
+                <Image
+                    src="logos/cljs.png"
+                    alt="clojurescript"
+                    title="clojure"
+                    size="2em"
+                />
+                <Image
+                    src="logos/javascript.svg"
+                    alt="javascript"
+                    title="javascript"
+                    size="2em"
+                />
+                <Image
+                    src="logos/html-5.svg"
+                    alt="HTML5"
+                    title="HTML5"
+                    size="2em"
+                />
+                <Image
+                    src="logos/react-logo.png"
+                    size="2em"
+                    title="React"
+                    alt="react"
+                />
+                <Image
+                    src="logos/jupyter.png"
+                    alt="jupyter"
+                    title="Jupyter"
+                    size="2em"
+                />
+                <Image
+                    src="logos/mobx.png"
+                    alt="mobx"
+                    title="MobX"
+                    size="2em"
+                />
 
                 {styles}
                 {invertedStyle}

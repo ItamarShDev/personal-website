@@ -27,7 +27,7 @@ function Blog({ post }) {
 
 export default function Blogs({ allPostsData }) {
     return (
-        <AppLayout title="Blog - Itamar Sharify">
+        <AppLayout title="Blog">
             <article className="box">
                 {allPostsData.map((post) => (
                     <Blog key={post.slug} post={post} />

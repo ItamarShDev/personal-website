@@ -5,7 +5,7 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
     const { theme } = useContext(ThemeContext);
     return (
         <div className={`container ${open ? "opened" : "closed"}`}>
-            <div className={`modal `}>
+            <div className={`modal ${open ? "opened" : "closed"}`}>
                 {title && (
                     <div className="header">
                         <h1 className="title">{title}</h1>
@@ -26,7 +26,16 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     height: calc(100% - 60px);
                     width: 100%;
                     display: block;
-                    background-color: rgba(0, 0, 0, 0.4);
+                    animation: 1s focus-out ease-in-out;
+                    backdrop-filter: blur(5px) grayscale(1);
+                }
+                @keyframes focus-out {
+                    from {
+                        backdrop-filter: blur(0) grayscale(0);
+                    }
+                    to {
+                        backdrop-filter: blur(5px) grayscale(1);
+                    }
                 }
                 .container.closed {
                     display: none;
@@ -38,14 +47,30 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     width: 100%;
                     max-height: 600px;
                     max-width: 600px;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
                     background-color: ${theme.modalBg};
                     border: 1px solid ${theme.decorations};
                     border-radius: 1rem;
                     padding: 10px;
                     box-shadow: 0 0 10em -3em ${theme.decorations};
+                }
+                .modal.opened {
+                    top: 50%;
+                    left: 50%;
+                    animation: open-up 0.3s ease-in;
+                    transform: scale(1) translate(-50%, -50%);
+                }
+
+                @keyframes open-up {
+                    from {
+                        top: 100%;
+                        left: 100%;
+                        transform: translate(-50%, -50%) scale(0);
+                        border-radius: 50%;
+                    }
+                    to {
+                        transform: translate(-50%, -50%) scale(1);
+                        border-radius: 0;
+                    }
                 }
                 .header {
                     padding: 10px;
@@ -87,21 +112,20 @@ function Modal({
     title,
     children,
     footer = null,
+    parentEl = null,
 }) {
     // @ts-ignore
     if (!process.browser) return null;
     const [root, setRoot] = useState(null);
     useEffect(() => {
-        const elm = document.querySelector("body");
-        setRoot(elm);
+        if (parentEl) {
+            setRoot(parentEl);
+        } else {
+            const elm = document.querySelector("body");
+            setRoot(elm);
+        }
     }, []);
     if (!root) return null;
-    const main = document.querySelector("main");
-    if (open) {
-        main.style.filter = "blur(10px) grayscale(100%)";
-    } else {
-        main.style.filter = "";
-    }
 
     if (refreshOnRender) {
         return open

@@ -2,7 +2,7 @@ import Image from "components/image";
 import React from "react";
 import { centered, grid } from "theme/theme";
 
-function SocialRefs({ withTitle }) {
+function SocialRefs({ withTitle = false }) {
     const { className: gridClass, styles: gridStyle } = grid({
         rows: 1,
         cols: 3,
@@ -18,31 +18,18 @@ function SocialRefs({ withTitle }) {
                     href="https://twitter.com/ISharify"
                     target="_blank"
                     rel="noreferrer noopener"
-                    alt="twitter link"
                     title="Twitter"
                 >
-                    <Image
-                        src="icons/twitter.svg"
-                        alt="Twitter logo"
-                        type="svg"
-                        center
-                    />
+                    <Image src="icons/twitter.svg" alt="Twitter logo" />
                 </a>
                 <a
                     className="item github"
                     href="https://www.github.com/ItamarShDev"
                     target="_blank"
                     rel="noreferrer noopener"
-                    alt="github link"
                     title="Github"
                 >
-                    <Image
-                        type="svg"
-                        src="icons/github.svg"
-                        alt="github logo"
-                        center
-                        imageSize="25px"
-                    />
+                    <Image src="icons/github.svg" alt="github logo" />
                 </a>
                 <a
                     href="https://medium.com/@itamarsharify"
@@ -51,13 +38,7 @@ function SocialRefs({ withTitle }) {
                     rel="noreferrer noopener"
                     title="Medium"
                 >
-                    <Image
-                        type="svg"
-                        src="icons/medium.svg"
-                        alt="Medium logo"
-                        center
-                        imageSize="20px"
-                    />
+                    <Image src="icons/medium.svg" alt="Medium logo" />
                 </a>
                 {gridStyle}
             </div>

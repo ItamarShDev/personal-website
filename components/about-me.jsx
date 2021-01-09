@@ -1,20 +1,15 @@
 import { Avatar, SocialRefs } from "components";
+import { ThemeContext } from "lib/hooks";
+import { useContext } from "react";
 
 function AboutMe(props) {
+    const { theme } = useContext(ThemeContext);
     return (
         <div className="about-me">
             <Avatar />
             <div className="summary">
-                <h4>Full Stack Web Developer</h4>
-                <i>
-                    <a
-                        href="https://maps.google.com/?q=Jerusalem"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
-                        Jerusalem, Israel
-                    </a>
-                </i>
+                <h1>Itamar.</h1>
+                <h2>Web Developer</h2>
                 <p>
                     <i>Geek. Joker. Coder.</i>
                 </p>
