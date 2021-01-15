@@ -1,8 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "lib/hooks";
-import { Header } from "layouts";
+import { AppLayout, Header } from "layouts";
 import { centered } from "theme/theme";
+import Head from "next/head";
+
 function App({ Component, pageProps }) {
     const { theme, toggleTheme, ThemeContext, isDark } = useTheme();
     const title = pageProps.headerTitle;
@@ -12,10 +13,18 @@ function App({ Component, pageProps }) {
     });
     const { isCentered } = pageProps;
     const mainClassName = isCentered ? centerClassName : "";
+    const _title = title
+        ? `Itamar Sharify - ${pageProps.title}`
+        : "Itamar Sharify";
+
     return (
         <div>
+            <Head>
+                <title>{_title}</title>
+            </Head>
             <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
                 <Header title={title} />
+
                 <main className={mainClassName}>
                     <Component {...pageProps} />
                     {centerStyle}

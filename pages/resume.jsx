@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { getAttributesData, getResumeData } from "lib/resume";
-import AppLayout from "layouts/app-layout";
 import { Job } from "components";
 import { ThemeContext } from "lib/hooks";
 
@@ -93,7 +92,7 @@ export default function Resume({ resumeData, attributesData }) {
     const [jobs, setJobs] = useState([]);
 
     return (
-        <AppLayout title="CV">
+        <>
             <div className="row">
                 <FilterJobs jobs={resumeData.jobs} updateJobs={setJobs} />
             </div>
@@ -136,7 +135,7 @@ export default function Resume({ resumeData, attributesData }) {
                     margin: 0 auto;
                 }
             `}</style>
-        </AppLayout>
+        </>
     );
 }
 
@@ -148,6 +147,7 @@ export async function getStaticProps({ params }) {
             resumeData,
             attributesData,
             headerTitle: "Resume",
+            title: "CV",
         },
     };
 }

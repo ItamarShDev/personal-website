@@ -1,16 +1,14 @@
 import { getAllPostIds, getPostData } from "lib/posts";
-import AppLayout from "layouts/app-layout";
 import renderMarkdown from "lib/render-markdown";
 import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
-import React from "react";
 
 export default function Blog({ data, html }) {
     if (!data) return null;
     const { theme, isDark } = useContext(ThemeContext);
     const codeBg = isDark ? "rgba(0, 0, 0, 0.5)" : theme.header;
     return (
-        <AppLayout title={data.title}>
+        <>
             <h1 className="post-title">{data.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
             <style jsx global>{`
@@ -89,7 +87,7 @@ export default function Blog({ data, html }) {
                     }
                 }
             `}</style>
-        </AppLayout>
+        </>
     );
 }
 
@@ -98,6 +96,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             data,
+            title: "Blog",
             html: renderMarkdown(content),
             headerTitle: "Blog",
         },

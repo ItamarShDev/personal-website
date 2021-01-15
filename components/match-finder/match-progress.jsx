@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import RankJson from "../../resume/technologies.json";
 import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../lib/hooks";
-import React from "react";
 
 /**
  * @param {ArrayLike<any>} attributes

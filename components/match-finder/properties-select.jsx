@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import React from "react";
+import { BACKSPACE, DOWN, ENTER, ESC, UP } from "utils/key-codes";
 
 PropertiesSelect.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
@@ -53,51 +53,45 @@ export default function PropertiesSelect({
     /**
      * @param {{ keyCode: any; }} e
      */
-    const moveSelection = (e) => {
+    function moveSelection(e) {
         const code = parseInt(e.keyCode);
-        if (code === 40) {
+        if (code === DOWN) {
             if (!showResults) {
                 setShowResults(true);
                 return;
             }
             setHovered((hovered + 1) % filteredSkills.length);
-        } else if (code === 38) {
+        } else if (code === UP) {
             if (!showResults) {
                 setShowResults(true);
                 return;
             }
             const newItem = hovered === 0 ? filteredSkills.length : hovered;
             setHovered((newItem - 1) % filteredSkills.length);
-        } else if (code === 13) {
+        } else if (code === ENTER) {
             const current = filteredSkills[hovered];
             if (current && showResults) addToResults(current);
-        } else if (code === 27) {
+        } else if (code === ESC) {
             setInputText("");
-        } else if (code === 8 && inputText === "") {
+        } else if (code === BACKSPACE && inputText === "") {
             removeLastTag();
         }
-    };
-    const removeLastTag = () => {
+    }
+    function removeLastTag() {
         const _tags = [...tags];
         _tags.pop();
         setTags(_tags);
-    };
+    }
 
     /**
      * @param {any} tagName
      */
-    const removeTag = (tagName) => {
+    function removeTag(tagName) {
         setTags(tags.filter((tag) => tag !== tagName));
-    };
+    }
 
     return (
-        <div
-            className="matcher"
-            tabIndex={0}
-            onFocus={() => setShowResults(true)}
-            onClick={() => setShowResults(true)}
-            onBlur={() => setShowResults(false)}
-        >
+        <div className="matcher">
             <div className="title">
                 Search for tech
                 {qualificationText && (
@@ -119,10 +113,14 @@ export default function PropertiesSelect({
                     ))}
                     <input
                         type="text"
+                        autoFocus
                         placeholder="search"
                         onChange={(e) => setInputText(e.target.value)}
                         onKeyDown={moveSelection}
                         value={inputText}
+                        onFocus={() => setShowResults(true)}
+                        onClick={() => setShowResults(true)}
+                        onBlur={() => setShowResults(false)}
                     />
                 </div>
                 <div className="results-container">
@@ -157,12 +155,12 @@ export default function PropertiesSelect({
                 input:focus {
                     outline: none;
                     border: none;
-                    line-height: 3em;
+                    line-height: 2em;
                 }
                 input {
                     background-color: transparent;
                     color: ${theme.text};
-                    font-size: 0.7em;
+                    font-size: 0.9em;
                 }
 
                 .matcher,

@@ -1,6 +1,7 @@
-import { ThemeContext } from "lib/hooks";
-import React, { useState, useContext, useEffect } from "react";
+import { ThemeContext, usePortal } from "lib/hooks";
+import { useState, useContext, useEffect } from "react";
 import ReactDOM from "react-dom";
+
 function ModalComponent({ open, setOpened, title, children, footer = null }) {
     const { theme } = useContext(ThemeContext);
     return (
@@ -56,20 +57,24 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                 .modal.opened {
                     top: 50%;
                     left: 50%;
-                    animation: open-up 0.3s ease-in;
+                    animation: open-up 0.5s ease-in;
                     transform: scale(1) translate(-50%, -50%);
                 }
 
                 @keyframes open-up {
                     from {
-                        top: 100%;
-                        left: 100%;
+                        top: calc(100% - 20px);
+                        left: calc(100% - 20px);
                         transform: translate(-50%, -50%) scale(0);
+                        filter: grayscale(1) opacity(0);
                         border-radius: 50%;
+                        overflow: hidden;
                     }
                     to {
                         transform: translate(-50%, -50%) scale(1);
+                        filter: grayscale(0) opacity(1);
                         border-radius: 0;
+                        overflow: auto;
                     }
                 }
                 .header {
@@ -127,22 +132,7 @@ function Modal({
     }, []);
     if (!root) return null;
 
-    if (refreshOnRender) {
-        return open
-            ? ReactDOM.createPortal(
-                  <ModalComponent
-                      open={open}
-                      setOpened={setOpened}
-                      title={title}
-                      footer={footer}
-                  >
-                      {children}
-                  </ModalComponent>,
-                  root
-              )
-            : null;
-    }
-    return ReactDOM.createPortal(
+    const modal = (
         <ModalComponent
             open={open}
             setOpened={setOpened}
@@ -150,9 +140,12 @@ function Modal({
             footer={footer}
         >
             {children}
-        </ModalComponent>,
-        root
+        </ModalComponent>
     );
+    if (refreshOnRender) {
+        return open ? usePortal(modal, root) : null;
+    }
+    return usePortal(modal, root);
 }
 
 export default Modal;

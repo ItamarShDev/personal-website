@@ -1,6 +1,5 @@
 import Image from "components/image";
-import React from "react";
-import { centered, grid } from "theme/theme";
+import { grid } from "theme/theme";
 
 function SocialRefs({ withTitle = false }) {
     const { className: gridClass, styles: gridStyle } = grid({

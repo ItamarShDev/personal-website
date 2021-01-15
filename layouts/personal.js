@@ -1,5 +1,3 @@
-import React from "react";
-import AppLayout from "layouts/app-layout";
 import { AboutMe, Stats } from "components";
 import { centered } from "theme/theme";
 

@@ -8,6 +8,7 @@ export function getStaticProps() {
         props: {
             allPostsData,
             headerTitle: "Blog",
+            title: "Blog",
             isCentered: true,
         },
     };
@@ -27,12 +28,10 @@ function Blog({ post }) {
 
 export default function Blogs({ allPostsData }) {
     return (
-        <AppLayout title="Blog">
-            <article className="box">
-                {allPostsData.map((post) => (
-                    <Blog key={post.slug} post={post} />
-                ))}
-            </article>
-        </AppLayout>
+        <article className="box">
+            {allPostsData.map((post) => (
+                <Blog key={post.slug} post={post} />
+            ))}
+        </article>
     );
 }

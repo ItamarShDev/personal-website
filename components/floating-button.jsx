@@ -1,5 +1,5 @@
 import { ThemeContext } from "lib/hooks";
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Modal from "components/modal";
 import MatchCalculator from "components/match-finder/match-calculator";
 // @ts-ignore

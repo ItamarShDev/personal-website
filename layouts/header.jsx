@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { ThemeContext } from "lib/hooks";
 import Link from "next/link";
 import { ThemedIcon } from "../components/themed-icon";
-import React from "react";
 import { Image } from "components";
 
 /**

@@ -1,6 +1,5 @@
 import Image from "components/image";
 import { ThemeContext } from "lib/hooks";
-import React from "react";
 import { useContext } from "react";
 
 export default function Avatar() {
