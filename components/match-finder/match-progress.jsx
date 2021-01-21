@@ -52,7 +52,7 @@ const MatchProgress = ({
                     position: relative;
                     height: 2em;
                     width: inherit;
-                    border-radius: 0 0 10px 10px;
+                    border-radius: 0 0 1rem 1rem;
                     font-size: 0.6em;
                     line-height: 2em;
                     overflow: hidden;

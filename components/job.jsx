@@ -47,38 +47,38 @@ export default function Job({ job }) {
                 dl::before {
                     content: "";
                     position: absolute;
-                    left: -2.05em;
-                    width: 1em;
-                    height: 1em;
+                    left: -2.25rem;
+                    width: 1.5rem;
+                    height: 1.5rem;
                     display: flex;
                     color: #ffffff;
                     background-color: ${theme.decorations};
-                    border: 0.2em solid white;
+                    border: 0.2rem solid white;
                     border-radius: 50%;
                 }
 
                 dt {
-                    font-size: 1em;
-                    padding: 0.5em;
-                    transform: translateY(-0.5em);
+                    font-size: 1.5rem;
+                    padding: 1rem;
+                    transform: translateY(-0.75rem);
                 }
 
                 dd {
                     background-color: ${theme.hoverDecorations};
                     border-radius: 1em;
-                    padding: 0 1em;
+                    padding: 1.5em;
                     margin-left: 0.5em;
                     display: flex;
                     flex-direction: column;
                 }
 
                 .title {
-                    font-size: 1.2em;
-                    margin-block-end: 0.2em;
+                    font-size: 1.7rem;
+                    margin-block-end: 0.5rem;
                 }
                 .company {
                     display: flex;
-                    font-size: 0.9em;
+                    font-size: 1.2rem;
                     font-style: italic;
                     align-items: center;
                     color: ${theme.subText};
@@ -96,17 +96,17 @@ export default function Job({ job }) {
                     content: "@";
                     font-style: italic;
                     opacity: 0.5;
-                    font-size: 0.5em;
-                    margin: 0 5px;
+                    font-size: 1rem;
+                    margin: 0 0.5rem;
                 }
                 .logo {
                     position: absolute;
-                    height: 1.2em;
-                    width: 100px;
+                    height: 1.5rem;
+                    width: 10rem;
                     display: flex;
                     align-items: center;
-                    top: 20px;
-                    right: -10px;
+                    top: 3rem;
+                    right: -1rem;
                     transform: rotate(30deg);
                 }
 
@@ -117,18 +117,18 @@ export default function Job({ job }) {
                     margin: 0 auto;
                 }
                 .summary {
-                    font-size: 1em;
+                    font-size: 1.5rem;
                     break-after: always;
                     white-space: wrap;
                 }
 
                 .extra {
-                    font-size: 0.7em;
+                    font-size: 1.1rem;
                     font-style: italic;
                 }
 
                 .tags {
-                    font-size: 0.7em;
+                    font-size: 1rem;
                     color: ${theme.subText};
                 }
             `}</style>

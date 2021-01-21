@@ -7,7 +7,7 @@ const Personal = () => {
         gap: 20,
     });
     return (
-        <div className={className}>
+        <div className={`box ${className}`}>
             <AboutMe />
             <Stats />
             {styles}

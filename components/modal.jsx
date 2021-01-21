@@ -51,7 +51,7 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     background-color: ${theme.modalBg};
                     border: 1px solid ${theme.decorations};
                     border-radius: 1rem;
-                    padding: 10px;
+                    padding: 1rem;
                     box-shadow: 0 0 10em -3em ${theme.decorations};
                 }
                 .modal.opened {
@@ -78,7 +78,7 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     }
                 }
                 .header {
-                    padding: 10px;
+                    padding: 1rem;
                     font-size: 1em;
                     border-bottom: 1px solid ${theme.decorations};
                     display: flex;
@@ -90,7 +90,7 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                 }
 
                 .body {
-                    padding: 15px 10px;
+                    padding: 15px 1rem;
                 }
                 .header .close {
                     font-size: 1.5rem;
@@ -103,7 +103,7 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                 .close:hover {
                     opacity: 0.8;
                     background-color: rgba(0, 0, 0, 0.1);
-                    border-radius: 10px;
+                    border-radius: 1rem;
                 }
             `}</style>
         </div>

@@ -2,7 +2,13 @@ import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
 import Link from "next/link";
 
-export default function Card({ children, title, subTitle, route, routeRef }) {
+export default function Card({
+    children = null,
+    title,
+    subTitle,
+    route,
+    routeRef,
+}) {
     const { theme } = useContext(ThemeContext);
     return (
         <Link href={routeRef || route} as={route}>
@@ -13,11 +19,10 @@ export default function Card({ children, title, subTitle, route, routeRef }) {
 
                 <style jsx>{`
                     .card {
-                        border-radius: 2em;
+                        border-radius: 2rem;
                         display: block;
-                        margin: 1em;
-                        padding: 1.5em;
-                        max-width: 800px;
+                        margin: 1rem;
+                        padding: 2rem;
                         text-align: left;
                         flex-grow: 1;
                         border: 1px solid transparent;
@@ -25,14 +30,13 @@ export default function Card({ children, title, subTitle, route, routeRef }) {
 
                     .card h3 {
                         margin: 0 0 1em 0;
-                        font-size: 1.5em;
                         color: ${theme.header};
                     }
 
                     .card p {
                         color: ${theme.text};
                         margin: 0;
-                        font-size: 1em;
+                        font-size: 1.5em;
                         line-height: 1.5;
                         font-style: italic;
                     }

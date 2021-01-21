@@ -40,10 +40,10 @@ const Header = (props) => {
             <ThemedIcon />
             <style jsx>{`
                 nav {
-                    height: 60px;
+                    height: 6rem;
                     width: 100%;
                     display: grid;
-                    grid-template-columns: 60px 1fr 60px;
+                    grid-template-columns: 6rem 1fr 6rem;
                     text-align: center;
                     align-items: center;
                     border-bottom: 1px solid ${theme.decorations};
@@ -57,12 +57,12 @@ const Header = (props) => {
                     color: ${theme.header};
                 }
                 .name {
-                    font-size: 1.5em;
+                    font-size: 2em;
                     font-weight: 400;
                     color: ${theme.header};
                 }
                 .title {
-                    font-size: 1.2em;
+                    font-size: 1.5em;
                     font-family: cascadia;
                     color: ${theme.headerText};
                     font-style: italic;
@@ -72,8 +72,8 @@ const Header = (props) => {
                     align-items: stretch;
                     justify-content: center;
                     flex-direction: column;
-                    height: 60px;
-                    width: 60px;
+                    height: 6rem;
+                    width: 6rem;
                     cursor: default;
                 }
             `}</style>

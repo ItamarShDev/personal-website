@@ -16,8 +16,7 @@ export default function Blog({ data, html }) {
 
                 h1.post-title {
                     font-weight: 500;
-                    font-size: 2em;
-                    padding-bottom: 20px;
+                    padding-bottom: 2rem;
                     color: ${theme.header};
                 }
 
@@ -34,15 +33,16 @@ export default function Blog({ data, html }) {
                 }
 
                 article {
-                    line-height: 2em;
+                    font-size: 1.8rem;
+                    line-height: 2.5rem;
                     font-weight: 400;
                 }
 
                 article pre {
                     font-size: 0.9em;
                     max-height: 400px;
-                    padding: 0.75em;
-                    line-height: 1.5em;
+                    padding: 1rem;
+                    line-height: 2rem;
                     overflow-y: auto;
                     overflow-x: auto;
                     color: white;
@@ -54,10 +54,10 @@ export default function Blog({ data, html }) {
                 }
                 article blockquote {
                     font-family: "Helvetica Neue", "Helvetica", Arial, sans;
-                    padding: 5px 0.4em;
+                    padding: 0.5rem 0.6rem;
                     border-left: 1px ${theme.decorations} dotted;
-                    margin: 1rem 0 0 0;
-                    font-size: 0.9em;
+                    margin: 1.5rem 0 0 0;
+                    font-size: 1.3rem;
                     font-style: italic;
                 }
                 blockquote p {
@@ -67,23 +67,16 @@ export default function Blog({ data, html }) {
                     font-family: Georgia, serif;
                     list-style-type: square;
                     font-style: italic;
-                    line-height: 1.2em;
+                    line-height: 1.5rem;
                 }
                 ul li {
-                    margin: 0.4rem auto;
+                    margin: 0.8rem auto;
                 }
                 @media (max-width: 640px) {
                     article pre {
-                        font-size: 0.9em;
-                        line-height: 1.5em;
-                        padding: 0.5em;
-                    }
-                }
-                @media (min-width: 768px) {
-                    article,
-                    h1 {
-                        max-width: 80%;
-                        margin: 0 auto;
+                        font-size: 1rem;
+                        line-height: 2rem;
+                        padding: 0.5rem;
                     }
                 }
             `}</style>

@@ -7,9 +7,9 @@ export default function LanguagesList() {
     const { className, styles } = grid({
         rows: 1,
         cols: 5,
-        gap: "5px",
-        height: "5em",
-        width: "5em",
+        gap: "0.5rem",
+        height: "5rem",
+        width: "5rem",
     });
     const { isDark } = useContext(ThemeContext);
     const { className: centerClass, styles: centerStyle } = centered({
@@ -20,42 +20,42 @@ export default function LanguagesList() {
     );
     return (
         <div className={`languages ${centerClass}`}>
-            <h5>Uses</h5>
+            <h4>Uses</h4>
             <div className={className}>
                 <Image
                     src="logos/nextjs.png"
                     className={inverted}
                     alt="nextjs"
                     title="Next.js"
-                    size="2em"
+                    size="3em"
                 />
                 <Image
                     src="logos/python.svg"
                     alt="python"
                     title="Python"
-                    size="2em"
+                    size="3em"
                 />
                 <Image
                     src="logos/cljs.png"
                     alt="clojurescript"
                     title="clojure"
-                    size="2em"
+                    size="3em"
                 />
                 <Image
                     src="logos/javascript.svg"
                     alt="javascript"
                     title="javascript"
-                    size="2em"
+                    size="3em"
                 />
                 <Image
                     src="logos/html-5.svg"
                     alt="HTML5"
                     title="HTML5"
-                    size="2em"
+                    size="3em"
                 />
                 <Image
                     src="logos/react-logo.png"
-                    size="2em"
+                    size="3em"
                     title="React"
                     alt="react"
                 />
@@ -63,13 +63,13 @@ export default function LanguagesList() {
                     src="logos/jupyter.png"
                     alt="jupyter"
                     title="Jupyter"
-                    size="2em"
+                    size="3em"
                 />
                 <Image
                     src="logos/mobx.png"
                     alt="mobx"
                     title="MobX"
-                    size="2em"
+                    size="3em"
                 />
 
                 {styles}

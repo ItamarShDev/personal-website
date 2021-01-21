@@ -31,13 +31,9 @@ function App({ Component, pageProps }) {
                 </main>
                 <style jsx global>{`
                     html {
-                        font-size: 16px;
+                        font-size: 10px;
                     }
-                    @media (max-width: 768px) {
-                        html {
-                            font-size: 14px;
-                        }
-                    }
+
                     @font-face {
                         font-family: cascadia;
                         src: url(/fonts/CascadiaCode.woff2);
@@ -65,7 +61,9 @@ function App({ Component, pageProps }) {
                     }
 
                     main {
-                        padding: 1em;
+                        padding: 1rem;
+                        max-width: 80rem;
+                        margin: 0 auto;
                         display: block;
                         min-height: calc(100vh - 160px);
                         transition: filter 0.5s linear;
@@ -76,9 +74,35 @@ function App({ Component, pageProps }) {
                         text-decoration: none;
                         scroll-margin-top: 65px;
                     }
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        margin: 0;
+                    }
+                    h1 {
+                        font-size: 4rem;
+                    }
+                    h2 {
+                        font-size: 3rem;
+                    }
+                    h3 {
+                        font-size: 2.5rem;
+                    }
+                    h4 {
+                        font-size: 2rem;
+                    }
+                    h5 {
+                        font-size: 1.8rem;
+                    }
+                    h6 {
+                        font-size: 1.2rem;
+                    }
 
                     .logo {
-                        height: 1em;
+                        height: 1rem;
                     }
                 `}</style>
             </ThemeContext.Provider>

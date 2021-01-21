@@ -46,23 +46,23 @@ export function FilterJobs({ jobs, updateJobs }) {
                 {`
                     label {
                         color: ${theme.text};
-                        font-size: 0.8em;
+                        font-size: 1rem;
                         padding-inline-start: 5px;
                     }
                     input.job-filter {
                         width: 100%;
                         background-color: transparent;
                         color: ${theme.text};
-                        line-height: 3em;
-                        padding: 0 1em;
-                        font-size: 1em;
+                        line-height: 4rem;
+                        padding: 0 1rem;
+                        font-size: 1.5rem;
                         display: flex;
                         align-items: start;
                         flex-direction: column;
                         background-color: ${theme.hoverDecorations};
                         opacity: 0.5;
-                        border-radius: 10px;
-                        margin: 10px 0;
+                        border-radius: 1.5rem;
+                        margin: 1rem 0;
                     }
                     input.job-filter:focus,
                     input.job-filter:hover {
@@ -71,8 +71,8 @@ export function FilterJobs({ jobs, updateJobs }) {
                     .results {
                         color: gray;
                         font-style: italic;
-                        font-size: 0.8em;
-                        height: 0.8em;
+                        font-size: 1rem;
+                        height: 1rem;
                         display: inline-block;
                         padding-inline-start: 5px;
                     }
@@ -110,28 +110,28 @@ export default function Resume({ resumeData, attributesData }) {
             <style jsx>{`
                 .timeline {
                     display: grid;
-                    grid-gap: 1.5em;
-                    line-height: 1.5em;
+                    grid-gap: 1.5rem;
+                    line-height: 1.5rem;
                     -webkit-transition: all 0.4s ease;
                     transition: all 0.4s ease;
                     position: relative;
-                    padding-left: 2em;
-                    max-width: 800px;
+                    padding-left: 2rem;
+                    max-width: 80rem;
                     margin: 0 auto;
                 }
                 .timeline::before {
                     content: "";
-                    width: 0.3em;
+                    width: 0.3rem;
                     height: 100%;
                     background: ${theme.subText};
                     position: absolute;
                     top: 0;
-                    left: 0.5em;
-                    border-radius: 40px 40px;
+                    left: 0.5rem;
+                    border-radius: 4rem 4rem;
                 }
                 .row {
-                    padding: 10px 0;
-                    max-width: 800px;
+                    padding: 1rem 0;
+                    max-width: 80rem;
                     margin: 0 auto;
                 }
             `}</style>

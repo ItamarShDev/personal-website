@@ -24,7 +24,7 @@ export const ThemedIcon = (props) => {
                     font-style: normal;
                     color: ${theme.decorations};
                     background-size: 20px;
-                    background-position: 10px center;
+                    background-position: 1rem center;
                     background-repeat: no-repeat;
                 }
                 .dark-icon {
