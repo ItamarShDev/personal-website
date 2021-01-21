@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useTheme } from "lib/hooks";
-import { AppLayout, Header } from "layouts";
+import { Header } from "layouts";
 import { centered } from "theme/theme";
 import Head from "next/head";
 

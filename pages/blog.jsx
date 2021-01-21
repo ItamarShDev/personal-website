@@ -1,5 +1,4 @@
 import { getSortedPostsData } from "../lib/posts";
-import { AppLayout } from "layouts";
 import { Card } from "components";
 
 export function getStaticProps() {
