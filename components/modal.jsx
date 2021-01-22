@@ -93,9 +93,9 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     padding: 15px 1rem;
                 }
                 .header .close {
-                    font-size: 1.5rem;
-                    padding: 15px;
-                    width: 50px;
+                    font-size: 2rem;
+                    padding: 2rem;
+                    width: 5rem;
                     text-align: center;
                     cursor: pointer;
                     color: ${theme.text};

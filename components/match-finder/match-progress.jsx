@@ -25,7 +25,7 @@ function getQualificationText(percentage) {
     if (percentage < 15) {
         return "Possibly under qualified :(";
     }
-    if (percentage > 100) {
+    if (percentage > 90) {
         return "Seems like we're done here";
     }
     return "We're getting there!";
@@ -50,11 +50,11 @@ const MatchProgress = ({
             <style jsx>{`
                 .progress {
                     position: relative;
-                    height: 2em;
+                    height: 2rem;
                     width: inherit;
                     border-radius: 0 0 1rem 1rem;
-                    font-size: 0.6em;
-                    line-height: 2em;
+                    font-size: 1rem;
+                    line-height: 2rem;
                     overflow: hidden;
                 }
 

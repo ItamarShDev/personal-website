@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { BACKSPACE, DOWN, ENTER, ESC, UP } from "utils/key-codes";
 
@@ -30,6 +30,8 @@ export default function PropertiesSelect({
     const [inputText, setInputText] = useState("");
     const [tags, setTags] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const inputEl = useRef(null);
+
     const skills = Object.keys(properties);
     useEffect(() => {
         setFilteredSkills(filterSkills(skills, tags, inputText));
@@ -49,6 +51,10 @@ export default function PropertiesSelect({
         setTags([...tags, skill]);
         setInputText("");
     };
+    function focusInput() {
+        inputEl?.current?.focus();
+        setShowResults(true);
+    }
 
     /**
      * @param {{ keyCode: any; }} e
@@ -99,7 +105,12 @@ export default function PropertiesSelect({
                 )}
             </div>
             <div className="container">
-                <div className="input-container">
+                <div
+                    className="input-container"
+                    onFocus={focusInput}
+                    onClick={focusInput}
+                    onBlur={() => setShowResults(false)}
+                >
                     {tags.map((tag) => (
                         <div className="tag" key={tag}>
                             {tag}
@@ -114,13 +125,11 @@ export default function PropertiesSelect({
                     <input
                         type="text"
                         autoFocus
+                        ref={inputEl}
                         placeholder="search"
                         onChange={(e) => setInputText(e.target.value)}
                         onKeyDown={moveSelection}
                         value={inputText}
-                        onFocus={() => setShowResults(true)}
-                        onClick={() => setShowResults(true)}
-                        onBlur={() => setShowResults(false)}
                     />
                 </div>
                 <div className="results-container">
@@ -148,19 +157,19 @@ export default function PropertiesSelect({
             <style jsx>{`
                 .title {
                     color: ${theme.text};
-                    font-size: 1em;
+                    font-size: 1.5rem;
                     margin-bottom: 5px;
                 }
                 input,
                 input:focus {
                     outline: none;
                     border: none;
-                    line-height: 2em;
+                    line-height: 3rem;
                 }
                 input {
                     background-color: transparent;
                     color: ${theme.text};
-                    font-size: 0.9em;
+                    font-size: 1.5rem;
                 }
 
                 .matcher,
@@ -174,17 +183,17 @@ export default function PropertiesSelect({
                     display: flex;
                     border: 1px dashed ${theme.decorations};
                     flex-wrap: wrap;
-                    padding: 0.5em;
+                    padding: 0.5rem;
                 }
 
                 .tag {
                     box-shadow: 0 0s 1px 1px ${theme.decorations};
-                    font-size: 0.6em;
-                    line-height: 2.5em;
-                    height: 2.5em;
-                    margin: 5px;
-                    padding: 0 5px;
-                    border-radius: 5px;
+                    font-size: 1.3rem;
+                    line-height: 3rem;
+                    height: 3rem;
+                    margin: 0.5rem;
+                    padding: 0 0.8rem;
+                    border-radius: 0.5rem;
                     background-color: ${theme.decorations};
                     color: white;
                     white-space: nowrap;
@@ -193,7 +202,8 @@ export default function PropertiesSelect({
                 }
                 .remove-tag {
                     cursor: pointer;
-                    margin: 5px;
+                    margin: 0.5rem;
+                    font-size: 1.1rem;
                 }
                 .results-container {
                     position: relative;
@@ -206,7 +216,7 @@ export default function PropertiesSelect({
                     position: absolute;
                     z-index: 1;
                     list-style-type: none;
-                    padding: 5px;
+                    padding: 0.5rem;
                     margin: 0;
                     box-shadow: 0 2px 5px 0 ${theme.decorations};
                     background-color: ${theme.bg};
@@ -215,7 +225,7 @@ export default function PropertiesSelect({
                 }
                 li {
                     cursor: default;
-                    padding: 5px;
+                    padding: 0.5rem;
                     border: 1px dotted ${theme.hoverDecorations};
                 }
                 li.selected {
