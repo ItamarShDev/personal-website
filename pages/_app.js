@@ -33,16 +33,8 @@ function App({ Component, pageProps }) {
                     html {
                         font-size: 10px;
                     }
-
-                    @font-face {
-                        font-family: cascadia;
-                        src: url(/fonts/CascadiaCode.woff2);
-                    }
-
-                    @font-face {
-                        font-family: fira;
-                        src: url(/fonts/FiraCode.woff2);
-                    }
+                    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+                    @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap");
 
                     body {
                         transition: all 0.2s linear;
@@ -62,7 +54,7 @@ function App({ Component, pageProps }) {
 
                     main {
                         padding: 1rem;
-                        max-width: 80rem;
+                        max-width: 100rem;
                         margin: 0 auto;
                         display: block;
                         min-height: calc(100vh - 160px);

@@ -42,7 +42,6 @@ function FloatingButton() {
                         font-size: 30px;
                         bottom: 20px;
                         right: 20px;
-                        border-radius: 50%;
                         border: 1px solid ${theme.decorations};
                         background-color: ${theme.bg};
                         z-index: 10;

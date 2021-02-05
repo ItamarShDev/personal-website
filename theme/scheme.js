@@ -5,23 +5,25 @@ const darkTheme = {
     text: "#eeeeee",
     subText: "#eeeeeeaa",
     header: "#00fff5",
-    headerText: "#d6e6f2",
+    paragraph: "#d6e6f2",
     decorations: "#00adb5",
     hoverDecorations: "#00adb511",
+    inputs: "hsla(183,100%,35%,0.2)",
     link: "white",
     charts: "#00fff5",
 };
 
 const lightTheme = {
-    bg: "#f5f5f5",
+    bg: "hsl(0,0%,96%)",
     modalBg: "#f5f5f5",
     main: "#4f8a8b",
     text: "#005792",
     header: "#303481",
-    headerText: "#393e46",
+    paragraph: "#393e46",
     subText: "#005792aa",
     decorations: "#448ef6",
     hoverDecorations: "#448ef611",
+    inputs: "hsla(215,91%,62%,0.2)",
     link: "black",
     charts: "#448ef6",
 };

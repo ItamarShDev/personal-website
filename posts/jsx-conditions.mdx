@@ -40,7 +40,7 @@ Simple, in our over simplified case, we can see that both `UserImage` an `Avatar
 
 ### So lets fix it!
 
-```js
+```jsx highlight=8,9,14
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -55,9 +55,7 @@ const UserAvatar = (props) => {
 
 function App(props) {
   return (
-    <div>
       <UserAvatar {...props} />
-    </div>
   );
 }
 

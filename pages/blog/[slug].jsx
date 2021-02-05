@@ -25,69 +25,63 @@ const EmailMeFooter = ({ theme }) => (
 
 export default function Blog({ data, html }) {
     if (!data) return null;
-    const { theme, isDark } = useContext(ThemeContext);
-    const codeBg = isDark ? "rgba(0, 0, 0, 0.5)" : theme.header;
+    const { theme } = useContext(ThemeContext);
     return (
         <>
             <h1 className="post-title">{data.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
             <EmailMeFooter theme={theme} />
             <style jsx global>{`
-                @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
                 h1.post-title {
-                    font-weight: 500;
                     padding-bottom: 2rem;
                     color: ${theme.header};
+                    font-weight: 400;
                 }
 
-                h2,
-                h3,
-                h4 {
-                    font-weight: 400;
-                    font-style: italic;
-                }
                 h1 a,
                 h2 a,
                 h3 a {
                     color: ${theme.text};
-                }
-
-                article {
-                    font-size: 1.8rem;
-                    line-height: 2.5rem;
                     font-weight: 400;
                 }
+                article {
+                    font-weight: 300;
+                    font-size: 1.8rem;
+                    line-height: 3rem;
+                    letter-spacing: 0.5px;
+                    color: ${theme.paragraph};
+                    font-family: "Roboto", sans-serif;
+                }
 
-                article pre {
-                    font-size: 0.9em;
-                    max-height: 400px;
+                article > pre {
+                    max-height: 60rem;
                     padding: 1rem;
-                    line-height: 2rem;
                     overflow-y: auto;
                     overflow-x: auto;
-                    color: white;
-                    border-left: 1px ${theme.decorations} solid;
-                    background-color: ${codeBg};
+                    border-left: 3px ${theme.decorations} solid;
+                    font-family: "Fira Code", monospace;
                 }
-                article pre code {
-                    font-family: "fira";
+                article blockquote:before {
+                    content: "„";
+                    position: absolute;
+                    font-size: 10rem;
+                    left: 0rem;
+                    color: grey;
                 }
                 article blockquote {
-                    font-family: "Helvetica Neue", "Helvetica", Arial, sans;
-                    padding: 0.5rem 0.6rem;
-                    border-left: 1px ${theme.decorations} dotted;
-                    margin: 1.5rem 0 0 0;
-                    font-size: 1.3rem;
+                    position: relative;
+                    font-family: "Helvetica", serif;
+                    padding: 1rem 1rem 1rem 5rem;
+                    margin: 2rem 0 0 0;
                     font-style: italic;
+                    font-size: 1.5rem;
+                    font-weight: 100;
                 }
                 blockquote p {
                     margin: 0;
                 }
                 article ul {
-                    font-family: Georgia, serif;
                     list-style-type: square;
-                    font-style: italic;
-                    line-height: 1.5rem;
                 }
                 ul li {
                     margin: 0.8rem auto;

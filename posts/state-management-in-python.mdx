@@ -61,7 +61,8 @@ class StateManager(dict):
 		self.registered_callbacks: dict = {}
 
 # ….
-
+```
+```python
 def register(self, func: Callable):
 	#  gets the function name, and subscribe to a top level keyword with that name.
 	func_name = func.__name__
@@ -69,24 +70,26 @@ def register(self, func: Callable):
 		self.registered_callbacks[func_name].append(func)
 	else:
 		self.registered_callbacks[func_name] = [func]
+```
 
+```python
 def subscribe(self, keyword: str, func: Callable):
 	#  subscribe to a top level keyword with same name.
 	if keyword in self.registered_callbacks:
 		self.registered_callbacks[keyword].append(func)
 	else:
 		self.registered_callbacks[keyword] = [func]
+```
 
+```python
 def notify(self, keyword: str, event_type: str, new_value: Any, old_value: Any):
-	“””
+	"""
 	Notify listeners of a keyword, called from set_state
 	Callback will get the following arguments:
 	- event_type: represents the type to change (server response, or user selection)
 	- new value
 	- old value
-
-
-	“””
+	"""
 	if keyword in self.registered_callbacks:
 		for fn in self.registered_callbacks[keyword]:
 			fn(event_type, new_val, old_val)

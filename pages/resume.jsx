@@ -51,7 +51,6 @@ export function FilterJobs({ jobs, updateJobs }) {
                     }
                     input.job-filter {
                         width: 100%;
-                        background-color: transparent;
                         color: ${theme.text};
                         line-height: 4rem;
                         padding: 0 1rem;
@@ -59,7 +58,7 @@ export function FilterJobs({ jobs, updateJobs }) {
                         display: flex;
                         align-items: start;
                         flex-direction: column;
-                        background-color: ${theme.hoverDecorations};
+                        background-color: ${theme.inputs};
                         opacity: 0.5;
                         border-radius: 1.5rem;
                         margin: 1rem 0;
