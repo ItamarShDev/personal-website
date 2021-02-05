@@ -3,6 +3,26 @@ import renderMarkdown from "lib/render-markdown";
 import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
 
+const EmailMeFooter = ({ theme }) => (
+    <div className="mail-me">
+        <p>What are your thoughts?</p>
+        <p>
+            Email me
+            <a href="mailto:itamarsharifytech@gmail.com?subject=Re:%20State%20Management%20in%20Python%20and%20Jupyter">
+                {" "}
+                here
+            </a>
+        </p>
+        <style jsx>{`
+            .mail-me {
+                font-size: 1.5rem;
+                font-style: italic;
+                border-top: 1px dotted ${theme.text};
+            }
+        `}</style>
+    </div>
+);
+
 export default function Blog({ data, html }) {
     if (!data) return null;
     const { theme, isDark } = useContext(ThemeContext);
@@ -11,9 +31,9 @@ export default function Blog({ data, html }) {
         <>
             <h1 className="post-title">{data.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
+            <EmailMeFooter theme={theme} />
             <style jsx global>{`
                 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
-
                 h1.post-title {
                     font-weight: 500;
                     padding-bottom: 2rem;
