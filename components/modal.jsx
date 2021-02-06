@@ -21,15 +21,16 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                 .container {
                     transition: backdrop-filter 1s ease-in-out;
                     z-index: 10;
-                }
-                .container.opened {
-                    position: fixed;
                     bottom: 0;
                     top: 0;
                     right: 0;
                     left: 0;
                     height: 100%;
                     width: 100%;
+                }
+                .container.opened {
+                    position: fixed;
+
                     display: block;
                     backdrop-filter: blur(5px) grayscale(1);
                 }
@@ -51,6 +52,14 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     bottom: 2rem;
                     right: 2rem;
                     transform-origin: 100% 100%;
+                }
+                @media screen and (max-width: 768px) and (orientation: portrait) {
+                    .modal {
+                        width: 100%;
+                        bottom: 0;
+                        right: 0;
+                        padding: 0;
+                    }
                 }
                 .modal.opened {
                     transition: transform 0.5s ease-in;
