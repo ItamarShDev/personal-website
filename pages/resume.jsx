@@ -37,6 +37,7 @@ export function FilterJobs({ jobs, updateJobs }) {
                     className="job-filter"
                     type="text"
                     onChange={filterJobs}
+                    autoComplete="off"
                 />
             </label>
             <span className="results">
@@ -44,6 +45,9 @@ export function FilterJobs({ jobs, updateJobs }) {
             </span>
             <style jsx>
                 {`
+                    .container {
+                        width: 80%;
+                    }
                     label {
                         color: ${theme.text};
                         font-size: 1rem;
@@ -92,9 +96,7 @@ export default function Resume({ resumeData, attributesData }) {
 
     return (
         <>
-            <div className="row">
-                <FilterJobs jobs={resumeData.jobs} updateJobs={setJobs} />
-            </div>
+            <FilterJobs jobs={resumeData.jobs} updateJobs={setJobs} />
             <div className="timeline">
                 {jobs.map((job, index) => (
                     <Job
@@ -115,7 +117,6 @@ export default function Resume({ resumeData, attributesData }) {
                     transition: all 0.4s ease;
                     position: relative;
                     padding-left: 2rem;
-                    max-width: 80rem;
                     margin: 0 auto;
                 }
                 .timeline::before {
@@ -127,11 +128,6 @@ export default function Resume({ resumeData, attributesData }) {
                     top: 0;
                     left: 0.5rem;
                     border-radius: 4rem 4rem;
-                }
-                .row {
-                    padding: 1rem 0;
-                    max-width: 80rem;
-                    margin: 0 auto;
                 }
             `}</style>
         </>
@@ -147,6 +143,7 @@ export async function getStaticProps({ params }) {
             attributesData,
             headerTitle: "Resume",
             title: "CV",
+            isCentered: true,
         },
     };
 }

@@ -2,6 +2,7 @@ import NextImage from "next/image";
 
 export default function Image({
     src,
+    url,
     alt,
     title = null,
     className = "",
@@ -9,12 +10,13 @@ export default function Image({
     circle = false,
     objectFit = "contain",
 }) {
+    const imageSrc = url || `/${src}`;
     return (
         <div className={className} title={title}>
             <NextImage
                 layout="fill"
-                key={src}
-                src={`/${src}`}
+                key={imageSrc}
+                src={imageSrc}
                 alt={alt}
                 objectFit={objectFit}
                 objectPosition="50% 50%"

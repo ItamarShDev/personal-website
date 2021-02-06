@@ -9,4 +9,7 @@ module.exports = withPlugins([], {
         locales: ["en"],
         defaultLocale: "en",
     },
+    images: {
+        domains: ["media.giphy.com"],
+    },
 });

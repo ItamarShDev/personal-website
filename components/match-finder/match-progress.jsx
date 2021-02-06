@@ -47,6 +47,7 @@ const MatchProgress = ({
     return (
         <div className="progress">
             <div className="range">{percentage}% Match</div>
+
             <style jsx>{`
                 .progress {
                     position: relative;

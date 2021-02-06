@@ -10,7 +10,6 @@ import Json from "../resume/technologies.json";
 function MatchModal(props) {
     return (
         <Modal
-            refreshOnRender
             open={props.open}
             setOpened={props.setOpened}
             title="Are we a match?"
@@ -26,7 +25,10 @@ function FloatingButton() {
         setOpened(!opened);
     };
     return (
-        <div className="container" title="Are we a match?">
+        <div
+            className={`container ${opened ? "hidden" : ""}`}
+            title="Are we a match?"
+        >
             <a className="floating-button" onClick={openModal}>
                 ?
             </a>
@@ -45,6 +47,11 @@ function FloatingButton() {
                         border: 1px solid ${theme.decorations};
                         background-color: ${theme.bg};
                         z-index: 10;
+                        opacity: 1;
+                        transition: opacity 1s linear;
+                    }
+                    .container.hidden {
+                        opacity: 0;
                     }
                     .floating-button {
                         display: inline-block;
@@ -54,6 +61,7 @@ function FloatingButton() {
                         line-height: 3rem;
                         color: ${theme.decorations};
                     }
+
                     .container:hover .floating-button {
                         color: ${theme.bg};
                     }

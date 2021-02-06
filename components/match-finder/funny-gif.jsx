@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Image from "../image";
 
 FunnyGif.propTypes = {
     percentage: PropTypes.number,
@@ -7,30 +8,30 @@ FunnyGif.propTypes = {
 function Gif(props) {
     if (props.percentage > 90)
         return (
-            <img
-                height="200px"
-                src="https://media.giphy.com/media/3orieRpuhW70wWhIju/giphy.gif"
+            <Image
+                url="https://media.giphy.com/media/3orieRpuhW70wWhIju/giphy.gif"
                 alt="we have a match gif"
+                objectFit="fill"
             />
         );
     if (props.percentage > 30)
         return (
             <>
                 <h5>Keep looking</h5>
-                <img
-                    height="200px"
-                    src="https://media.giphy.com/media/70nidvnqNadeEPHtWI/giphy.gif"
+                <Image
+                    url="https://media.giphy.com/media/70nidvnqNadeEPHtWI/giphy.gif"
                     alt="keep looking"
+                    objectFit="fill"
                 />
             </>
         );
     return (
         <>
             <h5>Start looking</h5>
-            <img
-                height="200px"
-                src="https://media.giphy.com/media/42wQXwITfQbDGKqUP7/giphy.gif"
+            <Image
+                url="https://media.giphy.com/media/42wQXwITfQbDGKqUP7/giphy.gif"
                 alt="start looking gif"
+                objectFit="fill"
             />
         </>
     );

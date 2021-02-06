@@ -18,7 +18,7 @@ function App({ Component, pageProps }) {
         : "Itamar Sharify";
 
     return (
-        <div>
+        <div id="main-view">
             <Head>
                 <title>{_title}</title>
             </Head>
@@ -46,18 +46,17 @@ function App({ Component, pageProps }) {
                             Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
                             Droid Sans, Helvetica Neue, sans-serif;
                     }
-
-                    * {
-                        box-sizing: border-box;
-                        border-color: ${theme.decorations};
+                    #main-view {
+                        display: grid;
+                        height: 100vh;
+                        grid-template-rows: 6rem 1fr;
                     }
 
                     main {
                         padding: 1rem;
-                        max-width: 100rem;
+                        ${isCentered ? "max-width: 100rem" : "width: 100%"};
                         margin: 0 auto;
                         display: block;
-                        min-height: calc(100vh - 160px);
                         transition: filter 0.5s linear;
                     }
 

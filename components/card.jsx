@@ -12,13 +12,13 @@ export default function Card({
     const { theme } = useContext(ThemeContext);
     return (
         <Link href={routeRef || route} as={route}>
-            <a className="card">
+            <a>
                 <h3>{title}</h3>
                 <p>{subTitle}</p>
                 {children}
 
                 <style jsx>{`
-                    .card {
+                    a {
                         border-radius: 2rem;
                         display: block;
                         margin: 1rem;
@@ -28,12 +28,12 @@ export default function Card({
                         border: 1px solid transparent;
                     }
 
-                    .card h3 {
+                    h3 {
                         margin: 0 0 1em 0;
                         color: ${theme.header};
                     }
 
-                    .card p {
+                    p {
                         color: ${theme.text};
                         margin: 0;
                         font-size: 1.5em;
@@ -43,14 +43,14 @@ export default function Card({
                 `}</style>
                 <style jsx>{`
                     @media (hover: hover) {
-                        .card:hover {
+                        a:hover {
                             background-color: ${theme.hoverDecorations};
                             transition: all 0.2s linear;
                             border-color: ${theme.decorations};
                         }
                     }
                     @media (hover: none) {
-                        .card {
+                        a {
                             border-color: ${theme.hoverDecorations};
                         }
                     }

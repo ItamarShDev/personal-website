@@ -18,24 +18,30 @@ function MatchCalculator({ properties }) {
 
     return (
         <div>
-            <PropertiesSelect
-                theme={theme}
-                setSelectedSkills={setSelectedSkills}
-                qualificationText={qualificationText}
-                properties={properties}
-            />
-            <MatchProgress
-                selectedSkills={selectedSkills}
-                setQualificationText={setQualificationText}
-                percentage={percentage}
-                setPercentage={setPercentage}
-            />
-            <Fireworks percentage={percentage} />
-            <FunnyGif percentage={percentage} />
+            <section>
+                <PropertiesSelect
+                    theme={theme}
+                    setSelectedSkills={setSelectedSkills}
+                    qualificationText={qualificationText}
+                    properties={properties}
+                />
+                <MatchProgress
+                    selectedSkills={selectedSkills}
+                    setQualificationText={setQualificationText}
+                    percentage={percentage}
+                    setPercentage={setPercentage}
+                />
+            </section>
+            <section>
+                <Fireworks percentage={percentage} />
+                <FunnyGif percentage={percentage} />
+            </section>
             <style jsx>{`
                 div {
                     position: relative;
-                    height: 400px;
+                    height: 100%;
+                    //display: grid;
+                    //grid-template-rows: 10rem 1fr;
                 }
             `}</style>
         </div>

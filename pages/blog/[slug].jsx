@@ -3,25 +3,25 @@ import renderMarkdown from "lib/render-markdown";
 import { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
 
-const EmailMeFooter = ({ theme }) => (
-    <div className="mail-me">
-        <p>What are your thoughts?</p>
-        <p>
-            Email me
-            <a href="mailto:itamarsharifytech@gmail.com?subject=Re:%20State%20Management%20in%20Python%20and%20Jupyter">
-                {" "}
-                here
-            </a>
-        </p>
-        <style jsx>{`
-            .mail-me {
-                font-size: 1.5rem;
-                font-style: italic;
-                border-top: 1px dotted ${theme.text};
-            }
-        `}</style>
-    </div>
-);
+const EmailMeFooter = ({ theme, blog }) => {
+    const emailTitle = `Re: ${encodeURI(blog.title)}`;
+    const mainTo = `"mailto:itamarsharifytech@gmail.com?subject=${emailTitle}`;
+    return (
+        <address className="mail-me">
+            <p>
+                Having thoughts? email me
+                <a href={mainTo}> here</a>
+            </p>
+            <style jsx>{`
+                .mail-me {
+                    font-size: 1.5rem;
+                    font-style: italic;
+                    border-top: 1px dotted ${theme.text};
+                }
+            `}</style>
+        </address>
+    );
+};
 
 export default function Blog({ data, html }) {
     if (!data) return null;
@@ -30,7 +30,7 @@ export default function Blog({ data, html }) {
         <>
             <h1 className="post-title">{data.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
-            <EmailMeFooter theme={theme} />
+            <EmailMeFooter blog={data} theme={theme} />
             <style jsx global>{`
                 h1.post-title {
                     padding-bottom: 2rem;
@@ -65,14 +65,15 @@ export default function Blog({ data, html }) {
                     content: "„";
                     position: absolute;
                     font-size: 10rem;
-                    left: 0rem;
+                    left: 0;
+                    top: 0;
                     color: grey;
                 }
                 article blockquote {
                     position: relative;
                     font-family: "Helvetica", serif;
                     padding: 1rem 1rem 1rem 5rem;
-                    margin: 2rem 0 0 0;
+                    margin: 0;
                     font-style: italic;
                     font-size: 1.5rem;
                     font-weight: 100;

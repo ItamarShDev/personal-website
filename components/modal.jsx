@@ -1,6 +1,5 @@
 import { ThemeContext, usePortal } from "lib/hooks";
 import { useState, useContext, useEffect } from "react";
-import ReactDOM from "react-dom";
 
 function ModalComponent({ open, setOpened, title, children, footer = null }) {
     const { theme } = useContext(ThemeContext);
@@ -19,83 +18,69 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                 {footer && <div className="footer">{footer}</div>}
             </div>
             <style jsx>{`
+                .container {
+                    transition: backdrop-filter 1s ease-in-out;
+                    z-index: 10;
+                }
                 .container.opened {
                     position: fixed;
-                    top: 60px;
+                    bottom: 0;
+                    top: 0;
+                    right: 0;
                     left: 0;
                     height: 100%;
-                    height: calc(100% - 60px);
                     width: 100%;
                     display: block;
-                    animation: 1s focus-out ease-in-out;
                     backdrop-filter: blur(5px) grayscale(1);
                 }
-                @keyframes focus-out {
-                    from {
-                        backdrop-filter: blur(0) grayscale(0);
-                    }
-                    to {
-                        backdrop-filter: blur(5px) grayscale(1);
-                    }
-                }
                 .container.closed {
-                    display: none;
+                    backdrop-filter: blur(0) grayscale(0);
                 }
 
                 .modal {
-                    position: relative;
-                    height: 100%;
-                    width: 100%;
-                    max-height: 600px;
-                    max-width: 600px;
+                    position: absolute;
+                    height: 600px;
+                    width: 600px;
+                    display: grid;
+                    grid-template-rows: 6rem 1fr;
                     background-color: ${theme.modalBg};
                     border: 1px solid ${theme.decorations};
                     border-radius: 1rem;
                     padding: 1rem;
                     box-shadow: 0 0 10em -3em ${theme.decorations};
+                    bottom: 2rem;
+                    right: 2rem;
+                    transform-origin: 100% 100%;
                 }
                 .modal.opened {
-                    top: 50%;
-                    left: 50%;
-                    animation: open-up 0.5s ease-in;
-                    transform: scale(1) translate(-50%, -50%);
+                    transition: transform 0.5s ease-in;
+                    transform: scale(1);
+                }
+                .modal.closed {
+                    transition: transform 0.5s ease-in;
+                    transform: scale(0);
                 }
 
-                @keyframes open-up {
-                    from {
-                        top: calc(100% - 20px);
-                        left: calc(100% - 20px);
-                        transform: translate(-50%, -50%) scale(0);
-                        filter: grayscale(1) opacity(0);
-                        border-radius: 50%;
-                        overflow: hidden;
-                    }
-                    to {
-                        transform: translate(-50%, -50%) scale(1);
-                        filter: grayscale(0) opacity(1);
-                        border-radius: 0;
-                        overflow: auto;
-                    }
-                }
                 .header {
-                    padding: 1rem;
-                    font-size: 1em;
+                    display: grid;
+                    grid-template-columns: 1fr 6rem;
                     border-bottom: 1px solid ${theme.decorations};
-                    display: flex;
-                    justify-content: space-between;
                 }
 
                 .title {
-                    line-height: 1rem;
+                    margin: 0;
+                    padding: 0 1rem;
                 }
 
                 .body {
                     padding: 15px 1rem;
+                    height: 100%;
                 }
                 .header .close {
                     font-size: 2rem;
-                    padding: 2rem;
-                    width: 5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     text-align: center;
                     cursor: pointer;
                     color: ${theme.text};
