@@ -40,8 +40,8 @@ function MatchCalculator({ properties }) {
                 div {
                     position: relative;
                     height: 100%;
-                    //display: grid;
-                    //grid-template-rows: 10rem 1fr;
+                    display: grid;
+                    grid-template-rows: 10rem 1fr;
                 }
             `}</style>
         </div>

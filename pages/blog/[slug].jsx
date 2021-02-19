@@ -107,6 +107,7 @@ export async function getStaticProps({ params }) {
             title: "Blog",
             html: renderMarkdown(content),
             headerTitle: "Blog",
+            isCentered: true,
         },
     };
 }

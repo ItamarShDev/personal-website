@@ -27,10 +27,10 @@ function Blog({ post }) {
 
 export default function Blogs({ allPostsData }) {
     return (
-        <article className="box">
+        <div>
             {allPostsData.map((post) => (
                 <Blog key={post.slug} post={post} />
             ))}
-        </article>
+        </div>
     );
 }

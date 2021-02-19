@@ -9,12 +9,13 @@ export default function Image({
     size = "100%",
     circle = false,
     objectFit = "contain",
+    layout = "fill",
 }) {
     const imageSrc = url || `/${src}`;
     return (
         <div className={className} title={title}>
             <NextImage
-                layout="fill"
+                layout={layout}
                 key={imageSrc}
                 src={imageSrc}
                 alt={alt}
