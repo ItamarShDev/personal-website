@@ -1,12 +1,8 @@
-import { Avatar, SocialRefs } from "components";
-import { ThemeContext } from "lib/hooks";
-import { useContext } from "react";
+import { SocialRefs } from "components";
 
-function AboutMe(props) {
-    const { theme } = useContext(ThemeContext);
+function AboutMe() {
     return (
         <div className="about-me">
-            <Avatar />
             <div className="summary">
                 <h1>Itamar.</h1>
                 <h2>Web Developer</h2>
@@ -17,9 +13,12 @@ function AboutMe(props) {
             </div>
             <style jsx>{`
                 .about-me {
+                    height: 100%;
+                    width: 100%;
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+                    position: relative;
                 }
 
                 a {

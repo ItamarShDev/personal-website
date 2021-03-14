@@ -1,15 +1,14 @@
 import dynamic from "next/dynamic";
 
 const Abilities = dynamic(() => import("components/charts/abilities"), {
-    ssr: false,
+    ssr: true,
     loading: () => <div>Loading...</div>,
 });
 
 const SocialAffect = dynamic(() => import("components/charts/social"), {
-    ssr: false,
+    ssr: true,
     loading: () => <div>Loading...</div>,
 });
-Stats.propTypes = {};
 
 function Stats(props) {
     const labels = ["Python", "Node.js", "Javascript", "CSS", "React.js"];
@@ -25,12 +24,10 @@ function Stats(props) {
                 </span>
             </div>
             <style jsx>{`
-                div.flex {
+                .flex {
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-                    align-items: center;
-                    justify-content: center;
                 }
             `}</style>
         </div>

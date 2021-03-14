@@ -3,6 +3,7 @@ import { ThemeContext } from "lib/hooks";
 import Link from "next/link";
 import { ThemedIcon } from "../components/themed-icon";
 import { Image } from "components";
+import GithubLogo from "../components/icons/github";
 
 /**
  * @param {{ title: any; }} props
@@ -12,20 +13,7 @@ const Header = (props) => {
     const { title } = props;
     return (
         <nav>
-            <a
-                href="https://github.com/ItamarShDev/personal-website"
-                title="Review me on GitHub"
-                className="github-link"
-                target="_blank"
-                rel="noreferrer noopener"
-            >
-                <Image
-                    src="icons/github.svg"
-                    alt="github logo"
-                    size="25px"
-                    objectFit="fill"
-                />
-            </a>
+            <GithubLogo />
             <Link href="/">
                 <a title="Click to go home">
                     <span className="name">Itamar Sharify</span>
@@ -59,7 +47,7 @@ const Header = (props) => {
                 .name {
                     font-size: 2em;
                     font-weight: 400;
-                    color: ${theme.header};
+                    color: ${theme.headerText};
                 }
                 .title {
                     font-size: 1.5em;

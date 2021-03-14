@@ -25,7 +25,7 @@ export default function Card({
                         padding: 2rem;
                         text-align: left;
                         flex-grow: 1;
-                        border: 1px solid transparent;
+                        border: 1px solid ${theme.main};
                     }
 
                     h3 {
@@ -44,9 +44,8 @@ export default function Card({
                 <style jsx>{`
                     @media (hover: hover) {
                         a:hover {
-                            background-color: ${theme.hoverDecorations};
                             transition: all 0.2s linear;
-                            border-color: ${theme.decorations};
+                            background-color: ${theme.hoverDecorations};
                         }
                     }
                     @media (hover: none) {

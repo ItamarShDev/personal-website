@@ -17,10 +17,11 @@ export function FilterJobs({ jobs, updateJobs }) {
             .slice(0)
             .reverse()
             .filter((item) => {
-                const r = item.tags.some((tag) =>
+                const hasTag = item.tags.some((tag) =>
                     tag.toLowerCase().includes(text)
                 );
-                return r;
+                const hasTitle = item.title.toLowerCase().includes(text);
+                return hasTag || hasTitle;
             });
         if (text) {
             setResultCount(_jobs.length);
@@ -39,25 +40,25 @@ export function FilterJobs({ jobs, updateJobs }) {
                     onChange={filterJobs}
                     autoComplete="off"
                 />
+                <span className="results">
+                    {resultCount > 0 && `${resultCount} results found`}
+                </span>
             </label>
-            <span className="results">
-                {resultCount > 0 && `${resultCount} results found`}
-            </span>
             <style jsx>
                 {`
-                    .container {
-                        width: 80%;
-                    }
                     label {
+                        display: flex;
+                        flex-direction: column;
                         color: ${theme.text};
                         font-size: 1rem;
+                        padding-block-start: 2rem;
                         padding-inline-start: 5px;
+                        margin: 2rem 0;
                     }
                     input.job-filter {
-                        width: 100%;
                         color: ${theme.text};
                         line-height: 4rem;
-                        padding: 0 1rem;
+                        padding: 0 2rem;
                         font-size: 1.5rem;
                         display: flex;
                         align-items: start;
@@ -65,7 +66,7 @@ export function FilterJobs({ jobs, updateJobs }) {
                         background-color: ${theme.inputs};
                         opacity: 0.5;
                         border-radius: 1.5rem;
-                        margin: 1rem 0;
+                        margin-block-start: 1rem;
                     }
                     input.job-filter:focus,
                     input.job-filter:hover {
@@ -75,9 +76,9 @@ export function FilterJobs({ jobs, updateJobs }) {
                         color: gray;
                         font-style: italic;
                         font-size: 1rem;
-                        height: 1rem;
-                        display: inline-block;
-                        padding-inline-start: 5px;
+                        height: 2rem;
+                        line-height: 2rem;
+                        padding-inline-start: 2rem;
                     }
                     input,
                     input:focus {
@@ -95,7 +96,7 @@ export default function Resume({ resumeData, attributesData }) {
     const [jobs, setJobs] = useState([]);
 
     return (
-        <>
+        <section>
             <FilterJobs jobs={resumeData.jobs} updateJobs={setJobs} />
             <div className="timeline">
                 {jobs.map((job, index) => (
@@ -109,6 +110,9 @@ export default function Resume({ resumeData, attributesData }) {
                 ))}
             </div>
             <style jsx>{`
+                section {
+                    width: 80rem;
+                }
                 .timeline {
                     display: grid;
                     grid-gap: 1.5rem;
@@ -130,7 +134,7 @@ export default function Resume({ resumeData, attributesData }) {
                     border-radius: 4rem 4rem;
                 }
             `}</style>
-        </>
+        </section>
     );
 }
 
@@ -143,7 +147,6 @@ export async function getStaticProps({ params }) {
             attributesData,
             headerTitle: "Resume",
             title: "CV",
-            isCentered: true,
         },
     };
 }

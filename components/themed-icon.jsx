@@ -8,31 +8,27 @@ export function getIconClassAndAction(isDark) {
     }
 }
 export const ThemedIcon = (props) => {
-    const { theme, toggleTheme, isDark } = useContext(ThemeContext);
+    const { toggleTheme, isDark, theme } = useContext(ThemeContext);
     const iconClass = getIconClassAndAction(isDark);
+    const title = `Toggle ${isDark ? "light" : "dark"} mode`;
     return (
-        <a
-            onClick={toggleTheme}
-            className={`icon ${iconClass}`}
-            title="Toggle dark mode"
-        >
+        <a onClick={toggleTheme} className={`icon ${iconClass}`} title={title}>
             <style jsx>{`
                 a.icon {
                     height: 60px;
                     width: 60px;
                     font-size: 1.2em;
                     font-style: normal;
-                    color: ${theme.decorations};
-                    background-size: 20px;
-                    background-position: 1rem center;
-                    background-repeat: no-repeat;
+                    background-color: ${theme.headerText};
+                    mask-size: 20px;
+                    mask-position: 1rem center;
+                    mask-repeat: no-repeat;
                 }
                 .dark-icon {
-                    fill: ${theme.header};
-                    background-image: url(/icons/sun.svg);
+                    mask-image: url(/icons/sun.svg);
                 }
                 .light-icon {
-                    background-image: url(/icons/moon.svg);
+                    mask-image: url(/icons/moon.svg);
                 }
             `}</style>
         </a>

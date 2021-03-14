@@ -29,9 +29,23 @@ function App({ Component, pageProps }) {
                     <Component {...pageProps} />
                     {centerStyle}
                 </main>
+                <style jsx>{`
+                    main {
+                        max-width: 120rem;
+                        margin: 0 auto;
+                        display: block;
+                        transition: filter 0.5s linear;
+                    }
+                `}</style>
                 <style jsx global>{`
+                    *,
+                    *::before,
+                    *::after {
+                        box-sizing: inherit;
+                    }
                     html {
                         font-size: 10px;
+                        box-sizing: border-box;
                     }
                     @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
                     @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap");
@@ -50,14 +64,6 @@ function App({ Component, pageProps }) {
                         display: grid;
                         height: 100vh;
                         grid-template-rows: 6rem 1fr;
-                    }
-
-                    main {
-                        padding: 1rem;
-                        ${isCentered ? "max-width: 100rem" : "width: 100%"};
-                        margin: 0 auto;
-                        display: block;
-                        transition: filter 0.5s linear;
                     }
 
                     a {

@@ -6,7 +6,7 @@ import Image from "components/image";
 export default function LanguagesList() {
     const { className, styles } = grid({
         rows: 1,
-        cols: 5,
+        cols: 8,
         gap: "0.5rem",
         height: "5rem",
         width: "5rem",
@@ -20,7 +20,6 @@ export default function LanguagesList() {
     );
     return (
         <div className={`languages ${centerClass}`}>
-            <h4>Uses</h4>
             <div className={className}>
                 <Image
                     src="logos/nextjs.png"

@@ -49,6 +49,8 @@ export default function Blog({ data, html }) {
                     font-size: 1.8rem;
                     line-height: 3rem;
                     letter-spacing: 0.5px;
+                    max-width: 110rem;
+                    margin: 0 auto;
                     color: ${theme.paragraph};
                     font-family: "Roboto", sans-serif;
                 }
