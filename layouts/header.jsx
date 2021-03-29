@@ -5,9 +5,6 @@ import { ThemedIcon } from "../components/themed-icon";
 import { Image } from "components";
 import GithubLogo from "../components/icons/github";
 
-/**
- * @param {{ title: any; }} props
- */
 const Header = (props) => {
     const { theme } = useContext(ThemeContext);
     const { title } = props;
@@ -51,7 +48,7 @@ const Header = (props) => {
                 }
                 .title {
                     font-size: 1.5em;
-                    font-family: cascadia;
+                    font-family: cascadia, serif;
                     color: ${theme.headerText};
                     font-style: italic;
                 }

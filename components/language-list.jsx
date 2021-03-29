@@ -5,8 +5,8 @@ import Image from "components/image";
 
 export default function LanguagesList() {
     const { className, styles } = grid({
-        rows: 1,
-        cols: 8,
+        rows: 2,
+        cols: 4,
         gap: "0.5rem",
         height: "5rem",
         width: "5rem",

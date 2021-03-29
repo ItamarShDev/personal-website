@@ -27,10 +27,16 @@ export default function Blog({ data, html }) {
     if (!data) return null;
     const { theme } = useContext(ThemeContext);
     return (
-        <>
+        <div>
             <h1 className="post-title">{data.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
             <EmailMeFooter blog={data} theme={theme} />
+            <style jsx>{`
+                div {
+                    max-width: 100rem;
+                    margin: 0 auto;
+                }
+            `}</style>
             <style jsx global>{`
                 h1.post-title {
                     padding-bottom: 2rem;
@@ -49,8 +55,6 @@ export default function Blog({ data, html }) {
                     font-size: 1.8rem;
                     line-height: 3rem;
                     letter-spacing: 0.5px;
-                    max-width: 110rem;
-                    margin: 0 auto;
                     color: ${theme.paragraph};
                     font-family: "Roboto", sans-serif;
                 }
@@ -62,6 +66,12 @@ export default function Blog({ data, html }) {
                     overflow-x: auto;
                     border-left: 3px ${theme.decorations} solid;
                     font-family: "Fira Code", monospace;
+                }
+                @media only screen and (max-width: 968px) {
+                    article > pre {
+                        width: 100vw;
+                        transform: translateX(-10vw);
+                    }
                 }
                 article blockquote:before {
                     content: "„";
@@ -97,7 +107,7 @@ export default function Blog({ data, html }) {
                     }
                 }
             `}</style>
-        </>
+        </div>
     );
 }
 
@@ -109,7 +119,6 @@ export async function getStaticProps({ params }) {
             title: "Blog",
             html: renderMarkdown(content),
             headerTitle: "Blog",
-            isCentered: true,
         },
     };
 }

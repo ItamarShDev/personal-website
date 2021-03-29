@@ -18,7 +18,6 @@ export default function Home() {
             </section>
             <footer>
                 <FloatingButton />
-                <LanguagesList />
             </footer>
             <style jsx>{`
                 article {
@@ -27,6 +26,9 @@ export default function Home() {
                     grid-template-rows: 1fr 1fr 1fr 8.5rem;
                     grid-template-columns: 2fr 3fr;
                     grid-template-areas: "image about-me" "image links" "image stats" "footer footer";
+                }
+                section {
+                    padding: 2rem 0;
                 }
                 .image {
                     grid-area: image;
@@ -49,6 +51,11 @@ export default function Home() {
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                }
+                @media only screen and (max-width: 968px) {
+                    article {
+                        grid-template-areas: "image about-me" "links links" "stats stats" "footer footer";
+                    }
                 }
             `}</style>
         </article>

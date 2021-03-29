@@ -42,15 +42,15 @@ export default function Card({
                     }
                 `}</style>
                 <style jsx>{`
+                    @media only screen and (max-width: 968px) {
+                        a {
+                            text-align: center;
+                        }
+                    }
                     @media (hover: hover) {
                         a:hover {
                             transition: all 0.2s linear;
                             background-color: ${theme.hoverDecorations};
-                        }
-                    }
-                    @media (hover: none) {
-                        a {
-                            border-color: ${theme.hoverDecorations};
                         }
                     }
                 `}</style>

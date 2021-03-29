@@ -110,9 +110,6 @@ export default function Resume({ resumeData, attributesData }) {
                 ))}
             </div>
             <style jsx>{`
-                section {
-                    width: 80rem;
-                }
                 .timeline {
                     display: grid;
                     grid-gap: 1.5rem;
@@ -120,7 +117,7 @@ export default function Resume({ resumeData, attributesData }) {
                     -webkit-transition: all 0.4s ease;
                     transition: all 0.4s ease;
                     position: relative;
-                    padding-left: 2rem;
+                    padding-left: 2.2rem;
                     margin: 0 auto;
                 }
                 .timeline::before {

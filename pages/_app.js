@@ -30,8 +30,9 @@ function App({ Component, pageProps }) {
                     {centerStyle}
                 </main>
                 <style jsx>{`
-                    main {
-                        max-width: 120rem;
+                     {
+                        max-width: 80vw;
+                        width: 120rem;
                         margin: 0 auto;
                         display: block;
                         transition: filter 0.5s linear;
@@ -62,7 +63,7 @@ function App({ Component, pageProps }) {
                     }
                     #main-view {
                         display: grid;
-                        height: 100vh;
+                        min-height: 100vh;
                         grid-template-rows: 6rem 1fr;
                     }
 
