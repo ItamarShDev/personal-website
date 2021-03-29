@@ -43,11 +43,14 @@ export default function Blog({ data, html }) {
                     color: ${theme.header};
                     font-weight: 400;
                 }
+                p {
+                    filter: brightness(150%);
+                }
 
                 h1 a,
                 h2 a,
                 h3 a {
-                    color: ${theme.text};
+                    filter: brightness(225%);
                     font-weight: 400;
                 }
                 article {

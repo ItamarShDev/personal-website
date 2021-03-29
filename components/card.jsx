@@ -35,6 +35,7 @@ export default function Card({
 
                     p {
                         color: ${theme.text};
+                        filter: hue-rotate(180deg) sepia(0.7);
                         margin: 0;
                         font-size: 1.5em;
                         line-height: 1.5;

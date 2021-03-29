@@ -1,56 +1,36 @@
-/* styles.js */
-import css from "styled-jsx/css";
+const darkTheme = {
+    bg: "#222831",
+    modalBg: "#222831",
+    main: "#2d4059",
+    text: "#eeeeee",
+    subText: "#eeeeeeaa",
+    headerText: "#eeeeee",
+    header: "#00fff5",
+    paragraph: "#d6e6f2",
+    decorations: "#00adb5",
+    hoverDecorations: "#00adb511",
+    inputs: "hsla(183,100%,35%,0.2)",
+    link: "white",
+    charts: "#00fff5",
+};
 
-export function grid({
-    cols = 2,
-    rows = 2,
-    gap = 0,
-    height = "auto",
-    width = "auto",
-}) {
-    return css.resolve`
-        div {
-            display: grid;
-            grid-template-columns: repeat(${cols}, ${width});
-            grid-template-rows: repeat(${rows}, ${height});
-            grid-gap: ${gap};
-            justify-content: center;
-            align-items: center;
-        }
-    `;
-}
-export function invertByTheme(isDark) {
-    return css.resolve`
-        div {
-            filter: invert(${isDark ? 1 : 0}) blur(0) !important;
-        }
-    `;
-}
-export const gridItem = () =>
-    css.resolve`
-        .item {
-            object-fit: contain;
-            max-width: 100%;
-            max-height: 100%;
-        }
-    `;
-
-export function centered({
-    isColumns = false,
-    centerText = false,
-    selector = "div",
-    gap = 0,
-} = {}) {
-    return css.resolve`
-        ${selector} {
-            display: flex;
-            width: inherit;
-            flex-direction: ${isColumns ? "column" : "row"};
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            text-align: ${centerText ? "center" : "start"};
-            gap: ${gap}px;
-        }
-    `;
-}
+const lightTheme = {
+    bg: "hsl(0,0%,96%)",
+    modalBg: "#f5f5f5",
+    main: "rgba(0,196,255,0.86)",
+    text: "#005792",
+    header: "blue",
+    headerText: "#005792aa",
+    paragraph: "#393e46",
+    subText: "#005792aa",
+    decorations: "#448ef6",
+    hoverDecorations: "#448ef611",
+    inputs: "hsla(215,91%,62%,0.2)",
+    link: "black",
+    charts: "#448ef6",
+};
+const Theme = {
+    light: lightTheme,
+    dark: darkTheme,
+};
+export default Theme;

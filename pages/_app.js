@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useTheme } from "lib/hooks";
 import { Header } from "layouts";
-import { centered } from "theme/theme";
+import { centered } from "theme/styles";
 import Head from "next/head";
 
 function App({ Component, pageProps }) {
