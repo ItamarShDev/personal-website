@@ -1,27 +1,8 @@
 import { getAllPostIds, getPostData } from "lib/posts";
 import renderMarkdown from "lib/render-markdown";
-import useTelegramComments, { ThemeContext } from "lib/hooks";
+import { ThemeContext, useTelegramComments } from "lib/hooks";
 import { useContext } from "react";
-
-const EmailMeFooter = ({ theme, blog }) => {
-    const emailTitle = `Re: ${encodeURI(blog.title)}`;
-    const mainTo = `"mailto:itamarsharifytech@gmail.com?subject=${emailTitle}`;
-    return (
-        <address className="mail-me">
-            <p>
-                Having thoughts? email me
-                <a href={mainTo}> here</a>
-            </p>
-            <style jsx>{`
-                .mail-me {
-                    font-size: 1.5rem;
-                    font-style: italic;
-                    border-top: 1px dotted ${theme.text};
-                }
-            `}</style>
-        </address>
-    );
-};
+import EmailMeFooter from "components/email-footer";
 
 export default function Blog({ data, html }) {
     if (!data) return null;
@@ -53,6 +34,7 @@ export default function Blog({ data, html }) {
                 h3 a {
                     filter: brightness(225%);
                     font-weight: 400;
+                    text-decoration: none;
                 }
                 article {
                     font-weight: 300;

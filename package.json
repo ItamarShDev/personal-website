@@ -34,7 +34,8 @@
         "marked": "^1.1.1",
         "prettier": "2.0.5",
         "prism-react-renderer": "^1.1.1",
-        "react-is": "^17.0.1"
+        "react-is": "^17.0.1",
+        "typescript": "^4.2.4"
     },
     "husky": {
         "hooks": {

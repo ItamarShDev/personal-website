@@ -1,26 +1,12 @@
-import { useState, useEffect, createContext } from "react";
-import Theme from "../theme/theme.js";
+import { createContext, useEffect, useState } from 'react';
+import Theme from '../../theme/theme';
 export const ThemeContext = createContext(Theme.light);
-import ReactDOM from "react-dom";
-
-/**
- * Creates a portal for a component under the selected dom area
- * @param {JSX.Element} component
- * @param {HTMLElement} parent
- */
-export function usePortal(component, parent) {
-    if (process.browser) {
-        const elm = parent || document.getElementsByTagName("body")[0];
-        return ReactDOM.createPortal(component, elm);
-    }
-    return component;
-}
 
 /**
  * uses System define theme
- * @param {function} setTheme
+ * @param {Function} setTheme
  */
-function useSystemTheme(setTheme) {
+function useSystemTheme(setTheme: Function) {
     if (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -41,7 +27,7 @@ function useSystemTheme(setTheme) {
     }
 }
 
-export function useTheme(currentTheme = "light") {
+export default function useTheme(currentTheme: String = "light") {
     const [theme, setTheme] = useState(currentTheme);
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
@@ -77,25 +63,3 @@ export function useTheme(currentTheme = "light") {
         isSystemTheme: theme === null,
     };
 }
-
-const useTelegramComments = () => {
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://comments.app/js/widget.js?3";
-        script.async = true;
-        script.setAttribute("data-comments-app-website", "Uw2PtLy1");
-        script.setAttribute("data-limit", "5");
-        script.setAttribute("data-color", "F0B138");
-        script.setAttribute("data-dislikes", "1");
-        script.setAttribute("data-colorful", "1");
-        script.setAttribute("data-dark", "1");
-        const post = document.getElementById("blog-post");
-        post.appendChild(script);
-
-        return () => {
-            post.removeChild(script);
-        };
-    }, []);
-};
-
-export default useTelegramComments;

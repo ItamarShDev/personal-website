@@ -1,5 +1,5 @@
 import { getSortedPostsData } from "../lib/posts";
-import { Card } from "components";
+import { LinkCard } from "components";
 
 export function getStaticProps() {
     const allPostsData = getSortedPostsData();
@@ -15,7 +15,7 @@ export function getStaticProps() {
 
 function Blog({ post }) {
     return (
-        <Card
+        <LinkCard
             key={post.id}
             routeRef="blog/[slug]"
             route={`blog/${post.slug}`}

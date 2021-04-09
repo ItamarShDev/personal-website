@@ -1,7 +1,10 @@
-import { Links, LanguagesList, Stats, Avatar, AboutMe } from "components";
+import { Links, Stats, Avatar, AboutMe } from "components";
 import FloatingButton from "components/floating-button";
+import { useTrackVisibility } from "lib/hooks";
 
 export default function Home() {
+    const [ref, { isVisible, wasEverVisible }] = useTrackVisibility();
+    const showStats = isVisible || wasEverVisible;
     return (
         <article>
             <section className="image">
@@ -10,8 +13,8 @@ export default function Home() {
             <section className="about-me">
                 <AboutMe />
             </section>
-            <section className="stats">
-                <Stats />
+            <section className="stats" ref={ref}>
+                {showStats && <Stats />}
             </section>
             <section className="links">
                 <Links />
@@ -23,7 +26,7 @@ export default function Home() {
                 article {
                     height: 100%;
                     display: grid;
-                    grid-template-rows: 1fr 1fr 1fr 8.5rem;
+                    grid-template-rows: 1fr 1fr 1fr 0;
                     grid-template-columns: 2fr 3fr;
                     grid-template-areas: "image about-me" "image links" "image stats" "footer footer";
                 }

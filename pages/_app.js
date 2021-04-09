@@ -30,7 +30,7 @@ function App({ Component, pageProps }) {
                     {centerStyle}
                 </main>
                 <style jsx>{`
-                     {
+                    main {
                         max-width: 80vw;
                         width: 120rem;
                         margin: 0 auto;
@@ -69,7 +69,6 @@ function App({ Component, pageProps }) {
 
                     a {
                         color: ${theme.link};
-                        text-decoration: none;
                         scroll-margin-top: 65px;
                     }
 

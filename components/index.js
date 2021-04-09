@@ -1,4 +1,4 @@
-import Card from "./card";
+import LinkCard from "./link-card";
 import Job from "./job";
 import Avatar from "./avatar";
 import AboutMe from "./about-me";
@@ -11,7 +11,7 @@ export {
     Stats,
     Image,
     Links,
-    Card,
+    LinkCard,
     Job,
     Avatar,
     AboutMe,

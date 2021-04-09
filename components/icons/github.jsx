@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../../lib/hooks";
+import { ThemeContext } from "lib/hooks";
 
 const Link = () => {
     const { theme } = useContext(ThemeContext);

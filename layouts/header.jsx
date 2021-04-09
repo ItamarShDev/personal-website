@@ -61,6 +61,9 @@ const Header = (props) => {
                     width: 6rem;
                     cursor: default;
                 }
+                a {
+                    text-decoration: none;
+                }
             `}</style>
         </nav>
     );
