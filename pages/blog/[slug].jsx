@@ -1,6 +1,6 @@
 import { getAllPostIds, getPostData } from "lib/posts";
 import renderMarkdown from "lib/render-markdown";
-import { ThemeContext } from "lib/hooks";
+import useTelegramComments, { ThemeContext } from "lib/hooks";
 import { useContext } from "react";
 
 const EmailMeFooter = ({ theme, blog }) => {
@@ -26,8 +26,9 @@ const EmailMeFooter = ({ theme, blog }) => {
 export default function Blog({ data, html }) {
     if (!data) return null;
     const { theme } = useContext(ThemeContext);
+    useTelegramComments();
     return (
-        <div>
+        <div id="blog-post">
             <h1 className="post-title">{data.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
             <EmailMeFooter blog={data} theme={theme} />
