@@ -14,7 +14,7 @@ export default function LinkCard({
         <Link href={routeRef || route} as={route}>
             <dl>
                 <dt>
-                    <h3>{title}</h3>
+                    <a>{title}</a>
                 </dt>
                 <dd>{subTitle}</dd>
                 {children}
@@ -28,20 +28,22 @@ export default function LinkCard({
                         text-align: left;
                         flex-grow: 1;
                         text-decoration: none;
+                        cursor: pointer;
                     }
 
                     dt {
                         margin: 0 0 1em 0;
-                        color: ${theme.header};
                     }
-
+                    dt a {
+                        font-size: 3rem;
+                        font-weight: 500;
+                        color: ${theme.headerText};
+                    }
                     dd {
-                        color: ${theme.text};
-                        filter: hue-rotate(180deg) sepia(0.7);
+                        color: ${theme.subText};
                         margin: 0 10px;
                         font-size: 1.5em;
                         line-height: 1.5;
-                        font-style: italic;
                     }
                 `}</style>
                 <style jsx>{`
@@ -51,9 +53,10 @@ export default function LinkCard({
                         }
                     }
                     @media (hover: hover) {
-                        dl:hover h3 {
+                        dl:hover a {
                             transition: all 0.2s linear;
-                            text-decoration: underline double 1px ${theme.text};
+                            text-decoration: underline double 1px
+                                ${theme.headerText};
                         }
                     }
                 `}</style>

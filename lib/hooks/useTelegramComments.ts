@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-
-const useTelegramComments = () => {
+const useTelegramComments = (elementId = "blog-post") => {
     useEffect(() => {
         const script = document.createElement("script");
         script.src = "https://comments.app/js/widget.js?3";
@@ -12,7 +11,7 @@ const useTelegramComments = () => {
         script.setAttribute("data-dislikes", "1");
         script.setAttribute("data-colorful", "1");
         script.setAttribute("data-dark", "1");
-        const post = document.getElementById("blog-post");
+        const post = document.getElementById(elementId);
         post.appendChild(script);
 
         return () => {

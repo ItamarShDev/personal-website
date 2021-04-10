@@ -7,12 +7,17 @@ import EmailMeFooter from "components/email-footer";
 export default function Blog({ data, html }) {
     if (!data) return null;
     const { theme } = useContext(ThemeContext);
-    useTelegramComments();
+    useTelegramComments("blog-post");
+    const emailTitle = `Re: ${encodeURI(data.title)}`;
+
     return (
         <div id="blog-post">
             <h1 className="post-title">{data.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
-            <EmailMeFooter blog={data} theme={theme} />
+            <EmailMeFooter
+                title={emailTitle}
+                text="Having thoughts? email me"
+            />
             <style jsx>{`
                 div {
                     max-width: 100rem;
@@ -22,19 +27,24 @@ export default function Blog({ data, html }) {
             <style jsx global>{`
                 h1.post-title {
                     padding-bottom: 2rem;
-                    color: ${theme.header};
-                    font-weight: 400;
+                    color: ${theme.headerText};
+                    font-weight: 200;
                 }
                 p {
                     filter: brightness(150%);
+                    margin: 0 0 0 0;
                 }
 
                 h1 a,
                 h2 a,
                 h3 a {
                     filter: brightness(225%);
-                    font-weight: 400;
+                    font-weight: 300;
                     text-decoration: none;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
                 }
                 article {
                     font-weight: 300;
@@ -55,8 +65,8 @@ export default function Blog({ data, html }) {
                 }
                 @media only screen and (max-width: 968px) {
                     article > pre {
-                        width: 100vw;
-                        transform: translateX(-10vw);
+                        width: 90vw;
+                        transform: translateX(-5vw);
                     }
                 }
                 article blockquote:before {

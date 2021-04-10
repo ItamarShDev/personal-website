@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { ThemeContext } from "lib/hooks";
 import PropertiesSelect from "components/match-finder/properties-select";
 import MatchProgress from "components/match-finder/match-progress";
-import FunnyGif from "components/match-finder/funny-gif";
 import Fireworks from "components/match-finder/fireworks";
+import CallMe from "./telegram-comments";
 MatchCalculator.propTypes = {
     jobs: PropTypes.arrayOf(PropTypes.string),
     properties: PropTypes.object,
@@ -34,14 +34,16 @@ function MatchCalculator({ properties }) {
             </section>
             <section>
                 <Fireworks percentage={percentage} />
-                <FunnyGif percentage={percentage} />
+                <CallMe percentage={percentage} />
             </section>
             <style jsx>{`
                 div {
                     position: relative;
+                    width: 100%;
                     height: 100%;
                     display: grid;
-                    grid-template-rows: 10rem 1fr;
+                    gap: 1rem;
+                    grid-template-rows: 1fr 2rem;
                 }
             `}</style>
         </div>

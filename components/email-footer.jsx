@@ -1,10 +1,13 @@
-const EmailMeFooter = ({ theme, blog }) => {
-    const emailTitle = `Re: ${encodeURI(blog.title)}`;
-    const mailTo = `"mailto:itamarsharifytech@gmail.com?subject=${emailTitle}`;
+import { ThemeContext } from "../lib/hooks";
+import { useContext } from "react";
+
+const EmailMeFooter = ({ text, title }) => {
+    const { theme } = useContext(ThemeContext);
+    const mailTo = `"mailto:itamarsharifytech@gmail.com?subject=${title}`;
     return (
         <address>
             <p>
-                Having thoughts? email me
+                {text}
                 <a href={mailTo}>here</a>
             </p>
             <style jsx>{`

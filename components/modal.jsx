@@ -1,22 +1,29 @@
-import { ThemeContext, usePortal } from "lib/hooks";
+import { ThemeContext, useBodyScroll, usePortal } from "lib/hooks";
 import { useState, useContext, useEffect } from "react";
 
 function ModalComponent({ open, setOpened, title, children, footer = null }) {
     const { theme } = useContext(ThemeContext);
+
     return (
         <div className={`container ${open ? "opened" : "closed"}`}>
-            <div className={`modal ${open ? "opened" : "closed"}`}>
-                {title && (
-                    <div className="header">
-                        <h1 className="title">{title}</h1>
-                        <a className="close" onClick={() => setOpened(false)}>
-                            ×
-                        </a>
-                    </div>
-                )}
-                <div className="body">{children}</div>
-                {footer && <div className="footer">{footer}</div>}
+            <div className="modal-wrapper">
+                <div className={`modal ${open ? "opened" : "closed"}`}>
+                    {title && (
+                        <div className="header">
+                            <span className="title">{title}</span>
+                            <a
+                                className="close"
+                                onClick={() => setOpened(false)}
+                            >
+                                ×
+                            </a>
+                        </div>
+                    )}
+                    <div className="body">{children}</div>
+                    {footer && <div className="footer">{footer}</div>}
+                </div>
             </div>
+
             <style jsx>{`
                 .container {
                     transition: backdrop-filter 1s ease-in-out;
@@ -27,20 +34,23 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     left: 0;
                     height: 100%;
                     width: 100%;
+                    background-color: rgba(0, 0, 0, 0.6);
                 }
                 .container.opened {
                     position: fixed;
-
                     display: block;
                     backdrop-filter: blur(5px) grayscale(1);
                 }
                 .container.closed {
                     backdrop-filter: blur(0) grayscale(0);
                 }
-
-                .modal {
+                .modal-wrapper {
                     position: absolute;
-                    height: 600px;
+                    top: 30%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .modal {
                     width: 600px;
                     display: grid;
                     grid-template-rows: 6rem 1fr;
@@ -49,16 +59,17 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     border-radius: 1rem;
                     padding: 1rem;
                     box-shadow: 0 0 10em -3em ${theme.decorations};
-                    bottom: 2rem;
-                    right: 2rem;
-                    transform-origin: 100% 100%;
+                    transform-origin: center;
                 }
                 @media screen and (max-width: 768px) and (orientation: portrait) {
+                    .modal-wrapper {
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        transform: translate(0, 0);
+                    }
                     .modal {
                         width: 100%;
-                        bottom: 0;
-                        right: 0;
-                        padding: 0;
                     }
                 }
                 .modal.opened {
@@ -77,6 +88,8 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                 }
 
                 .title {
+                    line-height: 6rem;
+                    font-size: 3rem;
                     margin: 0;
                     padding: 0 1rem;
                 }
@@ -86,7 +99,7 @@ function ModalComponent({ open, setOpened, title, children, footer = null }) {
                     height: 100%;
                 }
                 .header .close {
-                    font-size: 2rem;
+                    font-size: 3rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -115,6 +128,10 @@ function Modal({
 }) {
     // @ts-ignore
     if (!process.browser) return null;
+    const [_, setScrollingOnBody] = useBodyScroll(!open);
+    useEffect(() => {
+        setScrollingOnBody(!open);
+    }, [open]);
     const [root, setRoot] = useState(null);
     useEffect(() => {
         if (parentEl) {

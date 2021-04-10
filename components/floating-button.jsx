@@ -4,15 +4,14 @@ import Modal from "components/modal";
 import MatchCalculator from "components/match-finder/match-calculator";
 // @ts-ignore
 import Json from "../resume/technologies.json";
-/**
- * @param {{ open: any; setOpened: any; }} props
- */
+
 function MatchModal(props) {
     return (
         <Modal
             open={props.open}
             setOpened={props.setOpened}
             title="Are we a match?"
+            refreshOnRender
         >
             <MatchCalculator properties={Json} />
         </Modal>
@@ -25,10 +24,7 @@ function FloatingButton() {
         setOpened(!opened);
     };
     return (
-        <div
-            className={`container ${opened ? "hidden" : ""}`}
-            title="Are we a match?"
-        >
+        <div className={`container`} title="Are we a match?">
             <a className="floating-button" onClick={openModal}>
                 ?
             </a>
@@ -47,12 +43,8 @@ function FloatingButton() {
                         border: 1px solid ${theme.decorations};
                         background-color: ${theme.bg};
                         z-index: 10;
-                        opacity: 1;
-                        transition: opacity 1s linear;
                     }
-                    .container.hidden {
-                        opacity: 0;
-                    }
+
                     .floating-button {
                         display: inline-block;
                         width: 100%;

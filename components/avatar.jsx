@@ -14,7 +14,6 @@ export default function Avatar() {
                 .avatar {
                     height: inherit;
                     width: inherit;
-                    margin: 1rem;
                     overflow: hidden;
                 }
             `}</style>

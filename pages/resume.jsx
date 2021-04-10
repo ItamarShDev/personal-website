@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { getAttributesData, getResumeData } from "lib/resume";
 import { Job } from "components";
 import { ThemeContext } from "lib/hooks";
-
 export function FilterJobs({ jobs, updateJobs }) {
     const { theme } = useContext(ThemeContext);
     const [resultCount, setResultCount] = useState(null);

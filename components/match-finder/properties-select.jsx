@@ -98,12 +98,12 @@ export default function PropertiesSelect({
 
     return (
         <div className="matcher">
-            <div className="title">
+            <label htmlFor="search-technologies">
                 Search for tech
                 {qualificationText && (
                     <span className="match-text"> - {qualificationText}</span>
                 )}
-            </div>
+            </label>
             <div className="container">
                 <div
                     className="input-container"
@@ -111,20 +111,24 @@ export default function PropertiesSelect({
                     onClick={focusInput}
                     onBlur={() => setShowResults(false)}
                 >
-                    {tags.map((tag) => (
-                        <div className="tag" key={tag}>
-                            {tag}
-                            <span
-                                className="remove-tag"
-                                onClick={() => removeTag(tag)}
-                            >
-                                x
-                            </span>
-                        </div>
-                    ))}
+                    <div className="tags">
+                        {tags.map((tag) => (
+                            <div className="tag" key={tag}>
+                                {tag}
+                                <span
+                                    className="remove-tag"
+                                    onClick={() => removeTag(tag)}
+                                >
+                                    x
+                                </span>
+                            </div>
+                        ))}
+                    </div>
                     <input
                         type="text"
                         autoFocus
+                        id="search-technologies"
+                        list="technologies"
                         ref={inputEl}
                         placeholder="search"
                         onChange={(e) => setInputText(e.target.value)}
@@ -134,7 +138,7 @@ export default function PropertiesSelect({
                 </div>
                 <div className="results-container">
                     {showResults && filteredSkills.length > 0 && (
-                        <ul className="results">
+                        <ul id="technologies" className="results">
                             {filteredSkills.map((skill, index) => (
                                 <li
                                     key={skill}
@@ -155,7 +159,7 @@ export default function PropertiesSelect({
                 </div>
             </div>
             <style jsx>{`
-                .title {
+                label {
                     color: ${theme.text};
                     font-size: 1.5rem;
                     margin-bottom: 5px;
@@ -164,9 +168,9 @@ export default function PropertiesSelect({
                 input:focus {
                     outline: none;
                     border: none;
-                    line-height: 3rem;
                 }
                 input {
+                    line-height: 3rem;
                     background-color: transparent;
                     color: ${theme.text};
                     font-size: 1.5rem;
@@ -174,18 +178,23 @@ export default function PropertiesSelect({
 
                 .matcher,
                 .container,
-                .input-container {
+                .input-container,
+                .tags {
                     position: relative;
-                    width: inherit;
+                    width: 100%;
+                    display: block;
                 }
 
                 .input-container {
-                    display: flex;
                     border: 1px dashed ${theme.decorations};
-                    flex-wrap: wrap;
                     padding: 0.5rem;
                 }
 
+                .tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    overflow: auto;
+                }
                 .tag {
                     box-shadow: 0 0s 1px 1px ${theme.decorations};
                     font-size: 1.3rem;

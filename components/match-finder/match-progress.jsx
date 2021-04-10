@@ -25,7 +25,7 @@ function getQualificationText(percentage) {
     if (percentage < 15) {
         return "Possibly under qualified :(";
     }
-    if (percentage > 90) {
+    if (percentage >= 90) {
         return "Seems like we're done here";
     }
     return "We're getting there!";

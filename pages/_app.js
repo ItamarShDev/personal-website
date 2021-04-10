@@ -3,10 +3,10 @@ import { useTheme } from "lib/hooks";
 import { Header } from "layouts";
 import { centered } from "theme/styles";
 import Head from "next/head";
-
 function App({ Component, pageProps }) {
     const { theme, toggleTheme, ThemeContext, isDark } = useTheme();
     const title = pageProps.headerTitle;
+
     const { className: centerClassName, styles: centerStyle } = centered({
         selector: "main",
         isColumns: true,
