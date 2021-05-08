@@ -18,6 +18,11 @@ function Links(props) {
                     display: flex;
                     flex-direction: row;
                 }
+                @media only screen and (max-width: 968px) {
+                    div {
+                        flex-direction: column;
+                    }
+                }
             `}</style>
         </div>
     );

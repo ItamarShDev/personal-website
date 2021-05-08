@@ -15,7 +15,9 @@ PropertiesSelect.propTypes = {
  */
 function filterSkills(skills, tags, text) {
     return Array.from(skills).filter(
-        (item) => item.toLowerCase().includes(text) && !tags.includes(item)
+        (item) =>
+            item.toLowerCase().includes(text.toLowerCase()) &&
+            !tags.includes(item)
     );
 }
 
