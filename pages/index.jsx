@@ -57,6 +57,12 @@ export default function Home() {
                 }
                 @media only screen and (max-width: 968px) {
                     article {
+                        grid-template-areas: "image about-me" "image links" "stats stats" "footer footer";
+                    }
+                }
+
+                @media only screen and (max-width: 512px) {
+                    article {
                         grid-template-areas: "image about-me" "links links" "stats stats" "footer footer";
                     }
                 }

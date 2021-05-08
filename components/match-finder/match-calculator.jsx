@@ -4,7 +4,7 @@ import { ThemeContext } from "lib/hooks";
 import PropertiesSelect from "components/match-finder/properties-select";
 import MatchProgress from "components/match-finder/match-progress";
 import Fireworks from "components/match-finder/fireworks";
-import CallMe from "./telegram-comments";
+import CallMe from "./call-me";
 MatchCalculator.propTypes = {
     jobs: PropTypes.arrayOf(PropTypes.string),
     properties: PropTypes.object,
