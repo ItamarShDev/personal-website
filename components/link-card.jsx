@@ -13,9 +13,7 @@ export default function LinkCard({
     return (
         <Link href={routeRef || route} as={route}>
             <dl>
-                <dt>
-                    <a>{title}</a>
-                </dt>
+                <dt>{title}</dt>
                 <dd>{subTitle}</dd>
                 {children}
 
@@ -30,11 +28,12 @@ export default function LinkCard({
                         text-decoration: none;
                         cursor: pointer;
                     }
+                    dl:hover {
+                        outline: 1px solid ${theme.decorations};
+                    }
 
                     dt {
                         margin: 0 0 1em 0;
-                    }
-                    dt a {
                         font-size: 3rem;
                         font-weight: 500;
                         color: ${theme.headerText};
